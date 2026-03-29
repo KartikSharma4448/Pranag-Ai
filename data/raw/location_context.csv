@@ -1,0 +1,9 @@
+location_name,lat,lon,soil_type,soil_salinity,soil_ph,climate_temp_current,climate_temp_max,climate_rainfall,climate_humidity,agriculture_main_crops,agriculture_irrigation,notes
+Jodhpur Rajasthan,26.30,73.00,sandy_loam,7.1,7.8,42,48,250,28,bajra|wheat,limited,Hot arid site with strong daytime thermal load
+Barmer Rajasthan,25.75,71.39,sandy_loam,8.4,8.1,44,50,210,24,bajra|guar,limited,Desert edge site with high heat and salt accumulation
+Kutch Gujarat,23.25,69.67,saline_clay,12.8,8.4,39,46,340,51,cotton|castor,moderate,Saline coastal plain with corrosive deployment conditions
+Chennai Tamil Nadu,13.08,80.27,coastal_sand,9.6,7.4,34,41,1400,73,rice|groundnut,moderate,Humid coastal site with salt-laden air
+Bengaluru Karnataka,12.97,77.59,red_loam,3.2,6.7,27,34,970,58,millets|vegetables,good,Mild inland technology campus environment
+Indore Madhya Pradesh,22.72,75.86,black_cotton,4.8,7.3,33,39,900,46,soybean|wheat,moderate,Hot inland semi-arid site with seasonal swings
+Leh Ladakh,34.15,77.58,rocky_silt,1.4,7.9,12,24,110,29,barley|peas,limited,Cold dry high-altitude environment
+Visakhapatnam Andhra Pradesh,17.69,83.22,coastal_loam,10.2,7.1,31,38,1200,76,rice|sugarcane,good,Marine industrial site with humidity and salinity

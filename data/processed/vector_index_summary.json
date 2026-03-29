@@ -1,0 +1,19 @@
+{
+  "rows_indexed": 1882,
+  "collection_name": "universal_index_day2",
+  "chroma_dir": "G:\\My Drive\\Pranag\\data\\processed\\chroma",
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "query": "latest literature derived high temperature self healing design",
+  "result_entity_types": [
+    "material",
+    "molecule",
+    "gene",
+    "soil",
+    "simulation",
+    "material",
+    "material",
+    "material"
+  ],
+  "vector_documents_path": "G:\\My Drive\\Pranag\\data\\processed\\vector_documents.parquet",
+  "query_results_path": "G:\\My Drive\\Pranag\\data\\processed\\semantic_query_results.json"
+}

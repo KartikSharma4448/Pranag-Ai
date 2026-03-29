@@ -1,0 +1,26 @@
+{
+  "run_id": "20260329T111102Z",
+  "rows_total": 1882,
+  "rows_by_type": {
+    "material": 508,
+    "gene": 508,
+    "molecule": 508,
+    "soil": 200,
+    "simulation": 158
+  },
+  "sources_ingested": {
+    "materials": 500,
+    "soil_samples": 200,
+    "simulations": 150,
+    "genes": 500,
+    "molecules": 500,
+    "literature_entities": 32
+  },
+  "refresh_vectors": true,
+  "vector_summary": {
+    "rows_indexed": 1882,
+    "query_rows": 8
+  },
+  "lake_dir": "G:\\My Drive\\Pranag\\data\\lake",
+  "parquet_path": "G:\\My Drive\\Pranag\\data\\processed\\universal_index.parquet"
+}

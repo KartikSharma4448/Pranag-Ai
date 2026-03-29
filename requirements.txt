@@ -1,0 +1,12 @@
+# Copyright (c) Kartik Sharma. GitHub: kartiksharma4448
+duckdb
+pyarrow
+pandas
+fastapi
+uvicorn
+chromadb
+sentence-transformers
+mp-api
+biopython
+requests
+redis

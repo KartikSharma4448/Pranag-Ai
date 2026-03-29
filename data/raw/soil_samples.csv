@@ -1,0 +1,201 @@
+entity_id,entity_type,name,description,temperature_max,strength,conductivity,ph,salinity,source
+soil-0001,soil,Alluvial soil sample 0001,Generated soil record for a delta. Observed pH 5.56 with salinity 19.13.,43.67,1.42,3.75,5.56,19.13,Synthetic soil CSV
+soil-0002,soil,Sandy loam sample 0002,Generated soil record for a trial plot. Observed pH 6.63 with salinity 7.76.,36.67,1.14,0.9,6.63,7.76,Synthetic soil CSV
+soil-0003,soil,Silty clay sample 0003,Generated soil record for a coastal belt. Observed pH 6.2 with salinity 21.06.,57.08,1.65,2.93,6.2,21.06,Synthetic soil CSV
+soil-0004,soil,Silty clay sample 0004,Generated soil record for a riverbank. Observed pH 7.84 with salinity 27.09.,52.37,2.4,0.77,7.84,27.09,Synthetic soil CSV
+soil-0005,soil,Silty clay sample 0005,Generated soil record for a farm row. Observed pH 5.33 with salinity 8.34.,37.21,0.5,5.26,5.33,8.34,Synthetic soil CSV
+soil-0006,soil,Sandy loam sample 0006,Generated soil record for a delta. Observed pH 7.73 with salinity 9.08.,48.86,2.05,1.27,7.73,9.08,Synthetic soil CSV
+soil-0007,soil,Peaty soil sample 0007,Generated soil record for a trial plot. Observed pH 4.67 with salinity 36.94.,32.85,2.11,1.03,4.67,36.94,Synthetic soil CSV
+soil-0008,soil,Sandy loam sample 0008,Generated soil record for a trial plot. Observed pH 6.82 with salinity 13.35.,29.9,1.22,2.11,6.82,13.35,Synthetic soil CSV
+soil-0009,soil,Silty clay sample 0009,Generated soil record for a trial plot. Observed pH 4.57 with salinity 27.35.,41.96,0.59,0.77,4.57,27.35,Synthetic soil CSV
+soil-0010,soil,Peaty soil sample 0010,Generated soil record for a trial plot. Observed pH 5.38 with salinity 4.78.,59.71,0.94,6.27,5.38,4.78,Synthetic soil CSV
+soil-0011,soil,Silty clay sample 0011,Generated soil record for a coastal belt. Observed pH 6.13 with salinity 18.62.,31.25,1.38,4.92,6.13,18.62,Synthetic soil CSV
+soil-0012,soil,Sandy loam sample 0012,Generated soil record for a farm row. Observed pH 8.77 with salinity 24.39.,35.75,1.01,2.24,8.77,24.39,Synthetic soil CSV
+soil-0013,soil,Alluvial soil sample 0013,Generated soil record for a coastal belt. Observed pH 8.22 with salinity 35.41.,28.91,1.25,1.06,8.22,35.41,Synthetic soil CSV
+soil-0014,soil,Clay loam sample 0014,Generated soil record for a coastal belt. Observed pH 7.23 with salinity 25.67.,58.05,0.9,0.31,7.23,25.67,Synthetic soil CSV
+soil-0015,soil,Peaty soil sample 0015,Generated soil record for a delta. Observed pH 7.98 with salinity 37.16.,32.58,0.63,6.43,7.98,37.16,Synthetic soil CSV
+soil-0016,soil,Peaty soil sample 0016,Generated soil record for a riverbank. Observed pH 6.16 with salinity 21.56.,38.18,0.68,1.92,6.16,21.56,Synthetic soil CSV
+soil-0017,soil,Silty clay sample 0017,Generated soil record for a coastal belt. Observed pH 8.32 with salinity 17.94.,44.85,1.74,1.28,8.32,17.94,Synthetic soil CSV
+soil-0018,soil,Peaty soil sample 0018,Generated soil record for a coastal belt. Observed pH 4.6 with salinity 14.02.,48.26,2.07,0.64,4.6,14.02,Synthetic soil CSV
+soil-0019,soil,Alluvial soil sample 0019,Generated soil record for a trial plot. Observed pH 7.15 with salinity 19.77.,38.86,1.87,4.14,7.15,19.77,Synthetic soil CSV
+soil-0020,soil,Sandy loam sample 0020,Generated soil record for a delta. Observed pH 6.39 with salinity 29.4.,52.82,1.18,0.49,6.39,29.4,Synthetic soil CSV
+soil-0021,soil,Sandy loam sample 0021,Generated soil record for a coastal belt. Observed pH 7.94 with salinity 18.43.,39.15,1.33,5.07,7.94,18.43,Synthetic soil CSV
+soil-0022,soil,Silty clay sample 0022,Generated soil record for a coastal belt. Observed pH 7.71 with salinity 18.4.,57.21,1.92,2.46,7.71,18.4,Synthetic soil CSV
+soil-0023,soil,Alluvial soil sample 0023,Generated soil record for a trial plot. Observed pH 5.15 with salinity 24.26.,48.05,0.76,4.29,5.15,24.26,Synthetic soil CSV
+soil-0024,soil,Sandy loam sample 0024,Generated soil record for a coastal belt. Observed pH 4.98 with salinity 1.13.,40.23,1.27,0.24,4.98,1.13,Synthetic soil CSV
+soil-0025,soil,Peaty soil sample 0025,Generated soil record for a greenhouse. Observed pH 8.63 with salinity 25.82.,49.8,2.21,0.76,8.63,25.82,Synthetic soil CSV
+soil-0026,soil,Clay loam sample 0026,Generated soil record for a greenhouse. Observed pH 8.33 with salinity 5.17.,57.19,0.98,1.54,8.33,5.17,Synthetic soil CSV
+soil-0027,soil,Clay loam sample 0027,Generated soil record for a farm row. Observed pH 7.44 with salinity 19.1.,56.62,0.72,1.66,7.44,19.1,Synthetic soil CSV
+soil-0028,soil,Sandy loam sample 0028,Generated soil record for a greenhouse. Observed pH 6.27 with salinity 10.34.,51.35,0.77,4.87,6.27,10.34,Synthetic soil CSV
+soil-0029,soil,Silty clay sample 0029,Generated soil record for a trial plot. Observed pH 4.58 with salinity 36.41.,33.96,2.08,1.73,4.58,36.41,Synthetic soil CSV
+soil-0030,soil,Peaty soil sample 0030,Generated soil record for a coastal belt. Observed pH 5.27 with salinity 23.24.,31.48,0.72,4.9,5.27,23.24,Synthetic soil CSV
+soil-0031,soil,Clay loam sample 0031,Generated soil record for a riverbank. Observed pH 6.12 with salinity 9.8.,53.07,1.61,6.03,6.12,9.8,Synthetic soil CSV
+soil-0032,soil,Clay loam sample 0032,Generated soil record for a delta. Observed pH 5.19 with salinity 17.1.,42.7,0.65,4.35,5.19,17.1,Synthetic soil CSV
+soil-0033,soil,Silty clay sample 0033,Generated soil record for a greenhouse. Observed pH 5.33 with salinity 20.82.,31.19,0.95,0.37,5.33,20.82,Synthetic soil CSV
+soil-0034,soil,Peaty soil sample 0034,Generated soil record for a riverbank. Observed pH 4.4 with salinity 10.36.,40.5,2.3,2.34,4.4,10.36,Synthetic soil CSV
+soil-0035,soil,Sandy loam sample 0035,Generated soil record for a coastal belt. Observed pH 5.77 with salinity 25.32.,38.87,1.06,2.06,5.77,25.32,Synthetic soil CSV
+soil-0036,soil,Sandy loam sample 0036,Generated soil record for a greenhouse. Observed pH 4.83 with salinity 11.03.,46.16,1.21,5.09,4.83,11.03,Synthetic soil CSV
+soil-0037,soil,Alluvial soil sample 0037,Generated soil record for a riverbank. Observed pH 6.16 with salinity 0.94.,49.65,1.83,3.81,6.16,0.94,Synthetic soil CSV
+soil-0038,soil,Silty clay sample 0038,Generated soil record for a greenhouse. Observed pH 7.9 with salinity 31.23.,46.17,1.76,1.15,7.9,31.23,Synthetic soil CSV
+soil-0039,soil,Alluvial soil sample 0039,Generated soil record for a farm row. Observed pH 6.19 with salinity 29.11.,39.1,1.68,0.32,6.19,29.11,Synthetic soil CSV
+soil-0040,soil,Alluvial soil sample 0040,Generated soil record for a riverbank. Observed pH 6.97 with salinity 15.13.,60.02,1.68,3.5,6.97,15.13,Synthetic soil CSV
+soil-0041,soil,Alluvial soil sample 0041,Generated soil record for a riverbank. Observed pH 5.35 with salinity 16.51.,31.57,0.8,0.8,5.35,16.51,Synthetic soil CSV
+soil-0042,soil,Clay loam sample 0042,Generated soil record for a trial plot. Observed pH 8.08 with salinity 17.1.,49.65,1.81,6.25,8.08,17.1,Synthetic soil CSV
+soil-0043,soil,Silty clay sample 0043,Generated soil record for a coastal belt. Observed pH 5.29 with salinity 11.9.,40.66,2.27,6.42,5.29,11.9,Synthetic soil CSV
+soil-0044,soil,Peaty soil sample 0044,Generated soil record for a riverbank. Observed pH 4.88 with salinity 20.02.,40.96,2.31,5.83,4.88,20.02,Synthetic soil CSV
+soil-0045,soil,Silty clay sample 0045,Generated soil record for a riverbank. Observed pH 6.59 with salinity 27.62.,39.69,0.84,3.95,6.59,27.62,Synthetic soil CSV
+soil-0046,soil,Silty clay sample 0046,Generated soil record for a trial plot. Observed pH 7.51 with salinity 33.76.,48.83,2.44,5.09,7.51,33.76,Synthetic soil CSV
+soil-0047,soil,Clay loam sample 0047,Generated soil record for a riverbank. Observed pH 4.4 with salinity 24.74.,45.58,1.63,1.28,4.4,24.74,Synthetic soil CSV
+soil-0048,soil,Clay loam sample 0048,Generated soil record for a greenhouse. Observed pH 8.64 with salinity 17.63.,30.22,1.4,3.5,8.64,17.63,Synthetic soil CSV
+soil-0049,soil,Sandy loam sample 0049,Generated soil record for a trial plot. Observed pH 7.83 with salinity 30.12.,59.99,1.49,2.67,7.83,30.12,Synthetic soil CSV
+soil-0050,soil,Clay loam sample 0050,Generated soil record for a coastal belt. Observed pH 5.5 with salinity 6.42.,52.91,1.75,2.49,5.5,6.42,Synthetic soil CSV
+soil-0051,soil,Silty clay sample 0051,Generated soil record for a coastal belt. Observed pH 7.39 with salinity 18.63.,37.76,0.62,3.95,7.39,18.63,Synthetic soil CSV
+soil-0052,soil,Alluvial soil sample 0052,Generated soil record for a greenhouse. Observed pH 6.76 with salinity 12.67.,51.97,1.12,4.87,6.76,12.67,Synthetic soil CSV
+soil-0053,soil,Sandy loam sample 0053,Generated soil record for a trial plot. Observed pH 7.93 with salinity 32.45.,61.21,2.3,1.33,7.93,32.45,Synthetic soil CSV
+soil-0054,soil,Alluvial soil sample 0054,Generated soil record for a trial plot. Observed pH 5.15 with salinity 27.15.,46.09,1.8,0.75,5.15,27.15,Synthetic soil CSV
+soil-0055,soil,Sandy loam sample 0055,Generated soil record for a coastal belt. Observed pH 5.73 with salinity 19.55.,42.35,1.09,5.96,5.73,19.55,Synthetic soil CSV
+soil-0056,soil,Peaty soil sample 0056,Generated soil record for a riverbank. Observed pH 4.61 with salinity 3.97.,45.02,1.82,5.57,4.61,3.97,Synthetic soil CSV
+soil-0057,soil,Alluvial soil sample 0057,Generated soil record for a greenhouse. Observed pH 6.82 with salinity 25.67.,50.07,2.05,5.34,6.82,25.67,Synthetic soil CSV
+soil-0058,soil,Silty clay sample 0058,Generated soil record for a trial plot. Observed pH 6.81 with salinity 26.54.,45.51,0.7,0.97,6.81,26.54,Synthetic soil CSV
+soil-0059,soil,Peaty soil sample 0059,Generated soil record for a trial plot. Observed pH 5.53 with salinity 3.59.,55.37,2.17,4.53,5.53,3.59,Synthetic soil CSV
+soil-0060,soil,Peaty soil sample 0060,Generated soil record for a delta. Observed pH 8.14 with salinity 1.79.,58.38,2.42,6.21,8.14,1.79,Synthetic soil CSV
+soil-0061,soil,Sandy loam sample 0061,Generated soil record for a farm row. Observed pH 6.93 with salinity 0.93.,50.8,2.44,6.16,6.93,0.93,Synthetic soil CSV
+soil-0062,soil,Silty clay sample 0062,Generated soil record for a farm row. Observed pH 4.76 with salinity 10.13.,28.62,1.44,0.82,4.76,10.13,Synthetic soil CSV
+soil-0063,soil,Clay loam sample 0063,Generated soil record for a delta. Observed pH 6.35 with salinity 33.79.,45.74,2.04,1.57,6.35,33.79,Synthetic soil CSV
+soil-0064,soil,Peaty soil sample 0064,Generated soil record for a farm row. Observed pH 4.76 with salinity 28.72.,46.59,2.21,5.84,4.76,28.72,Synthetic soil CSV
+soil-0065,soil,Clay loam sample 0065,Generated soil record for a delta. Observed pH 7.63 with salinity 26.72.,38.41,2.46,0.69,7.63,26.72,Synthetic soil CSV
+soil-0066,soil,Clay loam sample 0066,Generated soil record for a greenhouse. Observed pH 7.96 with salinity 35.86.,28.0,1.32,4.27,7.96,35.86,Synthetic soil CSV
+soil-0067,soil,Silty clay sample 0067,Generated soil record for a greenhouse. Observed pH 4.78 with salinity 33.14.,43.92,1.64,3.62,4.78,33.14,Synthetic soil CSV
+soil-0068,soil,Sandy loam sample 0068,Generated soil record for a greenhouse. Observed pH 6.43 with salinity 34.72.,28.28,1.17,6.28,6.43,34.72,Synthetic soil CSV
+soil-0069,soil,Peaty soil sample 0069,Generated soil record for a trial plot. Observed pH 7.9 with salinity 2.96.,34.06,2.12,4.88,7.9,2.96,Synthetic soil CSV
+soil-0070,soil,Sandy loam sample 0070,Generated soil record for a coastal belt. Observed pH 8.18 with salinity 15.73.,28.27,0.96,2.31,8.18,15.73,Synthetic soil CSV
+soil-0071,soil,Clay loam sample 0071,Generated soil record for a delta. Observed pH 7.83 with salinity 10.84.,35.28,1.55,4.48,7.83,10.84,Synthetic soil CSV
+soil-0072,soil,Peaty soil sample 0072,Generated soil record for a delta. Observed pH 6.88 with salinity 4.75.,28.76,1.26,5.43,6.88,4.75,Synthetic soil CSV
+soil-0073,soil,Alluvial soil sample 0073,Generated soil record for a delta. Observed pH 5.96 with salinity 35.1.,38.22,2.2,3.63,5.96,35.1,Synthetic soil CSV
+soil-0074,soil,Clay loam sample 0074,Generated soil record for a farm row. Observed pH 8.74 with salinity 13.74.,46.03,2.48,6.23,8.74,13.74,Synthetic soil CSV
+soil-0075,soil,Clay loam sample 0075,Generated soil record for a greenhouse. Observed pH 4.35 with salinity 12.99.,33.8,1.94,2.21,4.35,12.99,Synthetic soil CSV
+soil-0076,soil,Clay loam sample 0076,Generated soil record for a delta. Observed pH 6.46 with salinity 6.71.,48.26,0.88,4.04,6.46,6.71,Synthetic soil CSV
+soil-0077,soil,Sandy loam sample 0077,Generated soil record for a trial plot. Observed pH 5.61 with salinity 31.75.,42.74,1.82,4.56,5.61,31.75,Synthetic soil CSV
+soil-0078,soil,Sandy loam sample 0078,Generated soil record for a riverbank. Observed pH 4.6 with salinity 14.89.,38.22,0.53,3.62,4.6,14.89,Synthetic soil CSV
+soil-0079,soil,Clay loam sample 0079,Generated soil record for a farm row. Observed pH 5.95 with salinity 17.19.,31.9,1.8,0.63,5.95,17.19,Synthetic soil CSV
+soil-0080,soil,Peaty soil sample 0080,Generated soil record for a trial plot. Observed pH 4.99 with salinity 34.28.,55.69,1.76,0.91,4.99,34.28,Synthetic soil CSV
+soil-0081,soil,Clay loam sample 0081,Generated soil record for a coastal belt. Observed pH 7.65 with salinity 24.22.,56.06,2.42,5.08,7.65,24.22,Synthetic soil CSV
+soil-0082,soil,Silty clay sample 0082,Generated soil record for a riverbank. Observed pH 6.0 with salinity 33.71.,46.76,1.18,0.43,6.0,33.71,Synthetic soil CSV
+soil-0083,soil,Alluvial soil sample 0083,Generated soil record for a trial plot. Observed pH 6.43 with salinity 1.07.,31.68,1.15,5.38,6.43,1.07,Synthetic soil CSV
+soil-0084,soil,Silty clay sample 0084,Generated soil record for a farm row. Observed pH 8.66 with salinity 19.05.,58.94,1.74,5.89,8.66,19.05,Synthetic soil CSV
+soil-0085,soil,Peaty soil sample 0085,Generated soil record for a coastal belt. Observed pH 5.17 with salinity 23.45.,48.29,2.5,0.39,5.17,23.45,Synthetic soil CSV
+soil-0086,soil,Clay loam sample 0086,Generated soil record for a greenhouse. Observed pH 5.89 with salinity 19.0.,41.51,1.23,3.08,5.89,19.0,Synthetic soil CSV
+soil-0087,soil,Silty clay sample 0087,Generated soil record for a coastal belt. Observed pH 5.59 with salinity 20.61.,49.28,1.08,3.19,5.59,20.61,Synthetic soil CSV
+soil-0088,soil,Sandy loam sample 0088,Generated soil record for a farm row. Observed pH 4.51 with salinity 13.84.,59.19,1.36,4.13,4.51,13.84,Synthetic soil CSV
+soil-0089,soil,Sandy loam sample 0089,Generated soil record for a greenhouse. Observed pH 7.64 with salinity 30.34.,41.77,2.38,3.82,7.64,30.34,Synthetic soil CSV
+soil-0090,soil,Silty clay sample 0090,Generated soil record for a trial plot. Observed pH 4.6 with salinity 24.84.,53.39,1.23,4.23,4.6,24.84,Synthetic soil CSV
+soil-0091,soil,Clay loam sample 0091,Generated soil record for a riverbank. Observed pH 4.37 with salinity 28.22.,60.08,0.54,1.59,4.37,28.22,Synthetic soil CSV
+soil-0092,soil,Sandy loam sample 0092,Generated soil record for a greenhouse. Observed pH 4.5 with salinity 30.47.,46.1,1.33,5.33,4.5,30.47,Synthetic soil CSV
+soil-0093,soil,Clay loam sample 0093,Generated soil record for a greenhouse. Observed pH 4.94 with salinity 31.04.,40.32,2.14,6.17,4.94,31.04,Synthetic soil CSV
+soil-0094,soil,Silty clay sample 0094,Generated soil record for a greenhouse. Observed pH 6.61 with salinity 11.43.,44.8,0.53,2.93,6.61,11.43,Synthetic soil CSV
+soil-0095,soil,Peaty soil sample 0095,Generated soil record for a farm row. Observed pH 8.22 with salinity 5.04.,37.01,1.06,1.86,8.22,5.04,Synthetic soil CSV
+soil-0096,soil,Sandy loam sample 0096,Generated soil record for a greenhouse. Observed pH 6.95 with salinity 35.67.,36.8,0.92,1.15,6.95,35.67,Synthetic soil CSV
+soil-0097,soil,Sandy loam sample 0097,Generated soil record for a farm row. Observed pH 6.83 with salinity 31.42.,40.18,2.49,6.35,6.83,31.42,Synthetic soil CSV
+soil-0098,soil,Clay loam sample 0098,Generated soil record for a riverbank. Observed pH 4.81 with salinity 27.36.,43.63,0.91,3.51,4.81,27.36,Synthetic soil CSV
+soil-0099,soil,Silty clay sample 0099,Generated soil record for a coastal belt. Observed pH 7.98 with salinity 22.52.,31.24,1.48,6.04,7.98,22.52,Synthetic soil CSV
+soil-0100,soil,Silty clay sample 0100,Generated soil record for a coastal belt. Observed pH 6.28 with salinity 34.53.,56.46,0.88,1.15,6.28,34.53,Synthetic soil CSV
+soil-0101,soil,Silty clay sample 0101,Generated soil record for a trial plot. Observed pH 7.01 with salinity 8.24.,55.05,2.15,0.81,7.01,8.24,Synthetic soil CSV
+soil-0102,soil,Silty clay sample 0102,Generated soil record for a riverbank. Observed pH 5.49 with salinity 9.12.,28.53,2.08,2.54,5.49,9.12,Synthetic soil CSV
+soil-0103,soil,Clay loam sample 0103,Generated soil record for a trial plot. Observed pH 7.21 with salinity 31.08.,44.44,1.83,1.06,7.21,31.08,Synthetic soil CSV
+soil-0104,soil,Silty clay sample 0104,Generated soil record for a coastal belt. Observed pH 6.07 with salinity 11.77.,31.12,0.56,3.47,6.07,11.77,Synthetic soil CSV
+soil-0105,soil,Silty clay sample 0105,Generated soil record for a farm row. Observed pH 6.22 with salinity 30.44.,55.46,0.48,4.12,6.22,30.44,Synthetic soil CSV
+soil-0106,soil,Silty clay sample 0106,Generated soil record for a riverbank. Observed pH 6.96 with salinity 9.8.,29.08,2.09,3.44,6.96,9.8,Synthetic soil CSV
+soil-0107,soil,Silty clay sample 0107,Generated soil record for a trial plot. Observed pH 4.73 with salinity 32.74.,58.95,1.51,1.25,4.73,32.74,Synthetic soil CSV
+soil-0108,soil,Alluvial soil sample 0108,Generated soil record for a riverbank. Observed pH 4.57 with salinity 37.7.,34.07,2.06,5.47,4.57,37.7,Synthetic soil CSV
+soil-0109,soil,Sandy loam sample 0109,Generated soil record for a trial plot. Observed pH 7.78 with salinity 3.7.,52.67,1.18,5.8,7.78,3.7,Synthetic soil CSV
+soil-0110,soil,Sandy loam sample 0110,Generated soil record for a delta. Observed pH 6.97 with salinity 13.76.,35.28,1.29,4.46,6.97,13.76,Synthetic soil CSV
+soil-0111,soil,Silty clay sample 0111,Generated soil record for a trial plot. Observed pH 6.61 with salinity 13.95.,38.86,1.81,2.25,6.61,13.95,Synthetic soil CSV
+soil-0112,soil,Clay loam sample 0112,Generated soil record for a farm row. Observed pH 4.42 with salinity 15.39.,34.69,1.57,2.9,4.42,15.39,Synthetic soil CSV
+soil-0113,soil,Silty clay sample 0113,Generated soil record for a trial plot. Observed pH 7.1 with salinity 15.67.,45.14,1.44,4.46,7.1,15.67,Synthetic soil CSV
+soil-0114,soil,Sandy loam sample 0114,Generated soil record for a riverbank. Observed pH 7.08 with salinity 36.86.,45.77,0.8,5.68,7.08,36.86,Synthetic soil CSV
+soil-0115,soil,Clay loam sample 0115,Generated soil record for a trial plot. Observed pH 7.12 with salinity 34.92.,44.23,2.07,0.73,7.12,34.92,Synthetic soil CSV
+soil-0116,soil,Sandy loam sample 0116,Generated soil record for a trial plot. Observed pH 6.56 with salinity 8.01.,51.73,0.71,1.5,6.56,8.01,Synthetic soil CSV
+soil-0117,soil,Sandy loam sample 0117,Generated soil record for a delta. Observed pH 7.25 with salinity 23.91.,60.74,1.25,6.03,7.25,23.91,Synthetic soil CSV
+soil-0118,soil,Alluvial soil sample 0118,Generated soil record for a trial plot. Observed pH 8.68 with salinity 2.31.,34.58,2.0,4.94,8.68,2.31,Synthetic soil CSV
+soil-0119,soil,Alluvial soil sample 0119,Generated soil record for a farm row. Observed pH 4.58 with salinity 4.33.,48.86,1.25,5.48,4.58,4.33,Synthetic soil CSV
+soil-0120,soil,Alluvial soil sample 0120,Generated soil record for a greenhouse. Observed pH 4.92 with salinity 2.19.,32.51,2.16,0.75,4.92,2.19,Synthetic soil CSV
+soil-0121,soil,Silty clay sample 0121,Generated soil record for a greenhouse. Observed pH 8.65 with salinity 34.99.,40.44,1.26,1.57,8.65,34.99,Synthetic soil CSV
+soil-0122,soil,Clay loam sample 0122,Generated soil record for a trial plot. Observed pH 6.4 with salinity 31.17.,33.91,2.47,2.83,6.4,31.17,Synthetic soil CSV
+soil-0123,soil,Sandy loam sample 0123,Generated soil record for a farm row. Observed pH 6.26 with salinity 5.62.,51.77,1.89,0.6,6.26,5.62,Synthetic soil CSV
+soil-0124,soil,Alluvial soil sample 0124,Generated soil record for a delta. Observed pH 6.94 with salinity 22.68.,39.93,2.14,1.53,6.94,22.68,Synthetic soil CSV
+soil-0125,soil,Sandy loam sample 0125,Generated soil record for a greenhouse. Observed pH 8.68 with salinity 8.32.,48.43,1.14,6.46,8.68,8.32,Synthetic soil CSV
+soil-0126,soil,Sandy loam sample 0126,Generated soil record for a coastal belt. Observed pH 7.4 with salinity 1.78.,34.29,1.89,3.01,7.4,1.78,Synthetic soil CSV
+soil-0127,soil,Alluvial soil sample 0127,Generated soil record for a riverbank. Observed pH 4.93 with salinity 6.38.,52.85,0.9,1.51,4.93,6.38,Synthetic soil CSV
+soil-0128,soil,Clay loam sample 0128,Generated soil record for a farm row. Observed pH 7.8 with salinity 16.23.,41.79,0.9,1.96,7.8,16.23,Synthetic soil CSV
+soil-0129,soil,Sandy loam sample 0129,Generated soil record for a coastal belt. Observed pH 7.58 with salinity 29.13.,55.81,0.57,1.31,7.58,29.13,Synthetic soil CSV
+soil-0130,soil,Alluvial soil sample 0130,Generated soil record for a farm row. Observed pH 6.16 with salinity 28.43.,54.18,2.36,4.36,6.16,28.43,Synthetic soil CSV
+soil-0131,soil,Alluvial soil sample 0131,Generated soil record for a delta. Observed pH 6.96 with salinity 2.21.,44.89,1.72,6.41,6.96,2.21,Synthetic soil CSV
+soil-0132,soil,Sandy loam sample 0132,Generated soil record for a farm row. Observed pH 4.76 with salinity 35.1.,34.75,0.79,1.6,4.76,35.1,Synthetic soil CSV
+soil-0133,soil,Sandy loam sample 0133,Generated soil record for a trial plot. Observed pH 5.85 with salinity 37.79.,51.97,1.01,3.8,5.85,37.79,Synthetic soil CSV
+soil-0134,soil,Sandy loam sample 0134,Generated soil record for a riverbank. Observed pH 7.21 with salinity 12.0.,38.51,1.62,3.85,7.21,12.0,Synthetic soil CSV
+soil-0135,soil,Peaty soil sample 0135,Generated soil record for a trial plot. Observed pH 6.48 with salinity 17.99.,41.53,2.3,1.15,6.48,17.99,Synthetic soil CSV
+soil-0136,soil,Clay loam sample 0136,Generated soil record for a farm row. Observed pH 4.36 with salinity 11.63.,60.08,1.96,2.27,4.36,11.63,Synthetic soil CSV
+soil-0137,soil,Peaty soil sample 0137,Generated soil record for a delta. Observed pH 6.4 with salinity 5.89.,28.67,1.82,3.38,6.4,5.89,Synthetic soil CSV
+soil-0138,soil,Alluvial soil sample 0138,Generated soil record for a coastal belt. Observed pH 7.23 with salinity 10.99.,43.53,0.64,1.47,7.23,10.99,Synthetic soil CSV
+soil-0139,soil,Clay loam sample 0139,Generated soil record for a riverbank. Observed pH 8.63 with salinity 28.29.,35.16,1.21,1.71,8.63,28.29,Synthetic soil CSV
+soil-0140,soil,Alluvial soil sample 0140,Generated soil record for a farm row. Observed pH 4.69 with salinity 15.11.,28.54,0.49,5.34,4.69,15.11,Synthetic soil CSV
+soil-0141,soil,Alluvial soil sample 0141,Generated soil record for a greenhouse. Observed pH 7.94 with salinity 34.89.,52.97,0.72,5.29,7.94,34.89,Synthetic soil CSV
+soil-0142,soil,Clay loam sample 0142,Generated soil record for a farm row. Observed pH 7.45 with salinity 14.72.,39.12,1.0,1.3,7.45,14.72,Synthetic soil CSV
+soil-0143,soil,Alluvial soil sample 0143,Generated soil record for a coastal belt. Observed pH 8.59 with salinity 32.69.,61.92,0.95,4.78,8.59,32.69,Synthetic soil CSV
+soil-0144,soil,Clay loam sample 0144,Generated soil record for a trial plot. Observed pH 4.36 with salinity 15.25.,59.97,1.46,3.81,4.36,15.25,Synthetic soil CSV
+soil-0145,soil,Sandy loam sample 0145,Generated soil record for a trial plot. Observed pH 8.65 with salinity 29.13.,32.88,1.37,0.53,8.65,29.13,Synthetic soil CSV
+soil-0146,soil,Silty clay sample 0146,Generated soil record for a riverbank. Observed pH 5.29 with salinity 15.04.,28.29,1.43,6.08,5.29,15.04,Synthetic soil CSV
+soil-0147,soil,Silty clay sample 0147,Generated soil record for a delta. Observed pH 6.93 with salinity 18.6.,60.63,1.33,2.01,6.93,18.6,Synthetic soil CSV
+soil-0148,soil,Peaty soil sample 0148,Generated soil record for a greenhouse. Observed pH 6.16 with salinity 23.85.,30.17,1.64,5.87,6.16,23.85,Synthetic soil CSV
+soil-0149,soil,Sandy loam sample 0149,Generated soil record for a coastal belt. Observed pH 6.53 with salinity 15.75.,56.2,0.5,4.67,6.53,15.75,Synthetic soil CSV
+soil-0150,soil,Clay loam sample 0150,Generated soil record for a trial plot. Observed pH 6.72 with salinity 32.04.,54.03,1.56,3.96,6.72,32.04,Synthetic soil CSV
+soil-0151,soil,Sandy loam sample 0151,Generated soil record for a farm row. Observed pH 5.8 with salinity 5.49.,47.11,0.65,3.61,5.8,5.49,Synthetic soil CSV
+soil-0152,soil,Silty clay sample 0152,Generated soil record for a greenhouse. Observed pH 5.0 with salinity 14.45.,53.78,1.24,3.65,5.0,14.45,Synthetic soil CSV
+soil-0153,soil,Silty clay sample 0153,Generated soil record for a riverbank. Observed pH 5.4 with salinity 33.4.,36.13,1.82,0.47,5.4,33.4,Synthetic soil CSV
+soil-0154,soil,Silty clay sample 0154,Generated soil record for a farm row. Observed pH 6.82 with salinity 3.63.,55.74,0.75,6.1,6.82,3.63,Synthetic soil CSV
+soil-0155,soil,Alluvial soil sample 0155,Generated soil record for a trial plot. Observed pH 6.34 with salinity 22.12.,50.62,2.3,3.03,6.34,22.12,Synthetic soil CSV
+soil-0156,soil,Silty clay sample 0156,Generated soil record for a coastal belt. Observed pH 4.42 with salinity 21.59.,43.71,2.07,0.28,4.42,21.59,Synthetic soil CSV
+soil-0157,soil,Alluvial soil sample 0157,Generated soil record for a delta. Observed pH 6.76 with salinity 30.34.,52.7,1.38,4.52,6.76,30.34,Synthetic soil CSV
+soil-0158,soil,Alluvial soil sample 0158,Generated soil record for a riverbank. Observed pH 6.74 with salinity 37.79.,53.16,1.11,3.08,6.74,37.79,Synthetic soil CSV
+soil-0159,soil,Peaty soil sample 0159,Generated soil record for a greenhouse. Observed pH 8.37 with salinity 32.47.,32.94,1.36,0.49,8.37,32.47,Synthetic soil CSV
+soil-0160,soil,Alluvial soil sample 0160,Generated soil record for a farm row. Observed pH 6.54 with salinity 0.21.,47.73,0.6,4.95,6.54,0.21,Synthetic soil CSV
+soil-0161,soil,Silty clay sample 0161,Generated soil record for a delta. Observed pH 6.36 with salinity 24.79.,49.2,1.91,3.88,6.36,24.79,Synthetic soil CSV
+soil-0162,soil,Alluvial soil sample 0162,Generated soil record for a coastal belt. Observed pH 6.77 with salinity 22.84.,50.93,2.08,3.75,6.77,22.84,Synthetic soil CSV
+soil-0163,soil,Alluvial soil sample 0163,Generated soil record for a delta. Observed pH 5.56 with salinity 1.4.,32.91,0.95,4.64,5.56,1.4,Synthetic soil CSV
+soil-0164,soil,Alluvial soil sample 0164,Generated soil record for a coastal belt. Observed pH 7.31 with salinity 16.76.,32.77,1.92,4.09,7.31,16.76,Synthetic soil CSV
+soil-0165,soil,Peaty soil sample 0165,Generated soil record for a delta. Observed pH 7.88 with salinity 21.99.,38.77,1.92,5.2,7.88,21.99,Synthetic soil CSV
+soil-0166,soil,Clay loam sample 0166,Generated soil record for a farm row. Observed pH 5.72 with salinity 2.94.,37.24,0.52,4.92,5.72,2.94,Synthetic soil CSV
+soil-0167,soil,Silty clay sample 0167,Generated soil record for a riverbank. Observed pH 6.92 with salinity 34.24.,45.45,0.89,1.22,6.92,34.24,Synthetic soil CSV
+soil-0168,soil,Peaty soil sample 0168,Generated soil record for a delta. Observed pH 7.44 with salinity 15.83.,34.5,0.78,5.64,7.44,15.83,Synthetic soil CSV
+soil-0169,soil,Peaty soil sample 0169,Generated soil record for a trial plot. Observed pH 4.67 with salinity 36.75.,60.4,0.98,6.33,4.67,36.75,Synthetic soil CSV
+soil-0170,soil,Alluvial soil sample 0170,Generated soil record for a trial plot. Observed pH 8.52 with salinity 24.11.,60.18,0.43,0.54,8.52,24.11,Synthetic soil CSV
+soil-0171,soil,Clay loam sample 0171,Generated soil record for a riverbank. Observed pH 7.5 with salinity 22.3.,43.58,2.19,1.48,7.5,22.3,Synthetic soil CSV
+soil-0172,soil,Silty clay sample 0172,Generated soil record for a delta. Observed pH 5.67 with salinity 4.62.,39.64,0.94,3.74,5.67,4.62,Synthetic soil CSV
+soil-0173,soil,Silty clay sample 0173,Generated soil record for a trial plot. Observed pH 6.46 with salinity 6.16.,34.05,0.69,6.37,6.46,6.16,Synthetic soil CSV
+soil-0174,soil,Alluvial soil sample 0174,Generated soil record for a trial plot. Observed pH 6.33 with salinity 10.09.,48.16,1.78,1.67,6.33,10.09,Synthetic soil CSV
+soil-0175,soil,Peaty soil sample 0175,Generated soil record for a greenhouse. Observed pH 4.71 with salinity 7.28.,39.96,1.17,3.22,4.71,7.28,Synthetic soil CSV
+soil-0176,soil,Peaty soil sample 0176,Generated soil record for a coastal belt. Observed pH 7.38 with salinity 23.36.,32.27,0.92,3.42,7.38,23.36,Synthetic soil CSV
+soil-0177,soil,Sandy loam sample 0177,Generated soil record for a riverbank. Observed pH 7.5 with salinity 31.28.,36.29,1.54,1.44,7.5,31.28,Synthetic soil CSV
+soil-0178,soil,Clay loam sample 0178,Generated soil record for a trial plot. Observed pH 8.57 with salinity 28.72.,51.65,1.58,1.58,8.57,28.72,Synthetic soil CSV
+soil-0179,soil,Sandy loam sample 0179,Generated soil record for a riverbank. Observed pH 7.85 with salinity 0.43.,52.62,0.57,1.47,7.85,0.43,Synthetic soil CSV
+soil-0180,soil,Alluvial soil sample 0180,Generated soil record for a greenhouse. Observed pH 5.48 with salinity 13.37.,54.73,1.67,4.57,5.48,13.37,Synthetic soil CSV
+soil-0181,soil,Clay loam sample 0181,Generated soil record for a delta. Observed pH 8.0 with salinity 4.02.,49.66,0.58,0.36,8.0,4.02,Synthetic soil CSV
+soil-0182,soil,Sandy loam sample 0182,Generated soil record for a delta. Observed pH 5.21 with salinity 9.97.,40.47,1.5,6.09,5.21,9.97,Synthetic soil CSV
+soil-0183,soil,Clay loam sample 0183,Generated soil record for a trial plot. Observed pH 4.95 with salinity 8.51.,43.24,1.32,1.35,4.95,8.51,Synthetic soil CSV
+soil-0184,soil,Alluvial soil sample 0184,Generated soil record for a trial plot. Observed pH 5.53 with salinity 32.03.,42.68,1.84,6.29,5.53,32.03,Synthetic soil CSV
+soil-0185,soil,Silty clay sample 0185,Generated soil record for a delta. Observed pH 6.58 with salinity 10.62.,48.75,2.05,2.74,6.58,10.62,Synthetic soil CSV
+soil-0186,soil,Peaty soil sample 0186,Generated soil record for a farm row. Observed pH 6.28 with salinity 36.71.,30.73,0.5,4.84,6.28,36.71,Synthetic soil CSV
+soil-0187,soil,Peaty soil sample 0187,Generated soil record for a riverbank. Observed pH 8.36 with salinity 16.76.,36.57,1.63,5.0,8.36,16.76,Synthetic soil CSV
+soil-0188,soil,Silty clay sample 0188,Generated soil record for a farm row. Observed pH 6.28 with salinity 5.5.,48.19,0.82,1.91,6.28,5.5,Synthetic soil CSV
+soil-0189,soil,Clay loam sample 0189,Generated soil record for a riverbank. Observed pH 7.34 with salinity 35.4.,36.83,1.0,2.74,7.34,35.4,Synthetic soil CSV
+soil-0190,soil,Clay loam sample 0190,Generated soil record for a riverbank. Observed pH 8.34 with salinity 27.67.,37.19,0.81,0.97,8.34,27.67,Synthetic soil CSV
+soil-0191,soil,Silty clay sample 0191,Generated soil record for a farm row. Observed pH 6.47 with salinity 12.4.,29.14,2.43,2.31,6.47,12.4,Synthetic soil CSV
+soil-0192,soil,Clay loam sample 0192,Generated soil record for a coastal belt. Observed pH 8.35 with salinity 3.57.,61.95,2.19,3.4,8.35,3.57,Synthetic soil CSV
+soil-0193,soil,Peaty soil sample 0193,Generated soil record for a riverbank. Observed pH 4.93 with salinity 12.28.,49.13,2.14,4.39,4.93,12.28,Synthetic soil CSV
+soil-0194,soil,Sandy loam sample 0194,Generated soil record for a riverbank. Observed pH 6.84 with salinity 16.48.,56.9,1.89,2.3,6.84,16.48,Synthetic soil CSV
+soil-0195,soil,Clay loam sample 0195,Generated soil record for a greenhouse. Observed pH 4.96 with salinity 24.12.,34.02,0.71,6.14,4.96,24.12,Synthetic soil CSV
+soil-0196,soil,Peaty soil sample 0196,Generated soil record for a delta. Observed pH 7.59 with salinity 36.1.,54.77,1.24,6.08,7.59,36.1,Synthetic soil CSV
+soil-0197,soil,Sandy loam sample 0197,Generated soil record for a greenhouse. Observed pH 5.0 with salinity 14.16.,29.75,1.56,4.99,5.0,14.16,Synthetic soil CSV
+soil-0198,soil,Silty clay sample 0198,Generated soil record for a riverbank. Observed pH 6.09 with salinity 34.91.,35.97,2.3,4.76,6.09,34.91,Synthetic soil CSV
+soil-0199,soil,Silty clay sample 0199,Generated soil record for a farm row. Observed pH 7.65 with salinity 9.57.,49.67,2.05,1.27,7.65,9.57,Synthetic soil CSV
+soil-0200,soil,Peaty soil sample 0200,Generated soil record for a delta. Observed pH 8.3 with salinity 36.8.,35.19,0.61,4.51,8.3,36.8,Synthetic soil CSV

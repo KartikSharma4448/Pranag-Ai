@@ -1,0 +1,26 @@
+{
+  "rows_total": 1882,
+  "rows_by_type": {
+    "material": 508,
+    "gene": 508,
+    "molecule": 508,
+    "soil": 200,
+    "simulation": 158
+  },
+  "sources": [
+    "FEA structural heat-load surrogate",
+    "GenBank/NCBI Gene",
+    "Materials Project fallback (no API key)",
+    "NASA extreme materials panel",
+    "NIST thermodynamic reference case",
+    "OpenFOAM CFD thermal shock case",
+    "PubChem",
+    "PubMed literature agent",
+    "Synthetic soil CSV",
+    "arXiv literature agent"
+  ],
+  "parquet_path": "G:\\My Drive\\Pranag\\data\\processed\\universal_index.parquet",
+  "duckdb_path": "G:\\My Drive\\Pranag\\data\\processed\\universal_index.duckdb",
+  "validation_csv_path": "G:\\My Drive\\Pranag\\data\\processed\\temperature_over_45.csv",
+  "validation_rows": 775
+}

@@ -1,0 +1,313 @@
+# Copyright (c) Kartik Sharma. GitHub: kartiksharma4448
+from __future__ import annotations
+
+import argparse
+import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timezone
+from pathlib import Path
+
+import pandas as pd
+
+from universal_index.build import run_duckdb_validation
+from universal_index.cache import build_cache_backend
+from universal_index.config import (
+    BUILD_SUMMARY_PATH,
+    DATA_DIR,
+    DEFAULT_COUNTS,
+    DUCKDB_PATH,
+    ENTREZ_EMAIL,
+    INGESTION_MAX_WORKERS,
+    INGESTION_SUMMARY_PATH,
+    LAKE_DIR,
+    LITERATURE_ENTITY_PATH,
+    LITERATURE_PAPERS_RAW_PATH,
+    MP_API_KEY,
+    NCBI_API_KEY,
+    PARQUET_PATH,
+    PROCESSED_DIR,
+    RAW_DIR,
+    REDIS_STREAM_KEY,
+    RANDOM_SEED,
+    VALIDATION_CSV_PATH,
+)
+from universal_index.literature_agent import (
+    extract_entities_from_papers,
+    fetch_arxiv_papers,
+    fetch_pubmed_papers,
+    generate_paper_fallback,
+    refresh_vector_assets,
+    select_relevant_papers,
+)
+from universal_index.schema import concat_frames, normalize_frame
+from universal_index.sources import (
+    fetch_gene_fallback,
+    fetch_genes,
+    fetch_materials,
+    fetch_pubchem_fallback,
+    fetch_pubchem_molecules,
+    generate_simulation_records,
+    generate_soil_records,
+)
+from universal_index.state import PipelineStateStore
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run parallel ingestion and materialize lake partitions.")
+    parser.add_argument("--genes", type=int, default=DEFAULT_COUNTS["genes"])
+    parser.add_argument("--materials", type=int, default=DEFAULT_COUNTS["materials"])
+    parser.add_argument("--molecules", type=int, default=DEFAULT_COUNTS["molecules"])
+    parser.add_argument("--soil", type=int, default=DEFAULT_COUNTS["soil"])
+    parser.add_argument("--simulations", type=int, default=DEFAULT_COUNTS["simulations"])
+    parser.add_argument("--pubmed", type=int, default=4)
+    parser.add_argument("--arxiv", type=int, default=4)
+    parser.add_argument("--include-literature", action="store_true")
+    parser.add_argument("--refresh-vectors", action="store_true")
+    parser.add_argument("--max-workers", type=int, default=INGESTION_MAX_WORKERS)
+    parser.add_argument("--entrez-email", default=ENTREZ_EMAIL)
+    parser.add_argument("--ncbi-api-key", default=NCBI_API_KEY)
+    parser.add_argument("--mp-api-key", default=MP_API_KEY)
+    parser.add_argument("--seed", type=int, default=RANDOM_SEED)
+    return parser.parse_args()
+
+
+def ensure_directories() -> None:
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    LAKE_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def load_genes(args: argparse.Namespace) -> pd.DataFrame:
+    try:
+        return fetch_genes(args.genes, email=args.entrez_email, api_key=args.ncbi_api_key)
+    except Exception:
+        return fetch_gene_fallback(args.genes, seed=args.seed)
+
+
+def load_materials(args: argparse.Namespace) -> pd.DataFrame:
+    return fetch_materials(args.materials, api_key=args.mp_api_key, seed=args.seed)
+
+
+def load_molecules(args: argparse.Namespace) -> pd.DataFrame:
+    try:
+        return fetch_pubchem_molecules(args.molecules)
+    except Exception:
+        return fetch_pubchem_fallback(args.molecules, seed=args.seed)
+
+
+def load_soil(args: argparse.Namespace) -> pd.DataFrame:
+    return generate_soil_records(args.soil, seed=args.seed)
+
+
+def load_simulations(args: argparse.Namespace) -> pd.DataFrame:
+    return generate_simulation_records(args.simulations, seed=args.seed)
+
+
+def load_literature(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.DataFrame]:
+    try:
+        pubmed = fetch_pubmed_papers(args.pubmed, email=args.entrez_email, api_key=args.ncbi_api_key)
+    except Exception:
+        pubmed = generate_paper_fallback("PubMed", args.pubmed)
+    pubmed = select_relevant_papers(pubmed, args.pubmed)
+    if len(pubmed) < args.pubmed:
+        pubmed = pd.concat(
+            [pubmed, generate_paper_fallback("PubMed", args.pubmed - len(pubmed))],
+            ignore_index=True,
+        )
+
+    try:
+        arxiv = fetch_arxiv_papers(args.arxiv)
+    except Exception:
+        arxiv = generate_paper_fallback("arXiv", args.arxiv)
+    arxiv = select_relevant_papers(arxiv, args.arxiv)
+    if len(arxiv) < args.arxiv:
+        arxiv = pd.concat(
+            [arxiv, generate_paper_fallback("arXiv", args.arxiv - len(arxiv))],
+            ignore_index=True,
+        )
+
+    papers = pd.concat([pubmed, arxiv], ignore_index=True)
+    entities = extract_entities_from_papers(papers)
+    return papers, entities
+
+
+def write_lake_partition(frame: pd.DataFrame, source_name: str, run_id: str) -> Path:
+    destination = LAKE_DIR / f"source={source_name}" / f"run_id={run_id}"
+    destination.mkdir(parents=True, exist_ok=True)
+    output_path = destination / "part-000.parquet"
+    normalize_frame(frame).to_parquet(output_path, index=False)
+    return output_path
+
+
+def save_raw_snapshot(name: str, frame: pd.DataFrame) -> None:
+    frame.to_csv(RAW_DIR / f"{name}.csv", index=False)
+
+
+def publish_event(cache_backend, payload: dict[str, object]) -> None:
+    try:
+        cache_backend.publish_event(REDIS_STREAM_KEY, payload)
+    except Exception:
+        return None
+
+
+def write_combined_outputs(
+    sources: dict[str, pd.DataFrame],
+    run_id: str,
+    refresh_vectors: bool,
+    literature_papers: pd.DataFrame | None = None,
+) -> dict[str, object]:
+    combined = concat_frames(list(sources.values()))
+    combined.to_parquet(PARQUET_PATH, index=False)
+
+    validation_results = run_duckdb_validation(PARQUET_PATH, DUCKDB_PATH)
+    validation_results.to_csv(VALIDATION_CSV_PATH, index=False)
+
+    build_summary = {
+        "rows_total": int(len(combined)),
+        "rows_by_type": combined["entity_type"].value_counts(dropna=False).to_dict(),
+        "sources": sorted(set(combined["source"].dropna().astype(str).tolist())),
+        "parquet_path": str(PARQUET_PATH),
+        "duckdb_path": str(DUCKDB_PATH),
+        "validation_csv_path": str(VALIDATION_CSV_PATH),
+        "validation_rows": int(len(validation_results)),
+    }
+    BUILD_SUMMARY_PATH.write_text(json.dumps(build_summary, indent=2), encoding="utf-8")
+
+    if literature_papers is not None:
+        literature_papers.to_csv(LITERATURE_PAPERS_RAW_PATH, index=False)
+    if "literature_entities" in sources:
+        sources["literature_entities"].to_parquet(LITERATURE_ENTITY_PATH, index=False)
+
+    vector_summary = None
+    if refresh_vectors:
+        vector_summary = refresh_vector_assets(parquet_path=PARQUET_PATH)
+
+    summary = {
+        "run_id": run_id,
+        "rows_total": int(len(combined)),
+        "rows_by_type": combined["entity_type"].value_counts(dropna=False).to_dict(),
+        "sources_ingested": {
+            source_name: int(len(frame)) for source_name, frame in sources.items()
+        },
+        "refresh_vectors": bool(refresh_vectors),
+        "vector_summary": vector_summary,
+        "lake_dir": str(LAKE_DIR),
+        "parquet_path": str(PARQUET_PATH),
+    }
+    INGESTION_SUMMARY_PATH.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    return summary
+
+
+def main() -> None:
+    args = parse_args()
+    ensure_directories()
+    cache_backend = build_cache_backend()
+    state_store = PipelineStateStore()
+    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    state_store.start_run(
+        run_id,
+        metadata={
+            "include_literature": bool(args.include_literature),
+            "refresh_vectors": bool(args.refresh_vectors),
+            "max_workers": int(args.max_workers),
+            "data_dir": str(DATA_DIR),
+        },
+    )
+
+    publish_event(
+        cache_backend,
+        {"event": "ingestion_started", "run_id": run_id, "data_dir": str(DATA_DIR)},
+    )
+
+    jobs = {
+        "genes": load_genes,
+        "materials": load_materials,
+        "molecules": load_molecules,
+        "soil_samples": load_soil,
+        "simulations": load_simulations,
+    }
+    if args.include_literature:
+        jobs["literature"] = load_literature
+
+    sources: dict[str, pd.DataFrame] = {}
+    literature_papers: pd.DataFrame | None = None
+
+    try:
+        with ThreadPoolExecutor(max_workers=max(int(args.max_workers), 1)) as executor:
+            future_map = {
+                executor.submit(job, args): job_name for job_name, job in jobs.items()
+            }
+            for future in as_completed(future_map):
+                job_name = future_map[future]
+                result = future.result()
+                if job_name == "literature":
+                    papers, entities = result
+                    literature_papers = papers
+                    sources["literature_entities"] = entities
+                    artifact_path = write_lake_partition(entities, "literature_entities", run_id=run_id)
+                    state_store.mark_source_complete(
+                        source_name="literature_entities",
+                        run_id=run_id,
+                        row_count=len(entities),
+                        artifact_path=str(artifact_path),
+                        metadata={"paper_count": len(papers)},
+                    )
+                    publish_event(
+                        cache_backend,
+                        {
+                            "event": "source_completed",
+                            "run_id": run_id,
+                            "source": "literature_entities",
+                            "rows": len(entities),
+                        },
+                    )
+                    continue
+
+                frame = result
+                sources[job_name] = frame
+                artifact_path = write_lake_partition(frame, job_name, run_id=run_id)
+                save_raw_snapshot(job_name, frame)
+                state_store.mark_source_complete(
+                    source_name=job_name,
+                    run_id=run_id,
+                    row_count=len(frame),
+                    artifact_path=str(artifact_path),
+                )
+                publish_event(
+                    cache_backend,
+                    {
+                        "event": "source_completed",
+                        "run_id": run_id,
+                        "source": job_name,
+                        "rows": len(frame),
+                    },
+                )
+
+        summary = write_combined_outputs(
+            sources=sources,
+            run_id=run_id,
+            refresh_vectors=args.refresh_vectors,
+            literature_papers=literature_papers,
+        )
+        state_store.finish_run(
+            run_id=run_id,
+            status="completed",
+            rows_total=summary["rows_total"],
+            rows_by_type=summary["rows_by_type"],
+        )
+        publish_event(
+            cache_backend,
+            {"event": "ingestion_completed", "run_id": run_id, "rows_total": summary["rows_total"]},
+        )
+        print(json.dumps(summary, indent=2))
+    except Exception as error:
+        state_store.finish_run(run_id=run_id, status="failed", notes=str(error))
+        publish_event(
+            cache_backend,
+            {"event": "ingestion_failed", "run_id": run_id, "error": str(error)},
+        )
+        raise
+
+
+if __name__ == "__main__":
+    main()

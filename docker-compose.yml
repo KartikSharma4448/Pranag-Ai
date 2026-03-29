@@ -1,0 +1,29 @@
+# Copyright (c) Kartik Sharma. GitHub: kartiksharma4448
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: pranag-redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+
+  api:
+    build:
+      context: .
+    container_name: pranag-api
+    depends_on:
+      - redis
+    env_file:
+      - .env
+    environment:
+      CACHE_BACKEND: redis
+      REDIS_URL: redis://redis:6379/0
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+
+volumes:
+  redis-data:

@@ -1,0 +1,22 @@
+{
+  "papers_fetched": 8,
+  "papers_by_source": {
+    "PubMed": 4,
+    "arXiv": 4
+  },
+  "entities_extracted": 32,
+  "entities_by_type": {
+    "gene": 8,
+    "material": 8,
+    "molecule": 8,
+    "simulation": 8
+  },
+  "merged_rows_total": 1882,
+  "validation_rows": 767,
+  "paper_csv_path": "G:\\My Drive\\Pranag\\data\\raw\\literature_papers.csv",
+  "entity_parquet_path": "G:\\My Drive\\Pranag\\data\\processed\\literature_entities.parquet",
+  "vector_refresh": {
+    "rows_indexed": 1882,
+    "query_rows": 8
+  }
+}

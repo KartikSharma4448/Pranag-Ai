@@ -1,0 +1,501 @@
+entity_id,entity_type,name,description,temperature_max,strength,conductivity,ph,salinity,source
+pubchem-1,molecule,3-acetyloxy-4-(trimethylazaniumyl)butanoate,Formula: C9H17NO4. Molecular weight: 203.24. XLogP: 0.4.,,,,,,PubChem
+pubchem-2,molecule,(2-acetyloxy-3-carboxypropyl)-trimethylazanium,Formula: C9H18NO4+. Molecular weight: 204.24. XLogP: -0.3.,,,,,,PubChem
+pubchem-3,molecule,"5,6-dihydroxycyclohexa-1,3-diene-1-carboxylic acid",Formula: C7H8O4. Molecular weight: 156.14. XLogP: -0.3.,,,,,,PubChem
+pubchem-4,molecule,1-aminopropan-2-ol,Formula: C3H9NO. Molecular weight: 75.11. XLogP: -1.0.,,,,,,PubChem
+pubchem-5,molecule,(3-amino-2-oxopropyl) dihydrogen phosphate,Formula: C3H8NO5P. Molecular weight: 169.07. XLogP: -5.0.,,,,,,PubChem
+pubchem-6,molecule,"1-chloro-2,4-dinitrobenzene",Formula: C6H3ClN2O4. Molecular weight: 202.55. XLogP: 2.3.,,,,,,PubChem
+pubchem-7,molecule,9-ethylpurin-6-amine,Formula: C7H9N5. Molecular weight: 163.18. XLogP: 0.2.,,,,,,PubChem
+pubchem-8,molecule,"2,3-dihydroxy-3-methylpentanoic acid",Formula: C6H12O4. Molecular weight: 148.16. XLogP: -0.4.,,,,,,PubChem
+pubchem-9,molecule,"(2,3,4,5,6-pentahydroxycyclohexyl) dihydrogen phosphate",Formula: C6H13O9P. Molecular weight: 260.14. XLogP: -4.8.,,,,,,PubChem
+pubchem-10,molecule,"2-[[4-[(2-amino-4-oxo-5,6,7,8-tetrahydro-1H-pteridin-6-yl)methyl-formylamino]benzoyl]amino]pentanedioic acid",Formula: C20H23N7O7. Molecular weight: 473.4. XLogP: -1.2.,,,,,,PubChem
+pubchem-11,molecule,"1,2-dichloroethane",Formula: C2H4Cl2. Molecular weight: 98.96. XLogP: 1.5.,,,,,,PubChem
+pubchem-12,molecule,"benzene-1,2,3,5-tetrol",Formula: C6H6O4. Molecular weight: 142.11. XLogP: 0.8.,,,,,,PubChem
+pubchem-13,molecule,"1,2,4-trichlorobenzene",Formula: C6H3Cl3. Molecular weight: 181.4. XLogP: 4.0.,,,,,,PubChem
+pubchem-14,molecule,7-[3-hydroxy-5-oxo-2-(3-oxooct-1-enyl)cyclopentyl]heptanoic acid,Formula: C20H32O5. Molecular weight: 352.5. XLogP: 3.1.,,,,,,PubChem
+pubchem-15,molecule,"17-hydroxy-10,13-dimethyl-1,2,4,5,6,7,8,9,11,12,14,15,16,17-tetradecahydrocyclopenta[a]phenanthren-3-one",Formula: C19H30O2. Molecular weight: 290.4. XLogP: 3.7.,,,,,,PubChem
+pubchem-16,molecule,"1,8-diazacyclotetradecane-2,9-dione",Formula: C12H22N2O2. Molecular weight: 226.32. XLogP: 0.6.,,,,,,PubChem
+pubchem-17,molecule,"2,3-dihydropyridine-2,6-dicarboxylic acid",Formula: C7H7NO4. Molecular weight: 169.13. XLogP: -0.1.,,,,,,PubChem
+pubchem-18,molecule,"4,5,6-trihydroxy-2,3-dioxohexanoic acid",Formula: C6H8O7. Molecular weight: 192.12. XLogP: -1.8.,,,,,,PubChem
+pubchem-19,molecule,"2,3-dihydroxybenzoic acid",Formula: C7H6O4. Molecular weight: 154.12. XLogP: 1.2.,,,,,,PubChem
+pubchem-20,molecule,"3-(2,3-dihydroxyphenyl)propanoic acid",Formula: C9H10O4. Molecular weight: 182.17. XLogP: 1.0.,,,,,,PubChem
+pubchem-21,molecule,2-ethyl-2-hydroxy-3-oxobutanoic acid,Formula: C6H10O4. Molecular weight: 146.14. XLogP: -0.2.,,,,,,PubChem
+pubchem-22,molecule,2-hydroxy-2-methyl-3-oxobutanoic acid,Formula: C5H8O4. Molecular weight: 132.11. XLogP: -0.7.,,,,,,PubChem
+pubchem-23,molecule,2-amino-3-(3-oxoprop-1-enyl)but-2-enedioic acid,Formula: C7H7NO5. Molecular weight: 185.13. XLogP: -0.5.,,,,,,PubChem
+pubchem-24,molecule,"2-amino-5,6,7,8-tetrahydroxy-6-(1,2,3-trihydroxypropyl)-3,4a,7,8a-tetrahydropteridin-4-one",Formula: C9H17N5O8. Molecular weight: 323.26. XLogP: -4.5.,,,,,,PubChem
+pubchem-25,molecule,"2-amino-7,8-dihydroxy-6-(1,2,3-trihydroxypropyl)-1,5,6,7-tetrahydropteridin-4-one",Formula: C9H15N5O6. Molecular weight: 289.25. XLogP: -3.3.,,,,,,PubChem
+pubchem-26,molecule,"1-(2-amino-7,8-dihydroxy-4-oxo-3,4a,7,8a-tetrahydropteridin-6-yl)propane-1,2-dione",Formula: C9H11N5O5. Molecular weight: 269.21. XLogP: -2.7.,,,,,,PubChem
+pubchem-27,molecule,"[[3-(2-amino-7,8-dihydroxy-4-oxo-1,7-dihydropteridin-6-yl)-2,3-dihydroxypropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate",Formula: C9H16N5O15P3. Molecular weight: 527.17. XLogP: -6.9.,,,,,,PubChem
+pubchem-28,molecule,"2-aminohexa-2,4-dienedioic acid",Formula: C6H7NO4. Molecular weight: 157.12. XLogP: -0.3.,,,,,,PubChem
+pubchem-29,molecule,2-amino-3-oxopropanoic acid,Formula: C3H5NO3. Molecular weight: 103.08. XLogP: -3.7.,,,,,,PubChem
+pubchem-30,molecule,"2-amino-6-oxohexa-2,4-dienoic acid",Formula: C6H7NO3. Molecular weight: 141.12. XLogP: -0.3.,,,,,,PubChem
+pubchem-31,molecule,"(2,3,4-trihydroxy-3-methylbutyl) dihydrogen phosphate",Formula: C5H13O7P. Molecular weight: 216.13. XLogP: -3.3.,,,,,,PubChem
+pubchem-32,molecule,"buta-1,3-diene-1,1,4-tricarboxylic acid",Formula: C7H6O6. Molecular weight: 186.12. XLogP: 1.0.,,,,,,PubChem
+pubchem-33,molecule,2-chloroacetaldehyde,Formula: C2H3ClO. Molecular weight: 78.5. XLogP: 0.3.,,,,,,PubChem
+pubchem-34,molecule,2-chloroethanol,Formula: C2H5ClO. Molecular weight: 80.51. XLogP: -0.1.,,,,,,PubChem
+pubchem-35,molecule,2-(2-chloro-5-oxofuran-2-yl)acetic acid,Formula: C6H5ClO4. Molecular weight: 176.55. XLogP: 0.3.,,,,,,PubChem
+pubchem-36,molecule,2-hydroxy-3-propan-2-ylbutanedioic acid,Formula: C7H12O5. Molecular weight: 176.17. XLogP: 0.0.,,,,,,PubChem
+pubchem-37,molecule,"4,5,6-trihydroxy-2-oxohexanoic acid",Formula: C6H10O6. Molecular weight: 178.14. XLogP: -2.3.,,,,,,PubChem
+pubchem-38,molecule,"4-hydroxy-3,3-dimethyl-2-oxobutanoic acid",Formula: C6H10O4. Molecular weight: 146.14. XLogP: -0.1.,,,,,,PubChem
+pubchem-39,molecule,"4,4-dimethyloxolane-2,3-dione",Formula: C6H8O3. Molecular weight: 128.13. XLogP: 0.6.,,,,,,PubChem
+pubchem-40,molecule,"6-(hydroxymethyl)oxane-2,4,5-triol",Formula: C6H12O5. Molecular weight: 164.16. XLogP: -1.6.,,,,,,PubChem
+pubchem-41,molecule,(2-hydroxy-5-methylsulfanyl-3-oxopent-1-enyl) dihydrogen phosphate,Formula: C6H11O6PS. Molecular weight: 242.19. XLogP: -1.0.,,,,,,PubChem
+pubchem-42,molecule,"2-hydroxy-6-oxonona-2,4-dienedioic acid",Formula: C9H10O6. Molecular weight: 214.17. XLogP: -0.4.,,,,,,PubChem
+pubchem-43,molecule,2-hydroxypentanedioic acid,Formula: C5H8O5. Molecular weight: 148.11. XLogP: -1.0.,,,,,,PubChem
+pubchem-44,molecule,2-hydroxypropanedioate,Formula: C3H2O5-2. Molecular weight: 118.04. XLogP: 0.2.,,,,,,PubChem
+pubchem-45,molecule,2-hydroxypropanedioic acid,Formula: C3H4O5. Molecular weight: 120.06. XLogP: -1.1.,,,,,,PubChem
+pubchem-46,molecule,"4,5-dihydroxy-2-oxo-6-phosphonooxyhexanoic acid",Formula: C6H11O9P. Molecular weight: 258.12. XLogP: -3.4.,,,,,,PubChem
+pubchem-47,molecule,3-methyl-2-oxopentanoic acid,Formula: C6H10O3. Molecular weight: 130.14. XLogP: 1.1.,,,,,,PubChem
+pubchem-48,molecule,"5-amino-2,5-dioxopentanoic acid",Formula: C5H7NO4. Molecular weight: 145.11. XLogP: -1.5.,,,,,,PubChem
+pubchem-49,molecule,3-methyl-2-oxobutanoic acid,Formula: C5H8O3. Molecular weight: 116.11. XLogP: 0.7.,,,,,,PubChem
+pubchem-50,molecule,"3,4,5,6-tetrahydroxy-2-oxohexanoic acid",Formula: C6H10O7. Molecular weight: 194.14. XLogP: -2.9.,,,,,,PubChem
+pubchem-51,molecule,2-oxopentanedioic acid,Formula: C5H6O5. Molecular weight: 146.1. XLogP: -0.9.,,,,,,PubChem
+pubchem-52,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 3-hydroxy-2-methylbutanethioate",Formula: C26H44N7O18P3S. Molecular weight: 867.7. XLogP: -5.4.,,,,,,PubChem
+pubchem-53,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 2-methyl-3-oxobutanethioate",Formula: C26H42N7O18P3S. Molecular weight: 865.6. XLogP: -5.2.,,,,,,PubChem
+pubchem-54,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 2-methylbutanethioate",Formula: C26H44N7O17P3S. Molecular weight: 851.7. XLogP: -4.2.,,,,,,PubChem
+pubchem-55,molecule,"3-(3,7,11,15,19,23,27,31-octamethyldotriaconta-2,6,10,14,18,22,26,30-octaenyl)benzene-1,2-diol",Formula: C46H70O2. Molecular weight: 655.0. XLogP: 16.1.,,,,,,PubChem
+pubchem-56,molecule,"2-(3,7,11,15,19,23,27-heptamethyldotriaconta-2,6,10,14,18,22,26,30-octaenyl)-6-methoxyphenol",Formula: C46H70O2. Molecular weight: 655.0. XLogP: 15.8.,,,,,,PubChem
+pubchem-57,molecule,"2-(3,7,11,15,19,23,27,31-octamethyldotriaconta-2,6,10,14,18,22,26,30-octaenyl)phenol",Formula: C46H70O. Molecular weight: 639.0. XLogP: 16.6.,,,,,,PubChem
+pubchem-58,molecule,2-oxobutanoic acid,Formula: C4H6O3. Molecular weight: 102.09. XLogP: 0.1.,,,,,,PubChem
+pubchem-59,molecule,3-hydroxy-2-phosphonooxypropanoic acid,Formula: C3H7O7P. Molecular weight: 186.06. XLogP: -2.6.,,,,,,PubChem
+pubchem-60,molecule,"[[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] (2,4-dihydroxy-3-methyl-3-phosphonooxybutyl) hydrogen phosphate",Formula: C14H26N3O17P3. Molecular weight: 601.29. XLogP: -7.7.,,,,,,PubChem
+pubchem-61,molecule,"2,3-diphosphonooxypropanoic acid",Formula: C3H8O10P2. Molecular weight: 266.04. XLogP: -3.7.,,,,,,PubChem
+pubchem-62,molecule,"2,4,5-trichlorocyclohexa-2,5-dien-1-ol",Formula: C6H5Cl3O. Molecular weight: 199.5. XLogP: 1.9.,,,,,,PubChem
+pubchem-63,molecule,"2,4-diaminopentanoic acid",Formula: C5H12N2O2. Molecular weight: 132.16. XLogP: -3.5.,,,,,,PubChem
+pubchem-64,molecule,"2,5-dichlorocyclohexa-2,5-diene-1,4-diol",Formula: C6H6Cl2O2. Molecular weight: 181.01. XLogP: 0.6.,,,,,,PubChem
+pubchem-65,molecule,"2,5-dichlorobenzene-1,4-diol",Formula: C6H4Cl2O2. Molecular weight: 179.0. XLogP: 2.7.,,,,,,PubChem
+pubchem-66,molecule,"2,5-dichlorophenol",Formula: C6H4Cl2O. Molecular weight: 163.0. XLogP: 3.1.,,,,,,PubChem
+pubchem-67,molecule,"3,4,6-trihydroxy-2,5-dioxohexanoic acid",Formula: C6H8O7. Molecular weight: 192.12. XLogP: -2.5.,,,,,,PubChem
+pubchem-68,molecule,"2,4-dihydroxy-6-(hydroxymethyl)-6-methyl-2,4-dioxo-1,3,5,2lambda5,4lambda5-trioxadiphosphocan-7-ol",Formula: C5H12O9P2. Molecular weight: 278.09. XLogP: -2.8.,,,,,,PubChem
+pubchem-69,molecule,"2-hydroxy-6-oxohepta-2,4-dienoic acid",Formula: C7H8O4. Molecular weight: 156.14. XLogP: 0.2.,,,,,,PubChem
+pubchem-70,molecule,4-methyl-2-oxopentanoic acid,Formula: C6H10O3. Molecular weight: 130.14. XLogP: 0.9.,,,,,,PubChem
+pubchem-71,molecule,2-oxohexanedioic acid,Formula: C6H8O5. Molecular weight: 160.12. XLogP: -0.5.,,,,,,PubChem
+pubchem-72,molecule,"3,4-dihydroxybenzoic acid",Formula: C7H6O4. Molecular weight: 154.12. XLogP: 1.1.,,,,,,PubChem
+pubchem-73,molecule,[5-(6-aminopurin-9-yl)-4-hydroxy-2-(phosphonooxymethyl)oxolan-3-yl] dihydrogen phosphate,Formula: C10H15N5O10P2. Molecular weight: 427.2. XLogP: -4.6.,,,,,,PubChem
+pubchem-74,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 3-oxobutanethioate",Formula: C25H40N7O18P3S. Molecular weight: 851.6. XLogP: -5.8.,,,,,,PubChem
+pubchem-75,molecule,3-aminopropanal,Formula: C3H7NO. Molecular weight: 73.09. XLogP: -1.3.,,,,,,PubChem
+pubchem-76,molecule,"3-hydroxy-10,13-dimethyl-1,2,3,4,7,8,9,11,12,14,15,16-dodecahydrocyclopenta[a]phenanthren-17-one",Formula: C19H28O2. Molecular weight: 288.4. XLogP: 3.2.,,,,,,PubChem
+pubchem-77,molecule,2-hydroxy-2-propan-2-ylbutanedioic acid,Formula: C7H12O5. Molecular weight: 176.17. XLogP: -0.2.,,,,,,PubChem
+pubchem-78,molecule,2-amino-3-chloropropanoic acid,Formula: C3H6ClNO2. Molecular weight: 123.54. XLogP: -2.8.,,,,,,PubChem
+pubchem-79,molecule,pyridine-3-carbonitrile,Formula: C6H4N2. Molecular weight: 104.11. XLogP: 0.2.,,,,,,PubChem
+pubchem-80,molecule,"4,5-dihydroxy-3-oxocyclohexene-1-carboxylic acid",Formula: C7H8O5. Molecular weight: 172.13. XLogP: -1.4.,,,,,,PubChem
+pubchem-81,molecule,"4,5,6-trihydroxy-2-oxo-7-phosphonooxyheptanoic acid",Formula: C7H13O10P. Molecular weight: 288.15. XLogP: -4.0.,,,,,,PubChem
+pubchem-82,molecule,5-(1-carboxyethenoxy)-4-hydroxy-3-phosphonooxycyclohexene-1-carboxylic acid,Formula: C10H13O10P. Molecular weight: 324.18. XLogP: -1.8.,,,,,,PubChem
+pubchem-83,molecule,3-hydroxyphosphonoyl-2-oxopropanoic acid,Formula: C3H5O5P. Molecular weight: 152.04. XLogP: -1.7.,,,,,,PubChem
+pubchem-84,molecule,"5-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethylsulfanyl]-3-hydroxy-3-methyl-5-oxopentanoic acid",Formula: C27H44N7O20P3S. Molecular weight: 911.7. XLogP: -6.6.,,,,,,PubChem
+pubchem-85,molecule,(3-carboxy-2-hydroxypropyl)-trimethylazanium,Formula: C7H16NO3+. Molecular weight: 162.21. XLogP: -0.8.,,,,,,PubChem
+pubchem-86,molecule,2-amino-3-hydroxybenzoic acid,Formula: C7H7NO3. Molecular weight: 153.14. XLogP: 0.9.,,,,,,PubChem
+pubchem-87,molecule,3-hydroxy-2-methylpropanoic acid,Formula: C4H8O3. Molecular weight: 104.1. XLogP: -0.4.,,,,,,PubChem
+pubchem-88,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 3-hydroxy-2-methylpropanethioate",Formula: C25H42N7O18P3S. Molecular weight: 853.6. XLogP: -5.8.,,,,,,PubChem
+pubchem-89,molecule,2-amino-4-(2-amino-3-hydroxyphenyl)-4-oxobutanoic acid,Formula: C10H12N2O4. Molecular weight: 224.21. XLogP: -2.5.,,,,,,PubChem
+pubchem-90,molecule,"6-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethylsulfanyl]-4-hydroxy-6-oxohexanoic acid",Formula: C27H44N7O20P3S. Molecular weight: 911.7. XLogP: -6.5.,,,,,,PubChem
+pubchem-91,molecule,3-(3-hydroxyphenyl)propanoic acid,Formula: C9H10O3. Molecular weight: 166.17. XLogP: 1.4.,,,,,,PubChem
+pubchem-92,molecule,3-ethenyl-6-[hydroxy-(6-methoxyquinolin-4-yl)methyl]-1-azabicyclo[2.2.2]octan-3-ol,Formula: C20H24N2O3. Molecular weight: 340.4. XLogP: 1.8.,,,,,,PubChem
+pubchem-93,molecule,3-oxohexanedioic acid,Formula: C6H8O5. Molecular weight: 160.12. XLogP: -0.9.,,,,,,PubChem
+pubchem-94,molecule,"6-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethylsulfanyl]-4,6-dioxohexanoic acid",Formula: C27H42N7O20P3S. Molecular weight: 909.6. XLogP: -6.4.,,,,,,PubChem
+pubchem-95,molecule,"2,4,5,6-tetrahydroxy-3-oxohexanoic acid",Formula: C6H10O7. Molecular weight: 194.14. XLogP: -2.8.,,,,,,PubChem
+pubchem-96,molecule,3-oxobutanoic acid,Formula: C4H6O3. Molecular weight: 102.09. XLogP: -0.4.,,,,,,PubChem
+pubchem-97,molecule,"3,5-dihydroxy-2-(hydroxymethyl)-6-[4,5,6-trihydroxy-2-(hydroxymethyl)oxan-3-yl]oxyoxan-4-one",Formula: C12H20O11. Molecular weight: 340.28. XLogP: -4.3.,,,,,,PubChem
+pubchem-98,molecule,2-oxo-3-sulfanylpropanoic acid,Formula: C3H4O3S. Molecular weight: 120.13. XLogP: 0.0.,,,,,,PubChem
+pubchem-99,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 3-methylbut-2-enethioate",Formula: C26H42N7O17P3S. Molecular weight: 849.6. XLogP: -4.2.,,,,,,PubChem
+pubchem-100,molecule,"4-hydroxy-3-(3,7,11,15,19,23,27,31-octamethyldotriaconta-2,6,10,14,18,22,26,30-octaenyl)benzoic acid",Formula: C47H70O3. Molecular weight: 683.1. XLogP: 16.0.,,,,,,PubChem
+pubchem-101,molecule,3-hydroxybenzaldehyde,Formula: C7H6O2. Molecular weight: 122.12. XLogP: 1.4.,,,,,,PubChem
+pubchem-102,molecule,3-(hydroxymethyl)phenol,Formula: C7H8O2. Molecular weight: 124.14. XLogP: 0.5.,,,,,,PubChem
+pubchem-103,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 4-(7,12-dihydroxy-10,13-dimethyl-3-oxo-1,2,4,5,6,7,8,9,11,12,14,15,16,17-tetradecahydrocyclopenta[a]phenanthren-17-yl)pentanethioate",Formula: C45H72N7O20P3S. Molecular weight: 1156.1. XLogP: -2.3.,,,,,,PubChem
+pubchem-104,molecule,2-(2-oxo-3H-furan-5-yl)acetic acid,Formula: C6H6O4. Molecular weight: 142.11. XLogP: -0.3.,,,,,,PubChem
+pubchem-105,molecule,2-oxo-3-phosphonooxypropanoic acid,Formula: C3H5O7P. Molecular weight: 184.04. XLogP: -2.1.,,,,,,PubChem
+pubchem-106,molecule,2-amino-3-phosphonooxypropanoic acid,Formula: C3H8NO6P. Molecular weight: 185.07. XLogP: -5.1.,,,,,,PubChem
+pubchem-107,molecule,3-phenylpropanoic acid,Formula: C9H10O2. Molecular weight: 150.17. XLogP: 1.8.,,,,,,PubChem
+pubchem-108,molecule,2-pyridin-3-ylacetic acid,Formula: C7H7NO2. Molecular weight: 137.14. XLogP: -0.1.,,,,,,PubChem
+pubchem-109,molecule,2-amino-3-sulfinopropanoic acid,Formula: C3H7NO4S. Molecular weight: 153.16. XLogP: -4.2.,,,,,,PubChem
+pubchem-110,molecule,2-oxo-3-sulfinopropanoic acid,Formula: C3H4O5S. Molecular weight: 152.13. XLogP: -1.0.,,,,,,PubChem
+pubchem-111,molecule,3-(carbamoylamino)propanoic acid,Formula: C4H8N2O3. Molecular weight: 132.12. XLogP: -1.5.,,,,,,PubChem
+pubchem-112,molecule,3-hydroxy-2-oxo-4-phosphonooxybutanoate,Formula: C4H6O8P-. Molecular weight: 213.06. XLogP: -2.1.,,,,,,PubChem
+pubchem-113,molecule,3-hydroxy-2-oxo-4-phosphonooxybutanoic acid,Formula: C4H7O8P. Molecular weight: 214.07. XLogP: -2.7.,,,,,,PubChem
+pubchem-114,molecule,4-pyridin-3-ylbutanoic acid,Formula: C9H11NO2. Molecular weight: 165.19. XLogP: 0.6.,,,,,,PubChem
+pubchem-115,molecule,"(5-amino-3,4-dihydroxyoxan-2-yl) dihydrogen phosphate",Formula: C5H12NO7P. Molecular weight: 229.13. XLogP: -6.2.,,,,,,PubChem
+pubchem-116,molecule,"4-amino-3-(1-carboxyethenoxy)cyclohexa-1,5-diene-1-carboxylic acid",Formula: C10H11NO5. Molecular weight: 225.2. XLogP: -2.3.,,,,,,PubChem
+pubchem-117,molecule,4-amino-1H-imidazole-5-carboxylic acid,Formula: C4H5N3O2. Molecular weight: 127.1. XLogP: 0.1.,,,,,,PubChem
+pubchem-118,molecule,4-aminobutanal,Formula: C4H9NO. Molecular weight: 87.12. XLogP: -0.9.,,,,,,PubChem
+pubchem-119,molecule,4-aminobutanoic acid,Formula: C4H9NO2. Molecular weight: 103.12. XLogP: -3.2.,,,,,,PubChem
+pubchem-120,molecule,2-(5-oxofuran-2-ylidene)acetic acid,Formula: C6H4O4. Molecular weight: 140.09. XLogP: 0.0.,,,,,,PubChem
+pubchem-121,molecule,"[[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] (2,3,4-trihydroxy-3-methylbutyl) hydrogen phosphate",Formula: C14H25N3O14P2. Molecular weight: 521.31. XLogP: -5.7.,,,,,,PubChem
+pubchem-122,molecule,"4,6-dioxooct-2-enedioic acid",Formula: C8H8O6. Molecular weight: 200.14. XLogP: -0.7.,,,,,,PubChem
+pubchem-123,molecule,4-(diaminomethylideneamino)butanamide,Formula: C5H12N4O. Molecular weight: 144.18. XLogP: -2.1.,,,,,,PubChem
+pubchem-124,molecule,4-hydroxy-2-oxopentanoic acid,Formula: C5H8O4. Molecular weight: 132.11. XLogP: -0.6.,,,,,,PubChem
+pubchem-125,molecule,4-(hydroxymethyl)phenol,Formula: C7H8O2. Molecular weight: 124.14. XLogP: 0.2.,,,,,,PubChem
+pubchem-126,molecule,4-hydroxybenzaldehyde,Formula: C7H6O2. Molecular weight: 122.12. XLogP: 1.4.,,,,,,PubChem
+pubchem-127,molecule,2-(4-hydroxyphenyl)acetic acid,Formula: C8H8O3. Molecular weight: 152.15. XLogP: 0.8.,,,,,,PubChem
+pubchem-128,molecule,"3-(5-oxo-1,4-dihydroimidazol-4-yl)propanoic acid",Formula: C6H8N2O3. Molecular weight: 156.14. XLogP: -0.9.,,,,,,PubChem
+pubchem-129,molecule,4-methylpentanal,Formula: C6H12O. Molecular weight: 100.16. XLogP: 1.3.,,,,,,PubChem
+pubchem-130,molecule,"2-hydroxy-4-oxobutane-1,2,4-tricarboxylic acid",Formula: C7H8O8. Molecular weight: 220.13. XLogP: -1.8.,,,,,,PubChem
+pubchem-131,molecule,"3-[(2-hydroxy-3,3-dimethyl-4-phosphonooxybutanoyl)amino]propanoic acid",Formula: C9H18NO8P. Molecular weight: 299.21. XLogP: -2.2.,,,,,,PubChem
+pubchem-132,molecule,"2-[3-[(2-hydroxy-3,3-dimethyl-4-phosphonooxybutanoyl)amino]propanoylamino]-3-sulfanylpropanoic acid",Formula: C12H23N2O9PS. Molecular weight: 402.36. XLogP: -2.5.,,,,,,PubChem
+pubchem-133,molecule,trimethyl(4-oxobutyl)azanium,Formula: C7H16NO+. Molecular weight: 130.21. XLogP: 0.1.,,,,,,PubChem
+pubchem-134,molecule,3-carboxypropyl(trimethyl)azanium,Formula: C7H16NO2+. Molecular weight: 146.21. XLogP: 0.1.,,,,,,PubChem
+pubchem-135,molecule,4-hydroxybenzoic acid,Formula: C7H6O3. Molecular weight: 138.12. XLogP: 1.6.,,,,,,PubChem
+pubchem-136,molecule,"2-[[4-(3-amino-1-oxo-5,6,6a,7-tetrahydro-4H-imidazo[1,5-f]pteridin-10-ium-8-yl)benzoyl]amino]pentanedioic acid",Formula: C20H22N7O6+. Molecular weight: 456.4. XLogP: -1.7.,,,,,,PubChem
+pubchem-137,molecule,5-amino-4-oxopentanoic acid,Formula: C5H9NO3. Molecular weight: 131.13. XLogP: -3.8.,,,,,,PubChem
+pubchem-138,molecule,5-aminopentanoic acid,Formula: C5H11NO2. Molecular weight: 117.15. XLogP: -2.6.,,,,,,PubChem
+pubchem-139,molecule,"10,13-dimethyl-17-(6-methylheptan-2-yl)-2,3,4,5,6,7,8,9,11,12,14,15,16,17-tetradecahydro-1H-cyclopenta[a]phenanthrene-3,7,12-triol",Formula: C27H48O3. Molecular weight: 420.7. XLogP: 6.7.,,,,,,PubChem
+pubchem-140,molecule,"17-(7-hydroxy-6-methylheptan-2-yl)-10,13-dimethyl-2,3,4,5,6,7,8,9,11,12,14,15,16,17-tetradecahydro-1H-cyclopenta[a]phenanthrene-3,7,12-triol",Formula: C27H48O4. Molecular weight: 436.7. XLogP: 5.3.,,,,,,PubChem
+pubchem-141,molecule,"(3,4-dihydroxy-5-oxooxan-2-yl) [[5-(2,4-dioxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] hydrogen phosphate",Formula: C14H20N2O16P2. Molecular weight: 534.26. XLogP: -6.1.,,,,,,PubChem
+pubchem-142,molecule,"2-(6-aminopurin-9-yl)-5-methyloxolane-3,4-diol",Formula: C10H13N5O3. Molecular weight: 251.24. XLogP: -0.6.,,,,,,PubChem
+pubchem-143,molecule,"2-[[4-[(2-amino-5-formyl-4-oxo-1,6,7,8-tetrahydropteridin-6-yl)methylamino]benzoyl]amino]pentanedioic acid",Formula: C20H23N7O7. Molecular weight: 473.4. XLogP: -1.2.,,,,,,PubChem
+pubchem-144,molecule,2-amino-3-(5-hydroxy-1H-indol-3-yl)propanoic acid,Formula: C11H12N2O3. Molecular weight: 220.22. XLogP: -1.2.,,,,,,PubChem
+pubchem-145,molecule,"2,3-dihydroxy-5-oxohexanedioic acid",Formula: C6H8O7. Molecular weight: 192.12. XLogP: -2.1.,,,,,,PubChem
+pubchem-146,molecule,"2-[[4-[(2-amino-5-methyl-4-oxo-1,6,7,8-tetrahydropteridin-6-yl)methylamino]benzoyl]amino]pentanedioic acid",Formula: C20H25N7O6. Molecular weight: 459.5. XLogP: -0.5.,,,,,,PubChem
+pubchem-147,molecule,"1-[3,4-dihydroxy-5-(hydroxymethyl)oxolan-2-yl]-5-(methylaminomethyl)-2-selanylpyrimidin-4-one",Formula: C11H17N3O5Se. Molecular weight: 350.24. XLogP: nan.,,,,,,PubChem
+pubchem-148,molecule,"1-[3,4-dihydroxy-5-(hydroxymethyl)oxolan-2-yl]-5-(methylaminomethyl)-2-sulfanylpyrimidin-4-one",Formula: C11H17N3O5S. Molecular weight: 303.34. XLogP: -1.3.,,,,,,PubChem
+pubchem-149,molecule,"2-(6-aminopurin-9-yl)-5-(methylsulfanylmethyl)oxolane-3,4-diol",Formula: C11H15N5O3S. Molecular weight: 297.34. XLogP: -0.3.,,,,,,PubChem
+pubchem-150,molecule,"(5-amino-3,4-dihydroxyoxolan-2-yl)methyl dihydrogen phosphate",Formula: C5H12NO7P. Molecular weight: 229.13. XLogP: -6.2.,,,,,,PubChem
+pubchem-151,molecule,"[5-[(2-formamidoacetyl)amino]-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C8H15N2O9P. Molecular weight: 314.19. XLogP: -4.3.,,,,,,PubChem
+pubchem-152,molecule,"[5-[(2-aminoacetyl)amino]-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C7H15N2O8P. Molecular weight: 286.18. XLogP: -6.8.,,,,,,PubChem
+pubchem-153,molecule,"[5-(5-aminoimidazol-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C8H14N3O7P. Molecular weight: 295.19. XLogP: -3.6.,,,,,,PubChem
+pubchem-154,molecule,"[5-[(1-amino-2-formamidoethylidene)amino]-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C8H16N3O8P. Molecular weight: 313.2. XLogP: -4.6.,,,,,,PubChem
+pubchem-155,molecule,4-(carbamoylamino)-1H-imidazole-5-carboxylic acid,Formula: C5H6N4O3. Molecular weight: 170.13. XLogP: -0.6.,,,,,,PubChem
+pubchem-156,molecule,"5,6,7,8-tetrahydropteridine",Formula: C6H8N4. Molecular weight: 136.15. XLogP: 0.3.,,,,,,PubChem
+pubchem-157,molecule,"2,3,4,6-tetrahydroxy-5-oxohexanoic acid",Formula: C6H10O7. Molecular weight: 194.14. XLogP: -3.0.,,,,,,PubChem
+pubchem-158,molecule,7-[3-hydroxy-2-(3-hydroxyoct-1-enyl)-5-oxocyclopentyl]hept-5-enoic acid,Formula: C20H32O5. Molecular weight: 352.5. XLogP: 2.8.,,,,,,PubChem
+pubchem-159,molecule,"5-[5-hydroxy-4-(3-hydroxyoct-1-enyl)-3,3a,4,5,6,6a-hexahydrocyclopenta[b]furan-2-ylidene]pentanoic acid",Formula: C20H32O5. Molecular weight: 352.5. XLogP: 2.9.,,,,,,PubChem
+pubchem-160,molecule,"7-[3,5-dihydroxy-2-(3-hydroxyoct-1-enyl)cyclopentyl]hept-5-enoic acid",Formula: C20H34O5. Molecular weight: 354.5. XLogP: 2.7.,,,,,,PubChem
+pubchem-161,molecule,"[[3-(2-amino-4-oxo-4a,7,8,8a-tetrahydro-3H-pteridin-6-yl)-2,3-dihydroxypropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate",Formula: C9H18N5O13P3. Molecular weight: 497.19. XLogP: -9.6.,,,,,,PubChem
+pubchem-162,molecule,"6-amino-3,3-dimethyl-7-oxo-4-thia-1-azabicyclo[3.2.0]heptane-2-carboxylic acid",Formula: C8H12N2O3S. Molecular weight: 216.26. XLogP: -2.1.,,,,,,PubChem
+pubchem-163,molecule,"7-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethylsulfanyl]-7-oxoheptanoic acid",Formula: C28H46N7O19P3S. Molecular weight: 909.7. XLogP: -5.0.,,,,,,PubChem
+pubchem-164,molecule,2-amino-6-diazo-5-oxohexanoic acid,Formula: C6H9N3O3. Molecular weight: 171.15. XLogP: -3.5.,,,,,,PubChem
+pubchem-165,molecule,"5-amino-2,6-dihydroxy-6-oxohex-1-ene-1-diazonium",Formula: C6H10N3O3+. Molecular weight: 172.16. XLogP: -2.2.,,,,,,PubChem
+pubchem-166,molecule,"1-(2-amino-4-oxo-4a,5,6,7,8,8a-hexahydro-3H-pteridin-6-yl)propane-1,2-dione",Formula: C9H13N5O3. Molecular weight: 239.23. XLogP: -3.0.,,,,,,PubChem
+pubchem-167,molecule,"6,7-dihydropteridine",Formula: C6H6N4. Molecular weight: 134.14. XLogP: -0.9.,,,,,,PubChem
+pubchem-168,molecule,"[3,4,5-trihydroxy-6-[4,5,6-trihydroxy-2-(hydroxymethyl)oxan-3-yl]oxyoxan-2-yl]methyl dihydrogen phosphate",Formula: C12H23O14P. Molecular weight: 422.28. XLogP: -6.4.,,,,,,PubChem
+pubchem-169,molecule,"5,12-dihydroxyicosa-6,8,10,14-tetraenoic acid",Formula: C20H32O4. Molecular weight: 336.5. XLogP: 4.1.,,,,,,PubChem
+pubchem-170,molecule,"4-[(2-amino-4-oxo-7,8-dihydro-1H-pteridin-6-yl)methylamino]benzoic acid",Formula: C14H14N6O3. Molecular weight: 314.3. XLogP: -0.1.,,,,,,PubChem
+pubchem-171,molecule,"2-amino-5-(aminomethyl)-1,7-dihydropyrrolo[2,3-d]pyrimidin-4-one",Formula: C7H9N5O. Molecular weight: 179.18. XLogP: -1.9.,,,,,,PubChem
+pubchem-172,molecule,"10,13-dimethyl-17-(6-methylheptan-2-yl)-2,3,4,9,11,12,14,15,16,17-decahydro-1H-cyclopenta[a]phenanthren-3-ol",Formula: C27H44O. Molecular weight: 384.6. XLogP: 8.0.,,,,,,PubChem
+pubchem-173,molecule,8-amino-7-oxononanoic acid,Formula: C9H17NO3. Molecular weight: 187.24. XLogP: -2.2.,,,,,,PubChem
+pubchem-174,molecule,"ethane-1,2-diol",Formula: C2H6O2. Molecular weight: 62.07. XLogP: -1.4.,,,,,,PubChem
+pubchem-175,molecule,acetate,Formula: C2H3O2-. Molecular weight: 59.04. XLogP: 0.4.,,,,,,PubChem
+pubchem-176,molecule,acetic acid,Formula: C2H4O2. Molecular weight: 60.05. XLogP: -0.2.,,,,,,PubChem
+pubchem-177,molecule,acetaldehyde,Formula: C2H4O. Molecular weight: 44.05. XLogP: -0.3.,,,,,,PubChem
+pubchem-178,molecule,acetamide,Formula: C2H5NO. Molecular weight: 59.07. XLogP: -0.9.,,,,,,PubChem
+pubchem-179,molecule,3-hydroxybutan-2-one,Formula: C4H8O2. Molecular weight: 88.11. XLogP: -0.3.,,,,,,PubChem
+pubchem-180,molecule,propan-2-one,Formula: C3H6O. Molecular weight: 58.08. XLogP: -0.1.,,,,,,PubChem
+pubchem-181,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] ethanethioate",Formula: C23H38N7O17P3S. Molecular weight: 809.6. XLogP: -5.6.,,,,,,PubChem
+pubchem-182,molecule,"[3-acetamido-4,5-dihydroxy-6-(hydroxymethyl)oxan-2-yl] [hydroxy(3,7,11,15,19,23,27,31,35,39,43-undecamethyltetratetraconta-2,6,10,14,18,22,26,30,34,38,42-undecaenoxy)phosphoryl] hydrogen phosphate",Formula: C63H105NO12P2. Molecular weight: 1130.5. XLogP: 15.8.,,,,,,PubChem
+pubchem-183,molecule,"[3-acetamido-5-[3-acetamido-4,5-dihydroxy-6-(hydroxymethyl)oxan-2-yl]oxy-4-hydroxy-6-(hydroxymethyl)oxan-2-yl] [hydroxy(3,7,11,15,19,23,27,31,35,39,43-undecamethyltetratetraconta-2,6,10,14,18,22,26,30,34,38,42-undecaenoxy)phosphoryl] hydrogen phosphate",Formula: C71H118N2O17P2. Molecular weight: 1333.6. XLogP: 13.7.,,,,,,PubChem
+pubchem-184,molecule,"4-[[3-acetamido-4,5-dihydroxy-6-(hydroxymethyl)oxan-2-yl]amino]-2-amino-4-oxobutanoic acid",Formula: C12H21N3O8. Molecular weight: 335.31. XLogP: -5.7.,,,,,,PubChem
+pubchem-185,molecule,2-acetamidopentanedioic acid,Formula: C7H11NO5. Molecular weight: 189.17. XLogP: -1.8.,,,,,,PubChem
+pubchem-186,molecule,phosphono acetate,Formula: C2H5O5P. Molecular weight: 140.03. XLogP: -1.5.,,,,,,PubChem
+pubchem-187,molecule,2-acetyloxyethyl(trimethyl)azanium,Formula: C7H16NO2+. Molecular weight: 146.21. XLogP: 0.2.,,,,,,PubChem
+pubchem-188,molecule,"[3,4-dihydroxy-6-(hydroxymethyl)-5-[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxyoxan-2-yl] acetate",Formula: C14H24O12. Molecular weight: 384.33. XLogP: -4.2.,,,,,,PubChem
+pubchem-189,molecule,3-acetyloxy-2-aminopropanoic acid,Formula: C5H9NO4. Molecular weight: 147.13. XLogP: -3.5.,,,,,,PubChem
+pubchem-190,molecule,7H-purin-6-amine,Formula: C5H5N5. Molecular weight: 135.13. XLogP: -0.1.,,,,,,PubChem
+pubchem-191,molecule,"2-(6-aminopurin-9-yl)-5-(hydroxymethyl)oxolane-3,4-diol",Formula: C10H13N5O4. Molecular weight: 267.24. XLogP: -1.1.,,,,,,PubChem
+pubchem-192,molecule,"[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] (3,4,5-trihydroxyoxolan-2-yl)methyl hydrogen phosphate",Formula: C15H23N5O14P2. Molecular weight: 559.32. XLogP: -6.1.,,,,,,PubChem
+pubchem-193,molecule,"2-amino-4-[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methylsulfanyl]butanoic acid",Formula: C14H20N6O5S. Molecular weight: 384.41. XLogP: -3.5.,,,,,,PubChem
+pubchem-194,molecule,"[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] [[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl] hydrogen phosphate",Formula: C20H28N10O19P4. Molecular weight: 836.4. XLogP: -8.3.,,,,,,PubChem
+pubchem-195,molecule,"2-[[9-[3,4-dihydroxy-5-(phosphonooxymethyl)oxolan-2-yl]purin-6-yl]amino]butanedioic acid",Formula: C14H18N5O11P. Molecular weight: 463.29. XLogP: -3.2.,,,,,,PubChem
+pubchem-196,molecule,hexanedioic acid,Formula: C6H10O4. Molecular weight: 146.14. XLogP: 0.1.,,,,,,PubChem
+pubchem-197,molecule,"[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methyl phosphono hydrogen phosphate",Formula: C10H15N5O10P2. Molecular weight: 427.2. XLogP: -4.6.,,,,,,PubChem
+pubchem-198,molecule,"[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] [3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] hydrogen phosphate",Formula: C16H25N5O15P2. Molecular weight: 589.3. XLogP: -6.2.,,,,,,PubChem
+pubchem-199,molecule,2-(4-aminobutyl)guanidine,Formula: C5H14N4. Molecular weight: 130.19. XLogP: -1.5.,,,,,,PubChem
+pubchem-200,molecule,"[5-(5-amino-4-carbamoylimidazol-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C9H15N4O8P. Molecular weight: 338.21. XLogP: -3.8.,,,,,,PubChem
+pubchem-201,molecule,"3,7,11,15,19,23,27-heptamethyloctacosa-2,6,10,14,18,22,26-heptaenyl phosphono hydrogen phosphate",Formula: C35H60O7P2. Molecular weight: 654.8. XLogP: 10.0.,,,,,,PubChem
+pubchem-202,molecule,"3,7,11,15,19,23-hexamethyltetracosa-2,6,10,14,18,22-hexaenyl phosphono hydrogen phosphate",Formula: C30H52O7P2. Molecular weight: 586.7. XLogP: 8.1.,,,,,,PubChem
+pubchem-203,molecule,"2,2-bis(carbamoylamino)acetic acid",Formula: C4H8N4O4. Molecular weight: 176.13. XLogP: -2.6.,,,,,,PubChem
+pubchem-204,molecule,"(2,5-dioxoimidazolidin-4-yl)urea",Formula: C4H6N4O3. Molecular weight: 158.12. XLogP: -2.2.,,,,,,PubChem
+pubchem-205,molecule,2-amino-3-hydroxybutanoic acid,Formula: C4H9NO3. Molecular weight: 119.12. XLogP: -2.9.,,,,,,PubChem
+pubchem-206,molecule,"6-(hydroxymethyl)oxane-2,3,4,5-tetrol",Formula: C6H12O6. Molecular weight: 180.16. XLogP: -2.6.,,,,,,PubChem
+pubchem-207,molecule,2-amino-6-oxohexanoic acid,Formula: C6H11NO3. Molecular weight: 145.16. XLogP: -3.2.,,,,,,PubChem
+pubchem-208,molecule,"(3,4,5,6-tetrahydroxyoxan-2-yl)methyl dihydrogen phosphate",Formula: C6H13O9P. Molecular weight: 260.14. XLogP: -4.2.,,,,,,PubChem
+pubchem-209,molecule,"5-acetamido-2-[2-[5-acetamido-6-[5-acetamido-6-[(3-acetamido-4-amino-4-oxobutanoyl)amino]-4-hydroxy-2-(hydroxymethyl)oxan-3-yl]oxy-4-hydroxy-2-(hydroxymethyl)oxan-3-yl]oxy-3,5-dihydroxy-6-(hydroxymethyl)oxan-4-yl]oxy-4-hydroxy-6-(1,2,3-trihydroxypropyl)oxane-2-carboxylic acid",Formula: C39H64N6O26. Molecular weight: 1032.9. XLogP: -11.1.,,,,,,PubChem
+pubchem-210,molecule,"5-acetamido-2-[[6-[5-acetamido-4,6-dihydroxy-2-(hydroxymethyl)oxan-3-yl]oxy-3,4,5-trihydroxyoxan-2-yl]methoxy]-4-hydroxy-6-(1,2,3-trihydroxypropyl)oxane-2-carboxylic acid",Formula: C25H42N2O19. Molecular weight: 674.6. XLogP: -7.8.,,,,,,PubChem
+pubchem-211,molecule,"2-(5,6-dimethylbenzimidazol-1-yl)-5-(hydroxymethyl)oxolane-3,4-diol",Formula: C14H18N2O4. Molecular weight: 278.3. XLogP: 0.6.,,,,,,PubChem
+pubchem-212,molecule,"[5-(5,6-dimethylbenzimidazol-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C14H19N2O7P. Molecular weight: 358.28. XLogP: -1.1.,,,,,,PubChem
+pubchem-213,molecule,"7-[3-(3-hydroxyoct-1-enyl)-2,6-dioxabicyclo[3.1.1]heptan-4-yl]hept-5-enoic acid",Formula: C20H32O5. Molecular weight: 352.5. XLogP: 3.4.,,,,,,PubChem
+pubchem-214,molecule,7-[3-hydroxy-2-(3-hydroxyoct-1-enyl)-5-oxocyclopentyl]heptanoic acid,Formula: C20H34O5. Molecular weight: 354.5. XLogP: 3.2.,,,,,,PubChem
+pubchem-215,molecule,1-aminopropan-2-one,Formula: C3H7NO. Molecular weight: 73.09. XLogP: -1.0.,,,,,,PubChem
+pubchem-216,molecule,(4-amino-2-methylpyrimidin-5-yl)methyl dihydrogen phosphate,Formula: C6H10N3O4P. Molecular weight: 219.14. XLogP: -1.7.,,,,,,PubChem
+pubchem-217,molecule,(4-amino-2-methylpyrimidin-5-yl)methyl phosphono hydrogen phosphate,Formula: C6H11N3O7P2. Molecular weight: 299.12. XLogP: -2.8.,,,,,,PubChem
+pubchem-218,molecule,"2-amino-6-(hydroxymethyl)-7,8-dihydro-1H-pteridin-4-one",Formula: C7H9N5O2. Molecular weight: 195.18. XLogP: -2.0.,,,,,,PubChem
+pubchem-219,molecule,2-amino-3-oxobutanoic acid,Formula: C4H7NO3. Molecular weight: 117.1. XLogP: -3.4.,,,,,,PubChem
+pubchem-220,molecule,4-diethoxyphosphinothioyloxyaniline,Formula: C10H16NO3PS. Molecular weight: 261.28. XLogP: 2.6.,,,,,,PubChem
+pubchem-221,molecule,"5-amino-6-(2,3,4,5-tetrahydroxypentylamino)-1H-pyrimidine-2,4-dione",Formula: C9H16N4O6. Molecular weight: 276.25. XLogP: -3.2.,,,,,,PubChem
+pubchem-222,molecule,azane,Formula: H3N. Molecular weight: 17.031. XLogP: -0.7.,,,,,,PubChem
+pubchem-223,molecule,azanium,Formula: H4N+. Molecular weight: 18.039. XLogP: -0.7.,,,,,,PubChem
+pubchem-224,molecule,"[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C10H14N5O7P. Molecular weight: 347.22. XLogP: -3.5.,,,,,,PubChem
+pubchem-225,molecule,"3-hydroxy-10,13-dimethyl-1,2,3,4,5,6,7,8,9,11,12,14,15,16-tetradecahydrocyclopenta[a]phenanthren-17-one",Formula: C19H30O2. Molecular weight: 290.4. XLogP: 3.7.,,,,,,PubChem
+pubchem-226,molecule,amino(phosphanyl)methanol,Formula: CH6NOP. Molecular weight: 79.038. XLogP: -1.5.,,,,,,PubChem
+pubchem-227,molecule,2-aminobenzoic acid,Formula: C7H7NO2. Molecular weight: 137.14. XLogP: 1.2.,,,,,,PubChem
+pubchem-228,molecule,"[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methyl sulfo hydrogen phosphate",Formula: C10H14N5O10PS. Molecular weight: 427.29. XLogP: -3.9.,,,,,,PubChem
+pubchem-229,molecule,"oxane-2,3,4,5-tetrol",Formula: C5H10O5. Molecular weight: 150.13. XLogP: -2.5.,,,,,,PubChem
+pubchem-230,molecule,"(2,3,4-trihydroxy-5-oxopentyl) dihydrogen phosphate",Formula: C5H11O8P. Molecular weight: 230.11. XLogP: -3.4.,,,,,,PubChem
+pubchem-231,molecule,"icosa-5,8,11,14-tetraenoic acid",Formula: C20H32O2. Molecular weight: 304.5. XLogP: 6.3.,,,,,,PubChem
+pubchem-232,molecule,2-amino-5-(diaminomethylideneamino)pentanoic acid,Formula: C6H14N4O2. Molecular weight: 174.2. XLogP: -4.2.,,,,,,PubChem
+pubchem-233,molecule,hydrogen arsorate,Formula: AsHO4-2. Molecular weight: 139.927. XLogP: nan.,,,,,,PubChem
+pubchem-234,molecule,arsoric acid,Formula: AsH3O4. Molecular weight: 141.943. XLogP: nan.,,,,,,PubChem
+pubchem-235,molecule,"2-(1,2-dihydroxyethyl)-4,5-dihydroxyfuran-3-one",Formula: C6H8O6. Molecular weight: 176.12. XLogP: -1.8.,,,,,,PubChem
+pubchem-236,molecule,"2,4-diamino-4-oxobutanoic acid",Formula: C4H8N2O3. Molecular weight: 132.12. XLogP: -3.4.,,,,,,PubChem
+pubchem-237,molecule,"4-N-(6-chloro-2-methoxyacridin-9-yl)-1-N,1-N-diethylpentane-1,4-diamine",Formula: C23H30ClN3O. Molecular weight: 400.0. XLogP: 6.0.,,,,,,PubChem
+pubchem-238,molecule,"[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] phosphono hydrogen phosphate",Formula: C10H16N5O13P3. Molecular weight: 507.18. XLogP: -5.7.,,,,,,PubChem
+pubchem-239,molecule,3-aminopropanoic acid,Formula: C3H7NO2. Molecular weight: 89.09. XLogP: -3.0.,,,,,,PubChem
+pubchem-240,molecule,benzaldehyde,Formula: C7H6O. Molecular weight: 106.12. XLogP: 1.5.,,,,,,PubChem
+pubchem-241,molecule,benzene,Formula: C6H6. Molecular weight: 78.11. XLogP: 2.1.,,,,,,PubChem
+pubchem-242,molecule,benzoate,Formula: C7H5O2-. Molecular weight: 121.11. XLogP: 2.5.,,,,,,PubChem
+pubchem-243,molecule,benzoic acid,Formula: C7H6O2. Molecular weight: 122.12. XLogP: 1.9.,,,,,,PubChem
+pubchem-244,molecule,phenylmethanol,Formula: C7H8O. Molecular weight: 108.14. XLogP: 1.1.,,,,,,PubChem
+pubchem-245,molecule,"N-[2,4-dihydroxy-6-(hydroxymethyl)-5-[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxyoxan-3-yl]acetamide",Formula: C14H25NO11. Molecular weight: 383.35. XLogP: -4.7.,,,,,,PubChem
+pubchem-246,molecule,"(10,13-dimethyl-17-oxo-1,2,3,4,5,6,7,8,9,11,12,14,15,16-tetradecahydrocyclopenta[a]phenanthren-3-yl) hydrogen sulfate",Formula: C19H30O5S. Molecular weight: 370.5. XLogP: 3.3.,,,,,,PubChem
+pubchem-247,molecule,2-(trimethylazaniumyl)acetate,Formula: C5H11NO2. Molecular weight: 117.15. XLogP: 0.5.,,,,,,PubChem
+pubchem-248,molecule,carboxymethyl(trimethyl)azanium,Formula: C5H12NO2+. Molecular weight: 118.15. XLogP: -0.1.,,,,,,PubChem
+pubchem-249,molecule,trimethyl(2-oxoethyl)azanium,Formula: C5H12NO+. Molecular weight: 102.15. XLogP: -0.2.,,,,,,PubChem
+pubchem-250,molecule,3-[2-[[3-(2-carboxyethyl)-5-[(3-ethenyl-4-methyl-5-oxopyrrol-2-ylidene)methyl]-4-methyl-1H-pyrrol-2-yl]methyl]-5-[(4-ethenyl-3-methyl-5-oxopyrrol-2-ylidene)methyl]-4-methyl-1H-pyrrol-3-yl]propanoic acid,Formula: C33H36N4O6. Molecular weight: 584.7. XLogP: 2.9.,,,,,,PubChem
+pubchem-251,molecule,3-[2-[[3-(2-carboxyethyl)-5-[(3-ethenyl-4-methyl-5-oxopyrrol-2-ylidene)methyl]-4-methyl-1H-pyrrol-2-yl]methylidene]-5-[(4-ethenyl-3-methyl-5-oxopyrrol-2-yl)methylidene]-4-methylpyrrol-3-yl]propanoic acid,Formula: C33H34N4O6. Molecular weight: 582.6. XLogP: 2.5.,,,,,,PubChem
+pubchem-252,molecule,"2-amino-6-(1,2-dihydroxypropyl)-7,8-dihydro-1H-pteridin-4-one",Formula: C9H13N5O3. Molecular weight: 239.23. XLogP: -2.2.,,,,,,PubChem
+pubchem-253,molecule,"5-(2-oxo-1,3,3a,4,6,6a-hexahydrothieno[3,4-d]imidazol-4-yl)pentanoic acid",Formula: C10H16N2O3S. Molecular weight: 244.31. XLogP: 0.3.,,,,,,PubChem
+pubchem-254,molecule,"3-phenylbenzene-1,2-diol",Formula: C12H10O2. Molecular weight: 186.21. XLogP: 2.7.,,,,,,PubChem
+pubchem-255,molecule,bis(4-nitrophenyl) hydrogen phosphate,Formula: C12H9N2O8P. Molecular weight: 340.18. XLogP: 1.0.,,,,,,PubChem
+pubchem-256,molecule,[5-hydroxy-2-[[3-hydroxy-5-(3-hydroxytetradecanoylamino)-4-(3-hydroxytetradecanoyloxy)-6-phosphonooxyoxan-2-yl]methoxy]-6-(hydroxymethyl)-3-(3-hydroxytetradecanoylamino)oxan-4-yl] 3-hydroxytetradecanoate,Formula: C68H129N2O20P. Molecular weight: 1325.7. XLogP: 16.0.,,,,,,PubChem
+pubchem-257,molecule,[3-hydroxy-2-(hydroxymethyl)-5-(3-hydroxytetradecanoylamino)-6-phosphonooxyoxan-4-yl] 3-hydroxytetradecanoate,Formula: C34H66NO12P. Molecular weight: 711.9. XLogP: 7.2.,,,,,,PubChem
+pubchem-258,molecule,"3-[[3-amino-5-[carbamimidoyl(methyl)amino]pentanoyl]amino]-6-(4-amino-2-oxopyrimidin-1-yl)-3,6-dihydro-2H-pyran-2-carboxylic acid",Formula: C17H26N8O5. Molecular weight: 422.4. XLogP: -5.2.,,,,,,PubChem
+pubchem-259,molecule,bromide,Formula: Br-. Molecular weight: 79.9. XLogP: 1.0.,,,,,,PubChem
+pubchem-260,molecule,bromane,Formula: BrH. Molecular weight: 80.91. XLogP: 1.0.,,,,,,PubChem
+pubchem-261,molecule,butanal,Formula: C4H8O. Molecular weight: 72.11. XLogP: 0.9.,,,,,,PubChem
+pubchem-262,molecule,"butane-2,3-diol",Formula: C4H10O2. Molecular weight: 90.12. XLogP: -0.9.,,,,,,PubChem
+pubchem-263,molecule,butan-1-ol,Formula: C4H10O. Molecular weight: 74.12. XLogP: 0.9.,,,,,,PubChem
+pubchem-264,molecule,butanoic acid,Formula: C4H8O2. Molecular weight: 88.11. XLogP: 0.8.,,,,,,PubChem
+pubchem-265,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] butanethioate",Formula: C25H42N7O17P3S. Molecular weight: 837.6. XLogP: -4.8.,,,,,,PubChem
+pubchem-266,molecule,phosphono butanoate,Formula: C4H9O5P. Molecular weight: 168.08. XLogP: -0.7.,,,,,,PubChem
+pubchem-267,molecule,"6-[[4-[2-[2-[3-acetamido-2-[[[5-(2,4-dioxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-5-hydroxy-6-(hydroxymethyl)oxan-4-yl]oxypropanoylamino]propanoylamino]-4-carboxybutanoyl]amino]-2-amino-7-[[1-(1-carboxyethylamino)-1-oxopropan-2-yl]amino]-7-oxoheptanoic acid",Formula: C41H65N9O28P2. Molecular weight: 1193.9. XLogP: -10.8.,,,,,,PubChem
+pubchem-268,molecule,"4-[2-[2-[3-acetamido-2-[[[5-(2,4-dioxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-5-hydroxy-6-(hydroxymethyl)oxan-4-yl]oxypropanoylamino]propanoylamino]-5-[[6-amino-1-[[1-(1-carboxyethylamino)-1-oxopropan-2-yl]amino]-1-oxohexan-2-yl]amino]-5-oxopentanoic acid",Formula: C40H65N9O26P2. Molecular weight: 1149.9. XLogP: -10.4.,,,,,,PubChem
+pubchem-269,molecule,"6-[[4-[2-[2-[3-acetamido-5-hydroxy-2-[hydroxy-[hydroxy(3,7,11,15,19,23,27,31,35,39,43-undecamethyltetratetraconta-2,6,10,14,18,22,26,30,34,38,42-undecaenoxy)phosphoryl]oxyphosphoryl]oxy-6-(hydroxymethyl)oxan-4-yl]oxypropanoylamino]propanoylamino]-4-carboxybutanoyl]amino]-2-amino-7-[[1-(1-carboxyethylamino)-1-oxopropan-2-yl]amino]-7-oxoheptanoic acid",Formula: C87H143N7O23P2. Molecular weight: 1717.0. XLogP: 11.7.,,,,,,PubChem
+pubchem-270,molecule,"6-[[4-[2-[2-[3-acetamido-5-[3-acetamido-4,5-dihydroxy-6-(hydroxymethyl)oxan-2-yl]oxy-2-[hydroxy-[hydroxy(3,7,11,15,19,23,27,31,35,39,43-undecamethyltetratetraconta-2,6,10,14,18,22,26,30,34,38,42-undecaenoxy)phosphoryl]oxyphosphoryl]oxy-6-(hydroxymethyl)oxan-4-yl]oxypropanoylamino]propanoylamino]-4-carboxybutanoyl]amino]-2-amino-7-[[1-(1-carboxyethylamino)-1-oxopropan-2-yl]amino]-7-oxoheptanoic acid",Formula: C95H156N8O28P2. Molecular weight: 1920.2. XLogP: 9.5.,,,,,,PubChem
+pubchem-271,molecule,calcium(2+),Formula: Ca+2. Molecular weight: 40.08. XLogP: nan.,,,,,,PubChem
+pubchem-272,molecule,calcium dihydride,Formula: CaH2. Molecular weight: 42.09. XLogP: nan.,,,,,,PubChem
+pubchem-273,molecule,"pentane-1,5-diamine",Formula: C5H14N2. Molecular weight: 102.18. XLogP: -0.6.,,,,,,PubChem
+pubchem-274,molecule,"6-(6-aminopurin-9-yl)-2-hydroxy-2-oxo-4a,6,7,7a-tetrahydro-4H-furo[3,2-d][1,3,2]dioxaphosphinin-7-ol",Formula: C10H12N5O6P. Molecular weight: 329.21. XLogP: -2.6.,,,,,,PubChem
+pubchem-275,molecule,2-amino-4-(diaminomethylideneamino)oxybutanoic acid,Formula: C5H12N4O3. Molecular weight: 176.17. XLogP: -4.8.,,,,,,PubChem
+pubchem-276,molecule,carbamate,Formula: CH2NO2-. Molecular weight: 60.032. XLogP: -0.1.,,,,,,PubChem
+pubchem-277,molecule,carbamic acid,Formula: CH3NO2. Molecular weight: 61.04. XLogP: -0.8.,,,,,,PubChem
+pubchem-278,molecule,phosphono carbamate,Formula: CH4NO5P. Molecular weight: 141.02. XLogP: -2.1.,,,,,,PubChem
+pubchem-279,molecule,2-(carbamoylamino)butanedioic acid,Formula: C5H8N2O5. Molecular weight: 176.13. XLogP: -1.9.,,,,,,PubChem
+pubchem-280,molecule,carbon dioxide,Formula: CO2. Molecular weight: 44.009. XLogP: 0.9.,,,,,,PubChem
+pubchem-281,molecule,carbon monoxide,Formula: CO. Molecular weight: 28.01. XLogP: 0.7.,,,,,,PubChem
+pubchem-282,molecule,"3-(5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoic acid",Formula: C9H12O4. Molecular weight: 184.19. XLogP: -0.7.,,,,,,PubChem
+pubchem-283,molecule,formate,Formula: CHO2-. Molecular weight: 45.017. XLogP: 0.5.,,,,,,PubChem
+pubchem-284,molecule,formic acid,Formula: CH2O2. Molecular weight: 46.025. XLogP: -0.2.,,,,,,PubChem
+pubchem-285,molecule,2-aminooxyacetate,Formula: C2H4NO3-. Molecular weight: 90.06. XLogP: -2.7.,,,,,,PubChem
+pubchem-286,molecule,2-aminooxyacetic acid,Formula: C2H5NO3. Molecular weight: 91.07. XLogP: -3.4.,,,,,,PubChem
+pubchem-287,molecule,"2-[(3,4-dihydroxy-2-oxo-5-phosphonooxypentyl)amino]benzoic acid",Formula: C12H16NO9P. Molecular weight: 349.23. XLogP: -1.3.,,,,,,PubChem
+pubchem-288,molecule,3-hydroxy-4-(trimethylazaniumyl)butanoate,Formula: C7H15NO3. Molecular weight: 161.2. XLogP: -0.2.,,,,,,PubChem
+pubchem-289,molecule,"benzene-1,2-diol",Formula: C6H6O2. Molecular weight: 110.11. XLogP: 0.9.,,,,,,PubChem
+pubchem-290,molecule,"[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl phosphono hydrogen phosphate",Formula: C9H15N3O11P2. Molecular weight: 403.18. XLogP: -4.5.,,,,,,PubChem
+pubchem-291,molecule,"2-[[[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxyethyl-trimethylazanium",Formula: C14H27N4O11P2+. Molecular weight: 489.33. XLogP: -3.9.,,,,,,PubChem
+pubchem-292,molecule,"[[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] [3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] hydrogen phosphate",Formula: C15H25N3O16P2. Molecular weight: 565.32. XLogP: -6.5.,,,,,,PubChem
+pubchem-293,molecule,"[2-aminoethoxy(hydroxy)phosphoryl] [5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl hydrogen phosphate",Formula: C11H20N4O11P2. Molecular weight: 446.24. XLogP: -7.2.,,,,,,PubChem
+pubchem-294,molecule,"2-(hydroxymethyl)-6-[4,5,6-trihydroxy-2-(hydroxymethyl)oxan-3-yl]oxyoxane-3,4,5-triol",Formula: C12H22O11. Molecular weight: 342.3. XLogP: -4.7.,,,,,,PubChem
+pubchem-295,molecule,"2-amino-9-(2,7-dihydroxy-2-oxo-4a,6,7,7a-tetrahydro-4H-furo[3,2-d][1,3,2]dioxaphosphinin-6-yl)-3H-purin-6-one",Formula: C10H12N5O7P. Molecular weight: 345.21. XLogP: -3.4.,,,,,,PubChem
+pubchem-296,molecule,2-methyl-3-oxopropanoic acid,Formula: C4H6O3. Molecular weight: 102.09. XLogP: 0.0.,,,,,,PubChem
+pubchem-297,molecule,methane,Formula: CH4. Molecular weight: 16.043. XLogP: 0.6.,,,,,,PubChem
+pubchem-298,molecule,"2,2-dichloro-N-[1,3-dihydroxy-1-(4-nitrophenyl)propan-2-yl]acetamide",Formula: C11H12Cl2N2O5. Molecular weight: 323.13. XLogP: 1.1.,,,,,,PubChem
+pubchem-299,molecule,"1,2,3,4,6,7,8,9,10,10-decachloropentacyclo[5.3.0.02,6.03,9.04,8]decan-5-one",Formula: C10Cl10O. Molecular weight: 490.6. XLogP: 3.9.,,,,,,PubChem
+pubchem-300,molecule,2-chloroacetic acid,Formula: C2H3ClO2. Molecular weight: 94.5. XLogP: 0.2.,,,,,,PubChem
+pubchem-301,molecule,"2-chlorobenzene-1,4-diol",Formula: C6H5ClO2. Molecular weight: 144.55. XLogP: 1.4.,,,,,,PubChem
+pubchem-302,molecule,"4-(3,12-dihydroxy-10,13-dimethyl-7-oxo-1,2,3,4,5,6,8,9,11,12,14,15,16,17-tetradecahydrocyclopenta[a]phenanthren-17-yl)pentanoic acid",Formula: C24H38O5. Molecular weight: 406.6. XLogP: 3.3.,,,,,,PubChem
+pubchem-303,molecule,"4-(3,7,12-trihydroxy-10,13-dimethyl-2,3,4,5,6,7,8,9,11,12,14,15,16,17-tetradecahydro-1H-cyclopenta[a]phenanthren-17-yl)pentanoic acid",Formula: C24H40O5. Molecular weight: 408.6. XLogP: 3.6.,,,,,,PubChem
+pubchem-304,molecule,"10,13-dimethyl-17-(6-methylheptan-2-yl)-2,3,4,7,8,9,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthren-3-ol",Formula: C27H46O. Molecular weight: 386.7. XLogP: 8.7.,,,,,,PubChem
+pubchem-305,molecule,2-hydroxyethyl(trimethyl)azanium,Formula: C5H14NO+. Molecular weight: 104.17. XLogP: -0.4.,,,,,,PubChem
+pubchem-306,molecule,"3-(1-carboxyethenoxy)-4-hydroxycyclohexa-1,5-diene-1-carboxylic acid",Formula: C10H10O6. Molecular weight: 226.18. XLogP: 0.2.,,,,,,PubChem
+pubchem-307,molecule,3-phenylprop-2-enal,Formula: C9H8O. Molecular weight: 132.16. XLogP: 1.9.,,,,,,PubChem
+pubchem-308,molecule,3-phenylprop-2-en-1-ol,Formula: C9H10O. Molecular weight: 134.17. XLogP: 1.9.,,,,,,PubChem
+pubchem-309,molecule,"prop-1-ene-1,2,3-tricarboxylic acid",Formula: C6H6O6. Molecular weight: 174.11. XLogP: -1.0.,,,,,,PubChem
+pubchem-310,molecule,"hexa-2,4-dienedioic acid",Formula: C6H6O4. Molecular weight: 142.11. XLogP: 0.2.,,,,,,PubChem
+pubchem-311,molecule,"2-hydroxypropane-1,2,3-tricarboxylic acid",Formula: C6H8O7. Molecular weight: 192.12. XLogP: -1.7.,,,,,,PubChem
+pubchem-312,molecule,chloride,Formula: Cl-. Molecular weight: 35.45. XLogP: 0.8.,,,,,,PubChem
+pubchem-313,molecule,chlorane,Formula: ClH. Molecular weight: 36.46. XLogP: 0.8.,,,,,,PubChem
+pubchem-314,molecule,"[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate",Formula: C9H14N3O8P. Molecular weight: 323.2. XLogP: -3.4.,,,,,,PubChem
+pubchem-315,molecule,"8-[[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-4,5,6,7-tetrahydroxy-2-oxooctanoic acid",Formula: C17H26N3O15P. Molecular weight: 543.4. XLogP: -6.0.,,,,,,PubChem
+pubchem-316,molecule,"5-acetamido-2-[[5-(4-amino-2-oxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-4-hydroxy-6-(1,2,3-trihydroxypropyl)oxane-2-carboxylic acid",Formula: C20H31N4O16P. Molecular weight: 614.5. XLogP: -6.7.,,,,,,PubChem
+pubchem-317,molecule,"[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl] [3-hydroxy-2,2-dimethyl-4-oxo-4-[[3-oxo-3-(2-sulfanylethylamino)propyl]amino]butyl] hydrogen phosphate",Formula: C21H36N7O16P3S. Molecular weight: 767.5. XLogP: -5.8.,,,,,,PubChem
+pubchem-318,molecule,"cobalt;3-[2,13,18-tris(2-amino-2-oxoethyl)-12,17-bis(3-amino-3-oxopropyl)-3-[3-(2-hydroxypropylamino)-3-oxopropyl]-3,5,8,8,13,15,18,19-octamethyl-1,2,5,6,7,10,12,17-octahydrocorrin-7-yl]propanamide",Formula: C48H75CoN11O8. Molecular weight: 993.1. XLogP: nan.,,,,,,PubChem
+pubchem-319,molecule,"3-[2,13,18-tris(2-amino-2-oxoethyl)-12,17-bis(3-amino-3-oxopropyl)-3-[3-(2-hydroxypropylamino)-3-oxopropyl]-3,5,8,8,13,15,18,19-octamethyl-1,2,5,6,7,10,12,17-octahydrocorrin-7-yl]propanamide",Formula: C48H75N11O8. Molecular weight: 934.2. XLogP: -4.0.,,,,,,PubChem
+pubchem-320,molecule,"2-(8-hydroxy-7,8-dihydro-4H-imidazo[4,5-d][1,3]diazepin-3-yl)-5-(hydroxymethyl)oxolane-3,4-diol",Formula: C11H16N4O5. Molecular weight: 284.27. XLogP: -3.1.,,,,,,PubChem
+pubchem-321,molecule,"3-[8,12,17-tris(2-carboxyethyl)-3,7,13,18-tetramethyl-5,10,15,20,21,22,23,24-octahydroporphyrin-2-yl]propanoic acid",Formula: C36H44N4O8. Molecular weight: 660.8. XLogP: 3.6.,,,,,,PubChem
+pubchem-322,molecule,3-(4-hydroxyphenyl)prop-2-enoic acid,Formula: C9H8O3. Molecular weight: 164.16. XLogP: 1.5.,,,,,,PubChem
+pubchem-323,molecule,chromen-2-one,Formula: C9H6O2. Molecular weight: 146.14. XLogP: 1.4.,,,,,,PubChem
+pubchem-324,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 3-(4-hydroxyphenyl)prop-2-enethioate",Formula: C30H42N7O18P3S. Molecular weight: 913.7. XLogP: -3.9.,,,,,,PubChem
+pubchem-325,molecule,(4-propan-2-ylphenyl)methanol,Formula: C10H14O. Molecular weight: 150.22. XLogP: 2.3.,,,,,,PubChem
+pubchem-326,molecule,4-propan-2-ylbenzaldehyde,Formula: C10H12O. Molecular weight: 148.2. XLogP: 2.7.,,,,,,PubChem
+pubchem-327,molecule,"5-hydroxy-4-oxo-1,6-dihydropyrrolo[2,3-f]quinoline-2,7,9-tricarboxylic acid",Formula: C14H8N2O8. Molecular weight: 332.22. XLogP: -0.4.,,,,,,PubChem
+pubchem-328,molecule,2-hydroxy-2-(4-hydroxyphenyl)acetic acid,Formula: C8H8O4. Molecular weight: 168.15. XLogP: 0.3.,,,,,,PubChem
+pubchem-329,molecule,"(3,4-dihydroxy-5-methylsulfanyl-2-oxopentyl) dihydrogen phosphate",Formula: C6H13O7PS. Molecular weight: 260.2. XLogP: -2.4.,,,,,,PubChem
+pubchem-330,molecule,"10,13-dimethyl-17-(6-methylheptan-2-yl)-2,3,4,5,6,7,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthren-3-ol",Formula: C27H46O. Molecular weight: 386.7. XLogP: 8.0.,,,,,,PubChem
+pubchem-331,molecule,"3,5-diaminohexanoic acid",Formula: C6H14N2O2. Molecular weight: 146.19. XLogP: -3.6.,,,,,,PubChem
+pubchem-332,molecule,4-ethenyl-2-methoxyphenol,Formula: C9H10O2. Molecular weight: 150.17. XLogP: 2.4.,,,,,,PubChem
+pubchem-333,molecule,"[5-[(5-amino-2,4-dioxo-1H-pyrimidin-6-yl)amino]-2,3,4-trihydroxypentyl] dihydrogen phosphate",Formula: C9H17N4O9P. Molecular weight: 356.23. XLogP: -4.3.,,,,,,PubChem
+pubchem-334,molecule,"7-hydroxy-10,13-dimethyl-17-(6-methylheptan-2-yl)-1,2,6,7,8,9,11,12,14,15,16,17-dodecahydrocyclopenta[a]phenanthren-3-one",Formula: C27H44O2. Molecular weight: 400.6. XLogP: 7.3.,,,,,,PubChem
+pubchem-335,molecule,2-methylphenol,Formula: C7H8O. Molecular weight: 108.14. XLogP: 2.0.,,,,,,PubChem
+pubchem-336,molecule,2-(carbamoylamino)-2-hydroxyacetic acid,Formula: C3H6N2O4. Molecular weight: 134.09. XLogP: -2.0.,,,,,,PubChem
+pubchem-337,molecule,"3,4,5-trihydroxypentan-2-one",Formula: C5H10O4. Molecular weight: 134.13. XLogP: -2.0.,,,,,,PubChem
+pubchem-338,molecule,2-hydroxybenzoic acid,Formula: C7H6O3. Molecular weight: 138.12. XLogP: 2.3.,,,,,,PubChem
+pubchem-339,molecule,2-aminoethylphosphonic acid,Formula: C2H8NO3P. Molecular weight: 125.06. XLogP: -4.8.,,,,,,PubChem
+pubchem-340,molecule,"3-methylbenzene-1,2-diol",Formula: C7H8O2. Molecular weight: 124.14. XLogP: 1.8.,,,,,,PubChem
+pubchem-341,molecule,"3,4-dihydroxy-5-(3,4,5-trihydroxybenzoyl)oxybenzoic acid",Formula: C14H10O9. Molecular weight: 322.22. XLogP: 1.1.,,,,,,PubChem
+pubchem-342,molecule,3-methylphenol,Formula: C7H8O. Molecular weight: 108.14. XLogP: 2.0.,,,,,,PubChem
+pubchem-343,molecule,"2-hydroxy-2-oxo-3a,4,5,6,7,7a-hexahydrobenzo[d][1,3,2]dioxaphosphole-4,5,6,7-tetrol",Formula: C6H11O8P. Molecular weight: 242.12. XLogP: -3.8.,,,,,,PubChem
+pubchem-344,molecule,"3,4,5-trihydroxycyclohexane-1,2-dione",Formula: C6H8O5. Molecular weight: 160.12. XLogP: -2.6.,,,,,,PubChem
+pubchem-345,molecule,"but-2-ene-1,2,3-tricarboxylic acid",Formula: C7H8O6. Molecular weight: 188.13. XLogP: -0.6.,,,,,,PubChem
+pubchem-346,molecule,"2-(hydroxymethyl)-6-(4-hydroxyphenoxy)oxane-3,4,5-triol",Formula: C12H16O7. Molecular weight: 272.25. XLogP: -0.7.,,,,,,PubChem
+pubchem-347,molecule,"2-(hydroxymethyl)-6-[3-(hydroxymethyl)phenoxy]oxane-3,4,5-triol",Formula: C13H18O7. Molecular weight: 286.28. XLogP: -1.4.,,,,,,PubChem
+pubchem-348,molecule,"[3,4,5-trihydroxy-6-(4-hydroxyphenoxy)oxan-2-yl]methyl dihydrogen phosphate",Formula: C12H17O10P. Molecular weight: 352.23. XLogP: -2.4.,,,,,,PubChem
+pubchem-349,molecule,"2,3,5-trihydroxy-6-(hydroxymethyl)oxan-4-one",Formula: C6H10O6. Molecular weight: 178.14. XLogP: -2.2.,,,,,,PubChem
+pubchem-350,molecule,3-phosphonooxy-2-(7-sulfanylheptanoylamino)butanoic acid,Formula: C11H22NO7PS. Molecular weight: 343.34. XLogP: -0.3.,,,,,,PubChem
+pubchem-351,molecule,3-phosphonooxy-2-[7-(2-sulfoethyldisulfanyl)heptanoylamino]butanoic acid,Formula: C13H26NO10PS3. Molecular weight: 483.5. XLogP: -1.1.,,,,,,PubChem
+pubchem-352,molecule,"4-amino-5-[[2-amino-6-[1,2-bis[(2-amino-4-carboxybutanoyl)oxy]propyl]-5,8-dihydropteridin-4-yl]oxy]-5-oxopentanoic acid",Formula: C24H34N8O12. Molecular weight: 626.6. XLogP: -9.9.,,,,,,PubChem
+pubchem-353,molecule,"4-amino-5-[[2-amino-6-[1,2-bis[(2-amino-4-carboxybutanoyl)oxy]propyl]-5-methyl-8H-pteridin-4-yl]oxy]-5-oxopentanoic acid",Formula: C25H36N8O12. Molecular weight: 640.6. XLogP: -9.9.,,,,,,PubChem
+pubchem-354,molecule,2-oxohept-3-enedioic acid,Formula: C7H8O5. Molecular weight: 172.13. XLogP: -0.1.,,,,,,PubChem
+pubchem-355,molecule,2-(4-hydroxyphenyl)-2-oxoacetic acid,Formula: C8H6O4. Molecular weight: 166.13. XLogP: 1.0.,,,,,,PubChem
+pubchem-356,molecule,octane,Formula: C8H18. Molecular weight: 114.23. XLogP: 3.9.,,,,,,PubChem
+pubchem-357,molecule,"1,3,4,6-tetrachlorocyclohexa-1,4-diene",Formula: C6H4Cl4. Molecular weight: 217.9. XLogP: 3.2.,,,,,,PubChem
+pubchem-358,molecule,5-amino-3-oxohexanoic acid,Formula: C6H11NO3. Molecular weight: 145.16. XLogP: -3.2.,,,,,,PubChem
+pubchem-359,molecule,"benzene-1,3,5-triol",Formula: C6H6O3. Molecular weight: 126.11. XLogP: 0.2.,,,,,,PubChem
+pubchem-360,molecule,"3,8-dimethyldec-7-enyl [3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] hydrogen phosphate",Formula: C18H35O9P. Molecular weight: 426.4. XLogP: 1.5.,,,,,,PubChem
+pubchem-361,molecule,"3,5-dihydroxycyclohex-2-en-1-one",Formula: C6H8O3. Molecular weight: 128.13. XLogP: -0.7.,,,,,,PubChem
+pubchem-362,molecule,"1,2-dihydronaphthalene-1,2-diol",Formula: C10H10O2. Molecular weight: 162.18. XLogP: 0.8.,,,,,,PubChem
+pubchem-363,molecule,2-aminoacetaldehyde,Formula: C2H5NO. Molecular weight: 59.07. XLogP: -1.2.,,,,,,PubChem
+pubchem-364,molecule,"2,3-diaminopropanoic acid",Formula: C3H8N2O2. Molecular weight: 104.11. XLogP: -4.3.,,,,,,PubChem
+pubchem-365,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] octadeca-9,12-dienethioate",Formula: C39H66N7O17P3S. Molecular weight: 1030.0. XLogP: 1.1.,,,,,,PubChem
+pubchem-366,molecule,(4-methyl-2-oxochromen-7-yl) acetate,Formula: C12H10O4. Molecular weight: 218.2. XLogP: 2.0.,,,,,,PubChem
+pubchem-367,molecule,2-hydroxy-4-methylchromen-7-one,Formula: C10H8O3. Molecular weight: 176.17. XLogP: 0.7.,,,,,,PubChem
+pubchem-368,molecule,"N'-(4-aminobutyl)butane-1,4-diamine",Formula: C8H21N3. Molecular weight: 159.27. XLogP: -0.7.,,,,,,PubChem
+pubchem-369,molecule,"6-[[[5-(2-amino-6-oxo-3H-purin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-dihydroxy-lambda5-phosphanyl]oxy-3,4,5-trihydroxyoxane-2-carboxylic acid",Formula: C16H25N5O17P2. Molecular weight: 621.3. XLogP: -6.7.,,,,,,PubChem
+pubchem-370,molecule,"3,4,5-trihydroxybenzoic acid",Formula: C7H6O5. Molecular weight: 170.12. XLogP: 0.7.,,,,,,PubChem
+pubchem-371,molecule,but-2-ynedioic acid,Formula: C4H2O4. Molecular weight: 114.06. XLogP: 0.1.,,,,,,PubChem
+pubchem-372,molecule,"6-oxopyran-2,4-dicarboxylic acid",Formula: C7H4O6. Molecular weight: 184.1. XLogP: -0.2.,,,,,,PubChem
+pubchem-373,molecule,"2-(2,2-dihydroxyethenyl)-4-oxopent-2-enedioic acid",Formula: C7H6O7. Molecular weight: 202.12. XLogP: -0.6.,,,,,,PubChem
+pubchem-374,molecule,"4-oxobut-2-ene-1,2,4-tricarboxylic acid",Formula: C7H6O7. Molecular weight: 202.12. XLogP: -1.1.,,,,,,PubChem
+pubchem-375,molecule,"3,7,11,15,19,23,27,31,35,39,43-undecamethyltetratetraconta-2,6,10,14,18,22,26,30,34,38,42-undecaen-1-ol",Formula: C55H90O. Molecular weight: 767.3. XLogP: 19.6.,,,,,,PubChem
+pubchem-376,molecule,3-hydroxy-5-oxohexanoic acid,Formula: C6H10O4. Molecular weight: 146.14. XLogP: -1.2.,,,,,,PubChem
+pubchem-377,molecule,"[3-acetamido-4,5-dihydroxy-6-(hydroxymethyl)oxan-2-yl] [3,8-dimethyldec-7-enoxy(hydroxy)phosphoryl] hydrogen phosphate",Formula: C20H39NO12P2. Molecular weight: 547.5. XLogP: 0.4.,,,,,,PubChem
+pubchem-378,molecule,(4-nitrophenyl) dihydrogen phosphate,Formula: C6H6NO6P. Molecular weight: 219.09. XLogP: 0.3.,,,,,,PubChem
+pubchem-379,molecule,octanoic acid,Formula: C8H16O2. Molecular weight: 144.21. XLogP: 3.0.,,,,,,PubChem
+pubchem-380,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] octanethioate",Formula: C29H50N7O17P3S. Molecular weight: 893.7. XLogP: -2.6.,,,,,,PubChem
+pubchem-381,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 3-hydroxy-5-oxohexanethioate",Formula: C27H44N7O19P3S. Molecular weight: 895.7. XLogP: -6.7.,,,,,,PubChem
+pubchem-382,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 4-hydroxybenzenecarbothioate",Formula: C28H40N7O18P3S. Molecular weight: 887.6. XLogP: -4.3.,,,,,,PubChem
+pubchem-383,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 4-(3,7,12-trihydroxy-10,13-dimethyl-2,3,4,5,6,7,8,9,11,12,14,15,16,17-tetradecahydro-1H-cyclopenta[a]phenanthren-17-yl)pentanethioate",Formula: C45H74N7O20P3S. Molecular weight: 1158.1. XLogP: -1.9.,,,,,,PubChem
+pubchem-384,molecule,2-(1-carboxyethylamino)pentanoic acid,Formula: C8H15NO4. Molecular weight: 189.21. XLogP: -1.6.,,,,,,PubChem
+pubchem-385,molecule,heptanedioic acid,Formula: C7H12O4. Molecular weight: 160.17. XLogP: 0.5.,,,,,,PubChem
+pubchem-386,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 3,7,11,15-tetramethylhexadecanethioate",Formula: C41H74N7O17P3S. Molecular weight: 1062.1. XLogP: 2.9.,,,,,,PubChem
+pubchem-387,molecule,"S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 2-phenylethanethioate",Formula: C29H42N7O17P3S. Molecular weight: 885.7. XLogP: -4.0.,,,,,,PubChem
+pubchem-388,molecule,"4-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethylsulfanyl]-2-hydroxy-4-oxobutanoic acid",Formula: C25H40N7O20P3S. Molecular weight: 883.6. XLogP: -6.8.,,,,,,PubChem
+pubchem-389,molecule,"2,5-diaminopentanoic acid",Formula: C5H12N2O2. Molecular weight: 132.16. XLogP: -4.4.,,,,,,PubChem
+pubchem-390,molecule,"6-[[[5-(2,4-dioxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-3,4,5-trihydroxyoxane-2-carboxylic acid",Formula: C15H22N2O18P2. Molecular weight: 580.28. XLogP: -6.4.,,,,,,PubChem
+pubchem-391,molecule,"3,8-dimethyldec-7-enyl phosphono hydrogen phosphate",Formula: C12H26O7P2. Molecular weight: 344.28. XLogP: 2.0.,,,,,,PubChem
+pubchem-392,molecule,"3,6-diaminohexanoic acid",Formula: C6H14N2O2. Molecular weight: 146.19. XLogP: -3.7.,,,,,,PubChem
+pubchem-393,molecule,"2,4,5-trihydroxy-3-oxo-6-phosphonooxyhexanoic acid",Formula: C6H11O10P. Molecular weight: 274.12. XLogP: -3.9.,,,,,,PubChem
+pubchem-394,molecule,"3-[7,12-bis[1-[2-amino-3-(methylamino)-3-oxopropyl]sulfanylethyl]-18-(2-carboxyethyl)-8-ethyl-3,13,17-trimethyl-6H-porphyrin-21,22,23-triid-2-yl]propanoic acid;iron(3+)",Formula: C43H55FeN8O6S2. Molecular weight: 899.9. XLogP: nan.,,,,,,PubChem
+pubchem-395,molecule,"3-[7,12-bis[1-[2-amino-3-(methylamino)-3-oxopropyl]sulfanylethyl]-18-(2-carboxyethyl)-8-ethyl-3,13,17-trimethyl-6,21,23,24-tetrahydroporphyrin-2-yl]propanoic acid",Formula: C43H58N8O6S2. Molecular weight: 847.1. XLogP: -3.7.,,,,,,PubChem
+pubchem-396,molecule,"3-[7,12-bis[1-[2-amino-3-(methylamino)-3-oxopropyl]sulfanylethyl]-18-(2-carboxyethyl)-8-ethyl-3,13,17-trimethyl-6H-porphyrin-21,22,23-triid-2-yl]propanoic acid;iron(2+)",Formula: C43H55FeN8O6S2-. Molecular weight: 899.9. XLogP: nan.,,,,,,PubChem
+pubchem-397,molecule,2-(1H-indol-3-yl)acetamide,Formula: C10H10N2O. Molecular weight: 174.2. XLogP: 0.8.,,,,,,PubChem
+pubchem-398,molecule,2-nitropropane,Formula: C3H7NO2. Molecular weight: 89.09. XLogP: 0.8.,,,,,,PubChem
+pubchem-399,molecule,"buta-1,3-diene-1,2,4-tricarboxylic acid",Formula: C7H6O6. Molecular weight: 186.12. XLogP: -0.5.,,,,,,PubChem
+pubchem-400,molecule,N-(2-formylphenyl)formamide,Formula: C8H7NO2. Molecular weight: 149.15. XLogP: 1.1.,,,,,,PubChem
+pubchem-401,molecule,"4-amino-1,2-oxazolidin-3-one",Formula: C3H6N2O2. Molecular weight: 102.09. XLogP: -1.5.,,,,,,PubChem
+pubchem-402,molecule,sulfane,Formula: H2S. Molecular weight: 34.08. XLogP: 0.5.,,,,,,PubChem
+pubchem-403,molecule,4-aminophenol,Formula: C6H7NO. Molecular weight: 109.13. XLogP: 0.0.,,,,,,PubChem
+pubchem-404,molecule,2-amino-6-(hydroxyamino)hexanoic acid,Formula: C6H14N2O3. Molecular weight: 162.19. XLogP: -3.0.,,,,,,PubChem
+pubchem-405,molecule,"10,13-dimethyl-17-(6-methylheptan-2-yl)-2,3,4,7,8,9,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthrene-3,7-diol",Formula: C27H46O2. Molecular weight: 402.7. XLogP: 7.4.,,,,,,PubChem
+pubchem-406,molecule,,Formula: HO3P-2. Molecular weight: 79.98. XLogP: -1.8.,,,,,,PubChem
+pubchem-407,molecule,phosphonic acid,Formula: H3O3P. Molecular weight: 81.996. XLogP: -1.6.,,,,,,PubChem
+pubchem-408,molecule,1-methyl-5-pyridin-3-ylpyrrolidin-2-one,Formula: C10H12N2O. Molecular weight: 176.21. XLogP: -0.3.,,,,,,PubChem
+pubchem-409,molecule,3-(1-methyl-1-oxidopyrrolidin-1-ium-2-yl)pyridine,Formula: C10H14N2O. Molecular weight: 178.23. XLogP: 0.7.,,,,,,PubChem
+pubchem-410,molecule,"3,4,5-trihydroxy-6-[3-(1-methylpyrrolidin-2-yl)pyridin-1-ium-1-yl]oxane-2-carboxylic acid",Formula: C16H23N2O6+. Molecular weight: 339.36. XLogP: -2.9.,,,,,,PubChem
+pubchem-411,molecule,"3,4,5-trihydroxy-6-[3-(1-methyl-5-oxopyrrolidin-2-yl)pyridin-1-ium-1-yl]oxane-2-carboxylic acid",Formula: C16H21N2O7+. Molecular weight: 353.35. XLogP: -1.6.,,,,,,PubChem
+pubchem-412,molecule,3-pyrrolidin-2-ylpyridine,Formula: C9H12N2. Molecular weight: 148.2. XLogP: 0.2.,,,,,,PubChem
+pubchem-413,molecule,5-pyridin-3-ylpyrrolidin-2-one,Formula: C9H10N2O. Molecular weight: 162.19. XLogP: 0.1.,,,,,,PubChem
+pubchem-414,molecule,3-hydroxy-1-methyl-5-pyridin-3-ylpyrrolidin-2-one,Formula: C10H12N2O2. Molecular weight: 192.21. XLogP: -0.9.,,,,,,PubChem
+pubchem-415,molecule,5-hydroxy-1-methyl-5-pyridin-3-ylpyrrolidin-2-one,Formula: C10H12N2O2. Molecular weight: 192.21. XLogP: -0.5.,,,,,,PubChem
+pubchem-416,molecule,"3,4,5-trihydroxy-6-(1-methyl-2-oxo-5-pyridin-3-ylpyrrolidin-3-yl)oxyoxane-2-carboxylic acid",Formula: C16H20N2O8. Molecular weight: 368.34. XLogP: -1.7.,,,,,,PubChem
+pubchem-417,molecule,"3-chlorohexa-2,4-dienedioic acid",Formula: C6H5ClO4. Molecular weight: 176.55. XLogP: 0.6.,,,,,,PubChem
+pubchem-418,molecule,"cyclohexa-3,5-diene-1,2-diol",Formula: C6H8O2. Molecular weight: 112.13. XLogP: -0.1.,,,,,,PubChem
+pubchem-419,molecule,4-oxohex-2-enedioic acid,Formula: C6H6O5. Molecular weight: 158.11. XLogP: -0.6.,,,,,,PubChem
+pubchem-420,molecule,"10,13-dimethyl-17-(6-methylheptan-2-yl)-2,3,4,5,6,9,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthren-3-ol",Formula: C27H46O. Molecular weight: 386.7. XLogP: 8.3.,,,,,,PubChem
+pubchem-421,molecule,"6,8-bis(sulfanyl)octanoic acid",Formula: C8H16O2S2. Molecular weight: 208.3. XLogP: 1.8.,,,,,,PubChem
+pubchem-422,molecule,"2,3,4,5-tetrahydroxy-6-phosphonooxyhexanoic acid",Formula: C6H13O10P. Molecular weight: 276.14. XLogP: -4.5.,,,,,,PubChem
+pubchem-423,molecule,2-amino-4-oxopentanoic acid,Formula: C5H9NO3. Molecular weight: 131.13. XLogP: -3.7.,,,,,,PubChem
+pubchem-424,molecule,2-aminobutanedioic acid,Formula: C4H7NO4. Molecular weight: 133.1. XLogP: -2.8.,,,,,,PubChem
+pubchem-425,molecule,"1-(2,4-dihydroxyphenyl)-3-(4-hydroxyphenyl)prop-2-en-1-one",Formula: C15H12O4. Molecular weight: 256.25. XLogP: 3.2.,,,,,,PubChem
+pubchem-426,molecule,2-[[1-carboxy-4-(diaminomethylideneamino)butyl]amino]pentanedioic acid,Formula: C11H20N4O6. Molecular weight: 304.3. XLogP: -4.2.,,,,,,PubChem
+pubchem-427,molecule,2-(1-carboxyethylamino)-5-(diaminomethylideneamino)pentanoic acid,Formula: C9H18N4O4. Molecular weight: 246.26. XLogP: -3.7.,,,,,,PubChem
+pubchem-428,molecule,"propane-1,3-diamine",Formula: C3H10N2. Molecular weight: 74.13. XLogP: -1.4.,,,,,,PubChem
+pubchem-429,molecule,"7,8-dimethyl-10-(2,3,4,5-tetrahydroxypentyl)-4a,5-dihydrobenzo[g]pteridine-2,4-dione",Formula: C17H22N4O6. Molecular weight: 378.4. XLogP: -1.3.,,,,,,PubChem
+pubchem-430,molecule,1-methyl-3-(1-methylpyrrolidin-2-yl)pyridin-1-ium,Formula: C11H17N2+. Molecular weight: 177.27. XLogP: 1.3.,,,,,,PubChem
+pubchem-431,molecule,"3-(1-methyl-3,4-dihydro-2H-pyrrol-1-ium-2-yl)pyridine",Formula: C10H13N2+. Molecular weight: 161.22. XLogP: 0.2.,,,,,,PubChem
+pubchem-432,molecule,1-methyl-2-pyridin-3-ylpyrrolidin-2-ol,Formula: C10H14N2O. Molecular weight: 178.23. XLogP: 0.4.,,,,,,PubChem
+pubchem-433,molecule,1-(hydroxymethyl)-5-pyridin-3-ylpyrrolidin-2-one,Formula: C10H12N2O2. Molecular weight: 192.21. XLogP: -0.4.,,,,,,PubChem
+pubchem-434,molecule,4-(methylamino)-1-pyridin-3-ylbutan-1-one,Formula: C10H14N2O. Molecular weight: 178.23. XLogP: 0.3.,,,,,,PubChem
+pubchem-435,molecule,4-oxo-4-pyridin-3-ylbutanamide,Formula: C9H10N2O2. Molecular weight: 178.19. XLogP: -0.8.,,,,,,PubChem
+pubchem-436,molecule,N-methyl-4-oxo-4-pyridin-3-ylbutanamide,Formula: C10H12N2O2. Molecular weight: 192.21. XLogP: -0.3.,,,,,,PubChem
+pubchem-437,molecule,4-oxo-4-pyridin-3-ylbutanoic acid,Formula: C9H9NO3. Molecular weight: 179.17. XLogP: -0.1.,,,,,,PubChem
+pubchem-438,molecule,4-hydroxy-4-pyridin-3-ylbutanoic acid,Formula: C9H11NO3. Molecular weight: 181.19. XLogP: -0.1.,,,,,,PubChem
+pubchem-439,molecule,4-pyridin-3-ylbut-3-enoic acid,Formula: C9H9NO2. Molecular weight: 163.17. XLogP: 0.8.,,,,,,PubChem
+pubchem-440,molecule,"10,13-dimethyl-17-(6-methylheptan-2-yl)-1,2,6,7,8,9,11,12,14,15,16,17-dodecahydrocyclopenta[a]phenanthren-3-one",Formula: C27H44O. Molecular weight: 384.6. XLogP: 8.4.,,,,,,PubChem
+pubchem-441,molecule,3-hydroxybutanoic acid,Formula: C4H8O3. Molecular weight: 104.1. XLogP: -0.5.,,,,,,PubChem
+pubchem-442,molecule,"3,4,5-trihydroxy-2-oxo-6-phosphonooxyhexanoic acid",Formula: C6H11O10P. Molecular weight: 274.12. XLogP: -4.0.,,,,,,PubChem
+pubchem-443,molecule,"10,13-dimethyl-2,4,5,6,7,8,9,11,12,14,15,16-dodecahydro-1H-cyclopenta[a]phenanthrene-3,17-dione",Formula: C19H28O2. Molecular weight: 288.4. XLogP: 3.6.,,,,,,PubChem
+pubchem-444,molecule,2-(tert-butylamino)-1-(3-chlorophenyl)propan-1-one,Formula: C13H18ClNO. Molecular weight: 239.74. XLogP: 3.2.,,,,,,PubChem
+pubchem-445,molecule,2-(tert-butylamino)-1-(3-chlorophenyl)propan-1-ol,Formula: C13H20ClNO. Molecular weight: 241.76. XLogP: 2.7.,,,,,,PubChem
+pubchem-446,molecule,1-(3-chlorophenyl)-2-[(1-hydroxy-2-methylpropan-2-yl)amino]propan-1-one,Formula: C13H18ClNO2. Molecular weight: 255.74. XLogP: 2.2.,,,,,,PubChem
+pubchem-447,molecule,3-chlorobenzoic acid,Formula: C7H5ClO2. Molecular weight: 156.56. XLogP: 2.7.,,,,,,PubChem
+pubchem-448,molecule,2-[(3-chlorobenzoyl)amino]acetic acid,Formula: C9H8ClNO3. Molecular weight: 213.62. XLogP: 0.9.,,,,,,PubChem
+pubchem-449,molecule,"3,5-dihydroxy-3-methylpentanoic acid",Formula: C6H12O4. Molecular weight: 148.16. XLogP: -1.0.,,,,,,PubChem
+pubchem-450,molecule,"13-methyl-6,7,8,9,11,12,14,15,16,17-decahydrocyclopenta[a]phenanthrene-3,17-diol",Formula: C18H24O2. Molecular weight: 272.4. XLogP: 4.0.,,,,,,PubChem
+pubchem-451,molecule,"[[5-(2-amino-6-oxo-3H-purin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] (3,4,5-trihydroxy-6-methyloxan-2-yl) hydrogen phosphate",Formula: C16H25N5O15P2. Molecular weight: 589.3. XLogP: -6.6.,,,,,,PubChem
+pubchem-452,molecule,"2,3,4,5,6-pentahydroxycyclohexan-1-one",Formula: C6H10O6. Molecular weight: 178.14. XLogP: -3.3.,,,,,,PubChem
+pubchem-453,molecule,"hexane-1,2,3,4,5,6-hexol",Formula: C6H14O6. Molecular weight: 182.17. XLogP: -3.1.,,,,,,PubChem
+pubchem-454,molecule,octanal,Formula: C8H16O. Molecular weight: 128.21. XLogP: 2.7.,,,,,,PubChem
+pubchem-455,molecule,"2-amino-6-(2-hydroxypropanoyl)-4a,7,8,8a-tetrahydro-3H-pteridin-4-one",Formula: C9H13N5O3. Molecular weight: 239.23. XLogP: -2.8.,,,,,,PubChem
+pubchem-456,molecule,2-(carbamoylamino)-2-oxoacetic acid,Formula: C3H4N2O4. Molecular weight: 132.08. XLogP: -0.7.,,,,,,PubChem
+pubchem-457,molecule,1-methylpyridin-1-ium-3-carboxamide,Formula: C7H9N2O+. Molecular weight: 137.16. XLogP: -0.1.,,,,,,PubChem
+pubchem-458,molecule,(3-amino-3-carboxypropyl)-dimethylsulfanium,Formula: C6H14NO2S+. Molecular weight: 164.25. XLogP: -3.0.,,,,,,PubChem
+pubchem-459,molecule,"[2-amino-4-oxo-6,7-bis(sulfanyl)-1,5,5a,8,9a,10-hexahydropyrano[3,2-g]pteridin-8-yl]methyl dihydrogen phosphate",Formula: C10H14N5O6PS2. Molecular weight: 395.4. XLogP: -2.9.,,,,,,PubChem
+pubchem-460,molecule,2-methoxyphenol,Formula: C7H8O2. Molecular weight: 124.14. XLogP: 1.3.,,,,,,PubChem
+pubchem-461,molecule,3-hexadecanoyloxy-4-(trimethylazaniumyl)butanoate,Formula: C23H45NO4. Molecular weight: 399.6. XLogP: 7.7.,,,,,,PubChem
+pubchem-462,molecule,(3-carboxy-2-hexadecanoyloxypropyl)-trimethylazanium,Formula: C23H46NO4+. Molecular weight: 400.6. XLogP: 7.1.,,,,,,PubChem
+pubchem-463,molecule,2-(3-carboxypropanoylamino)-5-(diaminomethylideneamino)pentanoic acid,Formula: C10H18N4O5. Molecular weight: 274.27. XLogP: -2.2.,,,,,,PubChem
+pubchem-464,molecule,2-benzamidoacetic acid,Formula: C9H9NO3. Molecular weight: 179.17. XLogP: 0.3.,,,,,,PubChem
+pubchem-465,molecule,"[3,4-dihydroxy-5-(methylsulfanylmethyl)oxolan-2-yl] dihydrogen phosphate",Formula: C6H13O7PS. Molecular weight: 260.2. XLogP: -2.3.,,,,,,PubChem
+pubchem-466,molecule,"[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] dihydrogen phosphate",Formula: C6H13O9P. Molecular weight: 260.14. XLogP: -3.8.,,,,,,PubChem
+pubchem-467,molecule,"[2-methyl-3-(2,6,10,14-tetramethylpentadeca-1,5,9,13-tetraenyl)-2-(4,8,12-trimethyltrideca-3,7,11-trienyl)cyclopropyl]methyl phosphono hydrogen phosphate",Formula: C40H68O7P2. Molecular weight: 722.9. XLogP: 11.6.,,,,,,PubChem
+pubchem-468,molecule,"[2-(4,8-dimethylnona-3,7-dienyl)-2-methyl-3-(2,6,10-trimethylundeca-1,5,9-trienyl)cyclopropyl]methyl phosphono hydrogen phosphate",Formula: C30H52O7P2. Molecular weight: 586.7. XLogP: 7.9.,,,,,,PubChem
+pubchem-469,molecule,2-aminohexanedioic acid,Formula: C6H11NO4. Molecular weight: 161.16. XLogP: -3.1.,,,,,,PubChem
+pubchem-470,molecule,"2,4-diaminobutanoic acid",Formula: C4H10N2O2. Molecular weight: 118.13. XLogP: -4.6.,,,,,,PubChem
+pubchem-471,molecule,"2-(3,4-dihydroxyphenyl)-3,5,7-trihydroxy-2,3-dihydrochromen-4-one",Formula: C15H12O7. Molecular weight: 304.25. XLogP: 1.5.,,,,,,PubChem
+pubchem-472,molecule,"4-(2-aminophenyl)-2,4-dioxobutanoic acid",Formula: C10H9NO4. Molecular weight: 207.18. XLogP: 1.1.,,,,,,PubChem
+pubchem-473,molecule,4-methylsulfanyl-2-oxobutanoic acid,Formula: C5H8O3S. Molecular weight: 148.18. XLogP: 0.3.,,,,,,PubChem
+pubchem-474,molecule,"[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methyl dimethylamino hydrogen phosphate",Formula: C12H19N6O7P. Molecular weight: 390.29. XLogP: -5.0.,,,,,,PubChem
+pubchem-475,molecule,"(3,4,5-trihydroxy-6-methyloxan-2-yl) dihydrogen phosphate",Formula: C6H13O8P. Molecular weight: 244.14. XLogP: -3.2.,,,,,,PubChem
+pubchem-476,molecule,3-hydroxy-3-methyl-5-phosphonooxypentanoic acid,Formula: C6H13O7P. Molecular weight: 228.14. XLogP: -2.1.,,,,,,PubChem
+pubchem-477,molecule,"(2,5-dihydroxy-3,4,6-triphosphonooxycyclohexyl) dihydrogen phosphate",Formula: C6H16O18P4. Molecular weight: 500.08. XLogP: -8.1.,,,,,,PubChem
+pubchem-478,molecule,"(2,4-dihydroxy-3,5,6-triphosphonooxycyclohexyl) dihydrogen phosphate",Formula: C6H16O18P4. Molecular weight: 500.08. XLogP: -8.1.,,,,,,PubChem
+pubchem-479,molecule,"2,4-dihydroxy-3,3-dimethyl-N-[3-oxo-3-(2-sulfanylethylamino)propyl]butanamide",Formula: C11H22N2O4S. Molecular weight: 278.37. XLogP: -1.0.,,,,,,PubChem
+pubchem-480,molecule,"2-(3,4-dihydroxyphenyl)-3,4,5-trihydroxychromen-7-one",Formula: C15H10O7. Molecular weight: 302.23. XLogP: 0.5.,,,,,,PubChem
+pubchem-481,molecule,"(3,4,5,6-tetrahydroxy-2-oxohexyl) dihydrogen phosphate",Formula: C6H13O9P. Molecular weight: 260.14. XLogP: -4.3.,,,,,,PubChem
+pubchem-482,molecule,"(2-hydroxy-3,4,5,6-tetraphosphonooxycyclohexyl) dihydrogen phosphate",Formula: C6H17O21P5. Molecular weight: 580.06. XLogP: -9.2.,,,,,,PubChem
+pubchem-483,molecule,"[3,4-dihydroxy-2-(hydroxymethyl)-5-(phosphonooxymethyl)oxolan-2-yl] dihydrogen phosphate",Formula: C6H14O12P2. Molecular weight: 340.12. XLogP: -5.0.,,,,,,PubChem
+pubchem-484,molecule,1H-imidazol-5-amine,Formula: C3H5N3. Molecular weight: 83.09. XLogP: -0.3.,,,,,,PubChem
+pubchem-485,molecule,2-(trimethylazaniumyl)ethyl sulfate,Formula: C5H13NO4S. Molecular weight: 183.23. XLogP: -0.9.,,,,,,PubChem
+pubchem-486,molecule,trimethyl(2-sulfooxyethyl)azanium,Formula: C5H14NO4S+. Molecular weight: 184.24. XLogP: -0.8.,,,,,,PubChem
+pubchem-487,molecule,2-methylpropanedioic acid,Formula: C4H6O4. Molecular weight: 118.09. XLogP: 0.1.,,,,,,PubChem
+pubchem-488,molecule,2-amino-5-[[1-(carboxymethylamino)-3-formylsulfanyl-1-oxopropan-2-yl]amino]-5-oxopentanoic acid,Formula: C11H17N3O7S. Molecular weight: 335.34. XLogP: -4.3.,,,,,,PubChem
+pubchem-489,molecule,"[2,4,5-trihydroxy-6-(hydroxymethyl)oxan-3-yl]sulfamic acid",Formula: C6H13NO8S. Molecular weight: 259.24. XLogP: -2.4.,,,,,,PubChem
+pubchem-490,molecule,2-oxoethylphosphonic acid,Formula: C2H5O4P. Molecular weight: 124.03. XLogP: -2.1.,,,,,,PubChem
+pubchem-491,molecule,,Formula: O6S3-2. Molecular weight: 192.2. XLogP: -1.5.,,,,,,PubChem
+pubchem-492,molecule,,Formula: H2O6S3. Molecular weight: 194.2. XLogP: -1.4.,,,,,,PubChem
+pubchem-493,molecule,"2-amino-5-[[amino-[[5-[[[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxymethyl]-3,4-dihydroxyoxolan-2-yl]amino]methylidene]amino]pentanoic acid",Formula: C21H35N9O15P2. Molecular weight: 715.5. XLogP: -9.5.,,,,,,PubChem
+pubchem-494,molecule,"5-(methylsulfanylmethyl)oxolane-2,3,4-triol",Formula: C6H12O4S. Molecular weight: 180.22. XLogP: -1.2.,,,,,,PubChem
+pubchem-495,molecule,"2-amino-4-[(3,4,5-trihydroxyoxolan-2-yl)methylsulfanyl]butanoic acid",Formula: C9H17NO6S. Molecular weight: 267.3. XLogP: -4.4.,,,,,,PubChem
+pubchem-496,molecule,N-[3-(4-aminobutylamino)propyl]acetamide,Formula: C9H21N3O. Molecular weight: 187.28. XLogP: -0.8.,,,,,,PubChem
+pubchem-497,molecule,"5-(2-oxo-1,3,3a,4,6,6a-hexahydrothieno[3,4-d]imidazol-4-yl)pentanamide",Formula: C10H17N3O2S. Molecular weight: 243.33. XLogP: -0.3.,,,,,,PubChem
+pubchem-498,molecule,"[[2-amino-4-oxo-6,7-bis(sulfanyl)-1,5,5a,8,9a,10-hexahydropyrano[3,2-g]pteridin-8-yl]methoxy-hydroxyphosphoryl] [5-(2-amino-6-oxo-3H-purin-9-yl)-3,4-dihydroxyoxolan-2-yl]methyl hydrogen phosphate",Formula: C20H26N10O13P2S2. Molecular weight: 740.6. XLogP: -6.2.,,,,,,PubChem
+pubchem-499,molecule,5-oxopyrrolidine-2-carboxylic acid,Formula: C5H7NO3. Molecular weight: 129.11. XLogP: -0.8.,,,,,,PubChem
+pubchem-500,molecule,4-(diaminomethylideneamino)butanoic acid,Formula: C5H11N3O2. Molecular weight: 145.16. XLogP: -1.5.,,,,,,PubChem
