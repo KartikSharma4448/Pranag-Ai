@@ -50,6 +50,7 @@ from universal_index.sources import (
     generate_soil_records,
 )
 from universal_index.state import PipelineStateStore
+from universal_index.storage import build_object_storage_client
 
 
 def parse_args() -> argparse.Namespace:
@@ -150,10 +151,32 @@ def publish_event(cache_backend, payload: dict[str, object]) -> None:
         return None
 
 
+def upload_artifact_if_enabled(
+    storage_client,
+    local_path: str | Path,
+    run_id: str,
+) -> dict[str, str] | None:
+    if storage_client is None:
+        return None
+    path = Path(local_path)
+    if not path.exists():
+        return None
+
+    object_key = storage_client.build_object_key(path, run_id=run_id)
+    object_uri = storage_client.upload_file(path, object_key=object_key)
+    return {
+        "local_path": str(path),
+        "object_key": object_key,
+        "object_uri": object_uri,
+    }
+
+
 def write_combined_outputs(
     sources: dict[str, pd.DataFrame],
     run_id: str,
     refresh_vectors: bool,
+    storage_client,
+    source_artifact_uploads: list[dict[str, str]] | None = None,
     literature_papers: pd.DataFrame | None = None,
 ) -> dict[str, object]:
     combined = concat_frames(list(sources.values()))
@@ -182,6 +205,24 @@ def write_combined_outputs(
     if refresh_vectors:
         vector_summary = refresh_vector_assets(parquet_path=PARQUET_PATH)
 
+    object_storage_artifacts: list[dict[str, str]] = []
+    if source_artifact_uploads:
+        object_storage_artifacts.extend(source_artifact_uploads)
+
+    for artifact_path in [
+        PARQUET_PATH,
+        DUCKDB_PATH,
+        VALIDATION_CSV_PATH,
+        BUILD_SUMMARY_PATH,
+        LITERATURE_PAPERS_RAW_PATH if literature_papers is not None else None,
+        LITERATURE_ENTITY_PATH if "literature_entities" in sources else None,
+    ]:
+        if artifact_path is None:
+            continue
+        uploaded = upload_artifact_if_enabled(storage_client, artifact_path, run_id=run_id)
+        if uploaded is not None:
+            object_storage_artifacts.append(uploaded)
+
     summary = {
         "run_id": run_id,
         "rows_total": int(len(combined)),
@@ -193,6 +234,8 @@ def write_combined_outputs(
         "vector_summary": vector_summary,
         "lake_dir": str(LAKE_DIR),
         "parquet_path": str(PARQUET_PATH),
+        "object_storage_enabled": bool(storage_client is not None),
+        "object_storage_artifacts": object_storage_artifacts,
     }
     INGESTION_SUMMARY_PATH.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     return summary
@@ -202,6 +245,7 @@ def main() -> None:
     args = parse_args()
     ensure_directories()
     cache_backend = build_cache_backend()
+    storage_client = build_object_storage_client()
     state_store = PipelineStateStore()
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     state_store.start_run(
@@ -211,6 +255,7 @@ def main() -> None:
             "refresh_vectors": bool(args.refresh_vectors),
             "max_workers": int(args.max_workers),
             "data_dir": str(DATA_DIR),
+            "object_storage_enabled": bool(storage_client is not None),
         },
     )
 
@@ -231,6 +276,7 @@ def main() -> None:
 
     sources: dict[str, pd.DataFrame] = {}
     literature_papers: pd.DataFrame | None = None
+    source_artifact_uploads: list[dict[str, str]] = []
 
     try:
         with ThreadPoolExecutor(max_workers=max(int(args.max_workers), 1)) as executor:
@@ -252,6 +298,13 @@ def main() -> None:
                         artifact_path=str(artifact_path),
                         metadata={"paper_count": len(papers)},
                     )
+                    uploaded = upload_artifact_if_enabled(
+                        storage_client,
+                        artifact_path,
+                        run_id=run_id,
+                    )
+                    if uploaded is not None:
+                        source_artifact_uploads.append(uploaded)
                     publish_event(
                         cache_backend,
                         {
@@ -273,6 +326,13 @@ def main() -> None:
                     row_count=len(frame),
                     artifact_path=str(artifact_path),
                 )
+                uploaded = upload_artifact_if_enabled(
+                    storage_client,
+                    artifact_path,
+                    run_id=run_id,
+                )
+                if uploaded is not None:
+                    source_artifact_uploads.append(uploaded)
                 publish_event(
                     cache_backend,
                     {
@@ -287,6 +347,8 @@ def main() -> None:
             sources=sources,
             run_id=run_id,
             refresh_vectors=args.refresh_vectors,
+            storage_client=storage_client,
+            source_artifact_uploads=source_artifact_uploads,
             literature_papers=literature_papers,
         )
         state_store.finish_run(

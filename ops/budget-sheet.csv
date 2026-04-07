@@ -1,0 +1,7 @@
+service,expected_monthly_inr,max_monthly_inr,owner,alert_50,alert_75,alert_90,alert_100,status
+compute_api,2500,5000,platform-owner,true,true,true,true,configured
+storage_object,1200,3000,data-owner,true,true,true,true,configured
+vector_db_chroma,800,2000,ml-owner,true,true,true,true,configured
+redis_cache,600,1500,platform-owner,true,true,true,true,configured
+backups_retention,500,1200,ops-owner,true,true,true,true,configured
+monitoring_logging,700,1500,ops-owner,true,true,true,true,configured

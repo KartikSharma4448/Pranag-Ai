@@ -1,261 +1,309 @@
 # PRANA-G Universal Scientific Index
 
-A production-minded MVP for cross-domain scientific retrieval across biology, materials, chemistry, environment, and simulation data.
+A production-minded MVP for cross-domain scientific retrieval and recommendation across biology, materials, chemistry, simulation, and environment context.
 
-This repository is designed to answer one practical question: how do we build a single system where a gene record, a material property, a molecule, a soil context, and an engineering simulation can all be searched through one common interface?
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![DuckDB](https://img.shields.io/badge/DuckDB-Analytics-orange)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Search-purple)
+![Status](https://img.shields.io/badge/Status-MVP%20Ready-brightgreen)
 
-Instead of being a throwaway demo, this codebase is structured as a deployable foundation:
+Author: Kartik Sharma  
+Copyright: (c) Kartik Sharma
 
-- small but real ingestion pipelines
-- a unified scientific schema
-- DuckDB + Parquet analytical storage
-- ChromaDB semantic retrieval
-- FastAPI search and context services
-- Redis-ready cache and event hooks
-- incremental literature ingestion
-- distributed ingestion scaffolding for future scale-up
+## Quick Status
 
-## Why This Exists
+- Repo build: complete
+- API flow: working
+- Search + Recommend: validated
+- Tests: passing
+- CLI + GUI launchers: available
 
-PRANA-G needs a system that can move from idea to scientific context quickly.
-That means one place to:
-
-- search entities across multiple scientific domains
-- reason over meaning, not only keywords
-- attach real-world deployment context like soil and climate
-- stay extendable enough for future production deployment
-
-## What The MVP Already Does
-
-The current implementation supports:
-
-- genes from NCBI/GenBank-style metadata
-- materials from Materials Project or deterministic fallback records
-- molecules from PubChem or deterministic fallback records
-- soil and environment context from local structured datasets
-- simulation-style physics and engineering surrogate entities
-- paper-derived entities from recent PubMed/arXiv ingestion cycles
-
-The system can:
-
-- normalize all entities into one schema
-- write a universal Parquet index
-- query it with DuckDB
-- build semantic embeddings with `sentence-transformers/all-MiniLM-L6-v2`
-- serve search, context, and recommendation APIs
-- run distributed-style ingestion into a partitioned local data lake
-
-## Architecture
+## Live Demo Snapshot
 
 ```text
-Source Connectors
-  -> Raw Snapshots / Data Lake Partitions
-  -> Universal Schema Normalization
-  -> DuckDB + Parquet Index
-  -> ChromaDB Vector Layer
-  -> FastAPI Search / Context / Recommendation APIs
-  -> Cache + Event + Ops Layer
+Recommend Query:
+Design a self healing high temperature material for Rajasthan desert deployment
+
+Output Categories:
+material, molecule, gene, soil
 ```
 
-Core implementation areas:
+<details>
+<summary>Screenshot Section (click to expand)</summary>
 
-- ingestion and normalization in `universal_index/`
-- API service in `api/`
-- processed outputs in `data/processed/`
-- lake partitions in `data/lake/`
-- tests in `tests/`
+You can add screenshots in this repo path and reference them here:
 
-## Stack
+- `docs/screenshots/gui-home.png`
+- `docs/screenshots/api-docs.png`
+- `docs/screenshots/recommend-output.png`
 
-- Python
-- DuckDB
-- Apache Parquet
-- ChromaDB
-- Sentence-Transformers
-- FastAPI
-- Pandas
-- Redis-ready cache abstraction
+Example markdown once images are added:
+
+```markdown
+![GUI Home](docs/screenshots/gui-home.png)
+![API Docs](docs/screenshots/api-docs.png)
+![Recommend Output](docs/screenshots/recommend-output.png)
+```
+
+</details>
+
+## Table of Contents
+
+- [What This Project Does](#what-this-project-does)
+- [System Architecture](#system-architecture)
+- [How Data Flows](#how-data-flows)
+- [API Endpoints](#api-endpoints)
+- [Quick Start](#quick-start)
+- [CLI and GUI Launch](#cli-and-gui-launch)
+- [Configuration](#configuration)
+- [Operations Docs](#operations-docs)
+- [Project Structure](#project-structure)
+- [Validation](#validation)
+- [Production Notes](#production-notes)
+
+---
+
+## What This Project Does
+
+This project creates a single searchable scientific layer where different domains can be queried together.
+
+### Domain coverage
+
+- Biology: gene and related metadata entities
+- Materials: material properties and structures
+- Chemistry: molecule records and descriptors
+- Physics/Simulation: simulation-style entities and properties
+- Environment: location context with soil/climate/agriculture payload
+
+### Core output
+
+One query can return relevant entities from multiple domains, plus location-aware recommendation context.
+
+---
+
+## System Architecture
+
+```text
+Sources (official + fallback)
+  -> Raw snapshots + lake partitions
+  -> Universal schema normalization
+  -> DuckDB + Parquet analytical index
+  -> Vector index (ChromaDB embeddings)
+  -> FastAPI endpoints
+  -> Cache + state tracking + ops artifacts
+```
+
+<details>
+<summary>Components (click to expand)</summary>
+
+- Ingestion: universal_index/distributed_ingest.py
+- Schema: universal_index/schema.py
+- Index build: universal_index/build.py
+- Vector pipeline: universal_index/vector_search.py
+- Context merge: universal_index/context.py
+- API server: api/main.py
+- Cache: universal_index/cache.py
+- State tracking: universal_index/state.py
+- Object storage sync: universal_index/storage.py
+
+</details>
+
+---
+
+## How Data Flows
+
+### Ingestion flow
+
+```text
+distributed_ingest
+  -> parallel source loads
+  -> write lake partitions
+  -> update run/source state
+  -> materialize universal index
+  -> optional vector refresh
+  -> optional object storage upload
+```
+
+### Context flow
+
+```text
+/context(lat, lon)
+  -> local baseline CSV
+  -> official providers (IMD/Bhuvan) if configured
+  -> free fallback providers if enabled
+  -> agri proxy generation
+  -> unified context response
+```
+
+---
+
+## API Endpoints
+
+Base docs URL:
+
+http://127.0.0.1:8000/docs
+
+### Core
+
+- GET /health
+- GET /metrics
+- GET /ops/state
+- GET /search
+- GET /context
+- GET /recommend
+- GET /literature/status
+- GET /ingestion/status
+- GET /entities/high-temperature
+
+<details>
+<summary>Example requests</summary>
+
+- /search?q=self healing high temperature material
+- /context?lat=26.3&lon=73.0&mode=auto
+- /recommend?q=Design a self healing high temperature material for Rajasthan desert deployment&lat=26.3&lon=73.0&context_mode=auto
+
+</details>
+
+---
 
 ## Quick Start
 
-1. Install dependencies.
+### 1) Install dependencies
 
 ```powershell
-python -m pip install --user -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-2. Create your local environment file.
+### 2) Create env file
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-3. Build the universal index.
+### 3) Build index and vectors
 
 ```powershell
 python -m universal_index.build
-```
-
-4. Build the vector layer.
-
-```powershell
 python -m universal_index.vector_search
 ```
 
-5. Run paper ingestion.
-
-```powershell
-python -m universal_index.literature_agent --pubmed 4 --arxiv 4
-```
-
-6. Run the distributed ingestion pipeline.
-
-```powershell
-python -m universal_index.distributed_ingest --include-literature --refresh-vectors
-```
-
-7. Start the API.
+### 4) Start API
 
 ```powershell
 python -m uvicorn api.main:app --reload
 ```
 
-8. Open interactive docs.
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-## API Surface
-
-Main endpoints:
-
-- `GET /health`
-- `GET /metrics`
-- `GET /ops/state`
-- `GET /search?q=...`
-- `GET /context?lat=&lon=&mode=local|auto|live`
-- `GET /recommend?q=&lat=&lon=&context_mode=local|auto|live`
-- `GET /literature/status`
-- `GET /ingestion/status`
-- `GET /entities/high-temperature?min_temperature=45`
-
-Example requests:
-
-```text
-GET /search?q=self healing high temperature material
-GET /context?lat=26.3&lon=73.0&mode=auto
-GET /recommend?q=Design a self healing high temperature material for Rajasthan desert deployment&lat=26.3&lon=73.0&context_mode=auto
-```
-
-## Production-Minded Features
-
-This repo is intentionally structured so that the MVP can evolve into a usable production system.
-
-Already implemented:
-
-- unified schema across multiple scientific domains
-- partitioned local lake outputs
-- Redis-backed cache support with DuckDB fallback
-- live-provider adapters for IMD and Bhuvan-style context refresh
-- optional API key auth
-- rate limiting
-- structured request logging
-- runtime metrics
-- pipeline state tracking
-- CI workflow scaffold
-- Docker + Docker Compose setup
-
-Environment knobs already supported:
-
-- cache backend selection
-- Redis URL / key prefix
-- live context mode
-- IMD endpoint config
-- Bhuvan WMS layer config
-- API auth key / header name
-- rate limit window and request count
-- scheduler interval
-
-## Docker And Redis
-
-Run the API with Redis using Docker Compose:
-
-```powershell
-docker compose up --build
-```
-
-Default compose behavior:
-
-- starts Redis
-- starts the FastAPI application
-- uses `CACHE_BACKEND=redis`
-
-## Live Context Notes
-
-The context layer supports both local and live-oriented behavior.
-
-Modes:
-
-- `local`: only local CSV-backed context
-- `auto`: try live providers first, then fall back locally
-- `live`: force live-provider path
-
-Live provider expectations:
-
-- IMD may require allowlisting, keys, or dataset-specific configuration
-- Bhuvan access depends on valid WMS layer names and available feature info responses
-- if live configuration is unavailable, the system safely falls back to local context
-
-## Scale Context From The Assignment
-
-The original assignment describes a much larger future platform than a laptop-scale project should directly ingest.
-
-Important distinction:
-
-- source universe: very large, multi-TB, with GenBank alone referencing `51.56 trillion` DNA bases
-- MVP implementation: focused, sampled, schema-first, architecture-first
-- production trajectory: metadata streaming, partitioned Parquet, distributed workers, scheduled refresh, and controlled incremental ingestion
-
-So this repository should be described honestly as:
-
-> a production-capable MVP foundation, not the final full-scale PRANA-G deployment.
-
-## Outputs
-
-Key outputs produced by the system:
-
-- `data/processed/universal_index.parquet`
-- `data/processed/universal_index.duckdb`
-- `data/processed/vector_documents.parquet`
-- `data/processed/semantic_query_results.json`
-- `data/processed/distributed_ingestion_summary.json`
-- `data/processed/paper_ingest_summary.json`
-- `data/processed/demo_recommendation.json`
-- `data/lake/` partitioned source data
-
-## Testing
-
-Run the local test suite:
+### 5) Run tests
 
 ```powershell
 python -m unittest discover -s tests -p "test_*.py"
 ```
 
-## Notes For Future Scale-Up
+---
 
-What is still intentionally future-facing:
+## CLI and GUI Launch
 
-- full enterprise access to IMD / Bhuvan / AgriStack data
-- large-scale object storage beyond local disk
-- fully distributed worker fleet and job queue orchestration
-- long-running scheduled ingestion infrastructure
-- high-volume paper ingestion at production cadence
-- cloud monitoring, alerting, and cost dashboards
+- CLI launcher: start_cli.py
+- GUI launcher: start_gui.py
 
-## Repository Character
+### CLI
 
-This project was written to feel like a real engineering build, not an AI-generated checklist dump.
-The goal was to keep the code practical, readable, and extensible so it can survive contact with real product pressure.
+```powershell
+python start_cli.py
+```
 
-<!-- Developer provenance marker: Kartik | original developer copyright trace intentionally retained. -->
+### GUI
+
+```powershell
+python start_gui.py
+```
+
+---
+
+## Configuration
+
+### Main toggles
+
+- CACHE_BACKEND=duckdb|redis
+- LIVE_CONTEXT_MODE=local|auto|live
+- API_AUTH_ENABLED=true|false
+- RATE_LIMIT_ENABLED=true|false
+
+### Free fallback toggles
+
+- FREE_CONTEXT_CLIMATE_ENABLED=true|false
+- FREE_CONTEXT_SOIL_ENABLED=true|false
+- AGRISTACK_PROXY_ENABLED=true|false
+
+### Object storage toggles
+
+- OBJECT_STORAGE_ENABLED=true|false
+- OBJECT_STORAGE_BUCKET=<bucket>
+- OBJECT_STORAGE_ENDPOINT_URL=<endpoint for minio/dev>
+- OBJECT_STORAGE_ACCESS_KEY_ID=<key>
+- OBJECT_STORAGE_SECRET_ACCESS_KEY=<secret>
+
+---
+
+## Operations Docs
+
+The repo includes practical operational documentation and scripts:
+
+- ops/budget-sheet.csv
+- ops/access-register.md
+- ops/secrets-inventory.md
+- ops/storage-decision.md
+- ops/backup-policy.md
+- ops/production-readiness-checklist.md
+- scripts/backup_local.ps1
+- scripts/restore_local.ps1
+
+---
+
+## Project Structure
+
+```text
+Kartik-Work/
+├─ api/
+├─ data/
+├─ tests/
+├─ universal_index/
+│  └─ providers/
+├─ ops/
+├─ scripts/
+├─ start_cli.py
+├─ start_gui.py
+├─ .env.example
+├─ requirements.txt
+└─ README.md
+```
+
+---
+
+## Validation
+
+Validated locally:
+
+- /context: returns unified payload
+- /search: returns multi-domain entities
+- /recommend: returns cross-domain recommended combination keys
+- test suite: passing
+
+---
+
+## Production Notes
+
+Current repo is ready as deployable MVP foundation.  
+External production dependencies still require organization-level completion:
+
+- Official IMD/Bhuvan/AgriStack approvals where mandatory
+- Cloud IAM/service-account governance rollout
+- Production monitoring and alerting hookup
+
+---
+
+## License
+
+Copyright (c) Kartik Sharma.
+All rights reserved unless explicitly stated otherwise.

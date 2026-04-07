@@ -10,3 +10,4 @@ mp-api
 biopython
 requests
 redis
+boto3

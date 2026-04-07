@@ -46,6 +46,11 @@ BHUVAN_WMS_URL = os.getenv("BHUVAN_WMS_URL", "https://bhuvan-vec2.nrsc.gov.in/bh
 BHUVAN_WMS_LAYER = os.getenv("BHUVAN_WMS_LAYER", "").strip()
 BHUVAN_INFO_FORMAT = os.getenv("BHUVAN_INFO_FORMAT", "application/json").strip()
 BHUVAN_PLACE_NAME = os.getenv("BHUVAN_PLACE_NAME", "Bhuvan thematic layer").strip()
+FREE_CONTEXT_CLIMATE_ENABLED = os.getenv("FREE_CONTEXT_CLIMATE_ENABLED", "false").strip().lower() == "true"
+FREE_CONTEXT_SOIL_ENABLED = os.getenv("FREE_CONTEXT_SOIL_ENABLED", "false").strip().lower() == "true"
+AGRISTACK_PROXY_ENABLED = os.getenv("AGRISTACK_PROXY_ENABLED", "true").strip().lower() == "true"
+OPEN_METEO_BASE_URL = os.getenv("OPEN_METEO_BASE_URL", "https://api.open-meteo.com/v1/forecast").strip()
+SOILGRIDS_BASE_URL = os.getenv("SOILGRIDS_BASE_URL", "https://rest.isric.org/soilgrids/v2.0").strip()
 INGESTION_MAX_WORKERS = int(os.getenv("INGESTION_MAX_WORKERS", "4"))
 API_AUTH_ENABLED = os.getenv("API_AUTH_ENABLED", "false").strip().lower() == "true"
 API_KEY_HEADER_NAME = os.getenv("API_KEY_HEADER_NAME", "x-api-key").strip()
@@ -56,6 +61,17 @@ RATE_LIMIT_WINDOW_SECONDS = int(os.getenv("RATE_LIMIT_WINDOW_SECONDS", "60"))
 JSON_LOGS = os.getenv("JSON_LOGS", "true").strip().lower() == "true"
 SCHEDULER_ENABLED = os.getenv("SCHEDULER_ENABLED", "false").strip().lower() == "true"
 SCHEDULER_INTERVAL_MINUTES = int(os.getenv("SCHEDULER_INTERVAL_MINUTES", "60"))
+OBJECT_STORAGE_ENABLED = os.getenv("OBJECT_STORAGE_ENABLED", "false").strip().lower() == "true"
+OBJECT_STORAGE_PROVIDER = os.getenv("OBJECT_STORAGE_PROVIDER", "s3").strip().lower()
+OBJECT_STORAGE_ENDPOINT_URL = os.getenv("OBJECT_STORAGE_ENDPOINT_URL", "").strip()
+OBJECT_STORAGE_REGION = os.getenv("OBJECT_STORAGE_REGION", "us-east-1").strip()
+OBJECT_STORAGE_BUCKET = os.getenv("OBJECT_STORAGE_BUCKET", "").strip()
+OBJECT_STORAGE_PREFIX = os.getenv("OBJECT_STORAGE_PREFIX", "pranag").strip().strip("/")
+OBJECT_STORAGE_ACCESS_KEY_ID = os.getenv("OBJECT_STORAGE_ACCESS_KEY_ID", "").strip()
+OBJECT_STORAGE_SECRET_ACCESS_KEY = os.getenv("OBJECT_STORAGE_SECRET_ACCESS_KEY", "").strip()
+OBJECT_STORAGE_SESSION_TOKEN = os.getenv("OBJECT_STORAGE_SESSION_TOKEN", "").strip()
+OBJECT_STORAGE_S3_ADDRESSING_STYLE = os.getenv("OBJECT_STORAGE_S3_ADDRESSING_STYLE", "auto").strip()
+OBJECT_STORAGE_SSE = os.getenv("OBJECT_STORAGE_SSE", "").strip()
 
 DEFAULT_COUNTS = {
     "genes": 500,

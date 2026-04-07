@@ -1,11 +1,11 @@
 {
-  "rows_total": 1882,
+  "rows_total": 1850,
   "rows_by_type": {
-    "material": 508,
-    "gene": 508,
-    "molecule": 508,
+    "gene": 500,
+    "material": 500,
+    "molecule": 500,
     "soil": 200,
-    "simulation": 158
+    "simulation": 150
   },
   "sources": [
     "FEA structural heat-load surrogate",
@@ -15,12 +15,10 @@
     "NIST thermodynamic reference case",
     "OpenFOAM CFD thermal shock case",
     "PubChem",
-    "PubMed literature agent",
-    "Synthetic soil CSV",
-    "arXiv literature agent"
+    "Synthetic soil CSV"
   ],
-  "parquet_path": "G:\\My Drive\\Pranag\\data\\processed\\universal_index.parquet",
-  "duckdb_path": "G:\\My Drive\\Pranag\\data\\processed\\universal_index.duckdb",
-  "validation_csv_path": "G:\\My Drive\\Pranag\\data\\processed\\temperature_over_45.csv",
-  "validation_rows": 775
+  "parquet_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\universal_index.parquet",
+  "duckdb_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\universal_index.duckdb",
+  "validation_csv_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\temperature_over_45.csv",
+  "validation_rows": 743
 }
