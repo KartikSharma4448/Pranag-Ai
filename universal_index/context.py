@@ -16,6 +16,7 @@ from universal_index.config import (
 from universal_index.providers import (
     build_agristack_proxy_context,
     fetch_bhuvan_soil_context,
+    fetch_copernicus_climate_context,
     fetch_imd_climate_context,
     fetch_open_meteo_climate_context,
     fetch_soilgrids_soil_context,
@@ -80,30 +81,17 @@ def lookup_context(
     normalized_mode = (mode or "auto").strip().lower()
 
     if normalized_mode == "local":
-        local_context["providers"] = {
-            "mode": "local",
-            "soil": "local_csv",
-            "climate": "local_csv",
-            "agriculture": "local_csv",
-        }
-        return local_context
+        return _annotate_providers(local_context, mode="local", soil="local_csv", climate="local_csv")
 
-    live_soil = fetch_bhuvan_soil_context(lat=lat, lon=lon)
-    if live_soil is None and FREE_CONTEXT_SOIL_ENABLED:
-        live_soil = fetch_soilgrids_soil_context(lat=lat, lon=lon)
-
-    live_climate = fetch_imd_climate_context(lat=lat, lon=lon)
-    if live_climate is None and FREE_CONTEXT_CLIMATE_ENABLED:
-        live_climate = fetch_open_meteo_climate_context(lat=lat, lon=lon)
+    live_soil, live_climate, copernicus_climate = _resolve_context_sources(lat=lat, lon=lon)
 
     if normalized_mode == "live" and live_soil is None and live_climate is None:
-        local_context["providers"] = {
-            "mode": "live_failed_fallback",
-            "soil": "local_csv",
-            "climate": "local_csv",
-            "agriculture": "local_csv",
-        }
-        return local_context
+        return _annotate_providers(
+            local_context,
+            mode="live_failed_fallback",
+            soil="local_csv",
+            climate="local_csv",
+        )
 
     merged = merge_context_payload(
         local_context=local_context,
@@ -112,29 +100,15 @@ def lookup_context(
         live_agriculture=None,
     )
 
-    live_agriculture = None
-    if AGRISTACK_PROXY_ENABLED:
-        live_agriculture = build_agristack_proxy_context(
-            soil=merged["soil"],
-            climate=merged["climate"],
-            fallback_agriculture=merged["agriculture"],
-        )
-        merged = merge_context_payload(
-            local_context=merged,
-            live_soil=None,
-            live_climate=None,
-            live_agriculture=live_agriculture,
-        )
-
-    merged["providers"] = {
-        "mode": "auto" if normalized_mode == "auto" else normalized_mode,
-        "soil": live_soil.get("provider", "local_csv") if live_soil else "local_csv",
-        "climate": live_climate.get("provider", "local_csv") if live_climate else "local_csv",
-        "agriculture": (
-            live_agriculture.get("provider", "local_csv") if live_agriculture else "local_csv"
-        ),
-    }
-    return merged
+    merged = _apply_copernicus_projection(merged, copernicus_climate)
+    merged, live_agriculture = _apply_agriculture_proxy(merged)
+    return _annotate_providers(
+        merged,
+        mode="auto" if normalized_mode == "auto" else normalized_mode,
+        soil=live_soil.get("provider", "local_csv") if live_soil else "local_csv",
+        climate=_select_climate_provider(live_climate=live_climate, copernicus_climate=copernicus_climate),
+        agriculture=live_agriculture.get("provider", "local_csv") if live_agriculture else "local_csv",
+    )
 
 
 def lookup_local_context(
@@ -285,3 +259,74 @@ def _merge_agriculture_payload(
         "main_crops": normalized_crops,
         "irrigation": str(irrigation or base_agriculture["irrigation"]),
     }
+
+
+def _resolve_context_sources(lat: float, lon: float) -> tuple[dict[str, object] | None, dict[str, object] | None, dict[str, object] | None]:
+    live_soil = fetch_bhuvan_soil_context(lat=lat, lon=lon)
+    if live_soil is None and FREE_CONTEXT_SOIL_ENABLED:
+        live_soil = fetch_soilgrids_soil_context(lat=lat, lon=lon)
+
+    live_climate = fetch_imd_climate_context(lat=lat, lon=lon)
+    if live_climate is None and FREE_CONTEXT_CLIMATE_ENABLED:
+        live_climate = fetch_open_meteo_climate_context(lat=lat, lon=lon)
+
+    return live_soil, live_climate, fetch_copernicus_climate_context(lat=lat, lon=lon)
+
+
+def _apply_copernicus_projection(
+    merged: dict[str, object],
+    copernicus_climate: dict[str, object] | None,
+) -> dict[str, object]:
+    if copernicus_climate is None:
+        return merged
+    return merge_context_payload(
+        local_context=merged,
+        live_soil=None,
+        live_climate=copernicus_climate,
+        live_agriculture=None,
+    )
+
+
+def _apply_agriculture_proxy(merged: dict[str, object]) -> tuple[dict[str, object], dict[str, object] | None]:
+    if not AGRISTACK_PROXY_ENABLED:
+        return merged, None
+    live_agriculture = build_agristack_proxy_context(
+        soil=merged["soil"],
+        climate=merged["climate"],
+        fallback_agriculture=merged["agriculture"],
+    )
+    merged = merge_context_payload(
+        local_context=merged,
+        live_soil=None,
+        live_climate=None,
+        live_agriculture=live_agriculture,
+    )
+    return merged, live_agriculture
+
+
+def _select_climate_provider(
+    live_climate: dict[str, object] | None,
+    copernicus_climate: dict[str, object] | None,
+) -> str:
+    if copernicus_climate is not None:
+        return str(copernicus_climate.get("provider", "local_csv"))
+    if live_climate is not None:
+        return str(live_climate.get("provider", "local_csv"))
+    return "local_csv"
+
+
+def _annotate_providers(
+    context: dict[str, object],
+    mode: str,
+    soil: str,
+    climate: str,
+    agriculture: str = "local_csv",
+) -> dict[str, object]:
+    payload = dict(context)
+    payload["providers"] = {
+        "mode": mode,
+        "soil": soil,
+        "climate": climate,
+        "agriculture": agriculture,
+    }
+    return payload

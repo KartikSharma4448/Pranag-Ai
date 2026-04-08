@@ -17,8 +17,8 @@
     "PubChem",
     "Synthetic soil CSV"
   ],
-  "parquet_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\universal_index.parquet",
-  "duckdb_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\universal_index.duckdb",
-  "validation_csv_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\temperature_over_45.csv",
+  "parquet_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\universal_index.parquet",
+  "duckdb_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\universal_index.duckdb",
+  "validation_csv_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\temperature_over_45.csv",
   "validation_rows": 743
 }

@@ -18,6 +18,9 @@ Copyright: (c) Kartik Sharma
 - Search + Recommend: validated
 - Tests: passing
 - CLI + GUI launchers: available
+- Expanded source adapters: GenBank metadata, UniProt, PDB, AlphaFold surrogate, boltz1 surrogate, ChEMBL, ZINC20 surrogate, AFLOW surrogate, OQMD surrogate, NASA surrogate, NIST surrogate, OpenFOAM surrogate
+- Scheduler path: available behind `SCHEDULER_ENABLED=true`
+- Benchmark runner: available via `python -m universal_index.benchmark` or the GUI button
 
 ## Live Demo Snapshot
 
@@ -66,15 +69,15 @@ Example markdown once images are added:
 
 ## What This Project Does
 
-This project creates a single searchable scientific layer where different domains can be queried together.
+This project creates a single searchable scientific layer where biology, materials, chemistry, physics, and Indian location context can be queried together.
 
 ### Domain coverage
 
-- Biology: gene and related metadata entities
-- Materials: material properties and structures
-- Chemistry: molecule records and descriptors
-- Physics/Simulation: simulation-style entities and properties
-- Environment: location context with soil/climate/agriculture payload
+- Biology: genes, GenBank metadata, proteins, PDB structures, AlphaFold/boltz1 structure surrogates
+- Materials: material properties, crystal candidates, and surrogate AFLOW/OQMD/NASA records
+- Chemistry: molecules, PubChem descriptors, ZINC20 surrogates, and ChEMBL bioactivity records
+- Physics/Simulation: simulation-style entities, OpenFOAM surrogates, and NIST thermodynamic records
+- Environment: location context with soil/climate/agriculture payload from local, official, free, and Copernicus projection providers
 
 ### Core output
 
@@ -85,13 +88,14 @@ One query can return relevant entities from multiple domains, plus location-awar
 ## System Architecture
 
 ```text
-Sources (official + fallback)
+Sources (official + fallback + surrogate adapters)
   -> Raw snapshots + lake partitions
   -> Universal schema normalization
   -> DuckDB + Parquet analytical index
   -> Vector index (ChromaDB embeddings)
   -> FastAPI endpoints
   -> Cache + state tracking + ops artifacts
+  -> Optional scheduler-driven refresh loop
 ```
 
 <details>
@@ -102,6 +106,8 @@ Sources (official + fallback)
 - Index build: universal_index/build.py
 - Vector pipeline: universal_index/vector_search.py
 - Context merge: universal_index/context.py
+- Literature ingest: universal_index/literature_agent.py
+- Scheduler: universal_index/scheduler.py
 - API server: api/main.py
 - Cache: universal_index/cache.py
 - State tracking: universal_index/state.py
@@ -123,6 +129,8 @@ distributed_ingest
   -> materialize universal index
   -> optional vector refresh
   -> optional object storage upload
+  -> optional literature ingestion
+  -> optional scheduler-based reruns
 ```
 
 ### Context flow
@@ -134,6 +142,16 @@ distributed_ingest
   -> free fallback providers if enabled
   -> agri proxy generation
   -> unified context response
+```
+
+### Literature flow
+
+```text
+literature_agent
+  -> PubMed / arXiv fetch
+  -> entity extraction
+  -> literature entities parquet
+  -> vector refresh
 ```
 
 ---
@@ -227,6 +245,8 @@ python start_gui.py
 
 - CACHE_BACKEND=duckdb|redis
 - LIVE_CONTEXT_MODE=local|auto|live
+- SCHEDULER_ENABLED=true|false
+- LITERATURE_LLM_ENABLED=true|false
 - API_AUTH_ENABLED=true|false
 - RATE_LIMIT_ENABLED=true|false
 
@@ -243,6 +263,15 @@ python start_gui.py
 - OBJECT_STORAGE_ENDPOINT_URL=<endpoint for minio/dev>
 - OBJECT_STORAGE_ACCESS_KEY_ID=<key>
 - OBJECT_STORAGE_SECRET_ACCESS_KEY=<secret>
+
+### Source toggles and notes
+
+- IMD_API_BASE_URL / IMD_API_URL_TEMPLATE / IMD_RESOURCE_ID enable official weather retrieval.
+- BHUVAN_WMS_LAYER enables official soil retrieval.
+- FREE_CONTEXT_CLIMATE_ENABLED and FREE_CONTEXT_SOIL_ENABLED enable free fallback context providers.
+- COPERNICUS_CONTEXT_ENABLED enables projected climate enrichment.
+- LITERATURE_LLM_ENDPOINT, LITERATURE_LLM_API_KEY, and LITERATURE_LLM_MODEL enable optional LLM-based literature extraction.
+- AFLOW, OQMD, GenBank, AlphaFold, boltz1, UniProt, PDB, ZINC20, NASA, NIST, OpenFOAM, and ChEMBL adapters are implemented as live-or-surrogate adapters and map into the same universal schema.
 
 ---
 
@@ -288,6 +317,8 @@ Validated locally:
 - /context: returns unified payload
 - /search: returns multi-domain entities
 - /recommend: returns cross-domain recommended combination keys
+- /literature/status and /ingestion/status: return persisted summaries when the relevant jobs have been run
+- benchmark summary: written to `data/processed/benchmark_summary.json`
 - test suite: passing
 
 ---
@@ -300,6 +331,8 @@ External production dependencies still require organization-level completion:
 - Official IMD/Bhuvan/AgriStack approvals where mandatory
 - Cloud IAM/service-account governance rollout
 - Production monitoring and alerting hookup
+- Full live connectors for AFLOW, OQMD, ZINC20, NASA, NIST, OpenFOAM, AlphaFold, boltz1, Nature, and Materials Today where the repo currently uses surrogate records or API fallbacks
+- Go-live evidence and open gaps are tracked in [ops/production-readiness-checklist.md](ops/production-readiness-checklist.md)
 
 ---
 

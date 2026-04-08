@@ -18,6 +18,7 @@ INGESTION_SUMMARY_PATH = PROCESSED_DIR / "distributed_ingestion_summary.json"
 VECTOR_DOCUMENTS_PATH = PROCESSED_DIR / "vector_documents.parquet"
 VECTOR_QUERY_RESULTS_PATH = PROCESSED_DIR / "semantic_query_results.json"
 VECTOR_SUMMARY_PATH = PROCESSED_DIR / "vector_index_summary.json"
+BENCHMARK_SUMMARY_PATH = PROCESSED_DIR / "benchmark_summary.json"
 CONTEXT_DATASET_PATH = RAW_DIR / "location_context.csv"
 DEMO_RECOMMENDATION_PATH = PROCESSED_DIR / "demo_recommendation.json"
 SURROGATE_CACHE_PATH = PROCESSED_DIR / "surrogate_cache.duckdb"
@@ -51,6 +52,9 @@ FREE_CONTEXT_SOIL_ENABLED = os.getenv("FREE_CONTEXT_SOIL_ENABLED", "false").stri
 AGRISTACK_PROXY_ENABLED = os.getenv("AGRISTACK_PROXY_ENABLED", "true").strip().lower() == "true"
 OPEN_METEO_BASE_URL = os.getenv("OPEN_METEO_BASE_URL", "https://api.open-meteo.com/v1/forecast").strip()
 SOILGRIDS_BASE_URL = os.getenv("SOILGRIDS_BASE_URL", "https://rest.isric.org/soilgrids/v2.0").strip()
+COPERNICUS_CONTEXT_ENABLED = os.getenv("COPERNICUS_CONTEXT_ENABLED", "true").strip().lower() == "true"
+COPERNICUS_CONTEXT_SOURCE = os.getenv("COPERNICUS_CONTEXT_SOURCE", "derived").strip().lower()
+COPERNICUS_CONTEXT_YEAR_OFFSET = int(os.getenv("COPERNICUS_CONTEXT_YEAR_OFFSET", "20"))
 INGESTION_MAX_WORKERS = int(os.getenv("INGESTION_MAX_WORKERS", "4"))
 API_AUTH_ENABLED = os.getenv("API_AUTH_ENABLED", "false").strip().lower() == "true"
 API_KEY_HEADER_NAME = os.getenv("API_KEY_HEADER_NAME", "x-api-key").strip()
@@ -61,6 +65,10 @@ RATE_LIMIT_WINDOW_SECONDS = int(os.getenv("RATE_LIMIT_WINDOW_SECONDS", "60"))
 JSON_LOGS = os.getenv("JSON_LOGS", "true").strip().lower() == "true"
 SCHEDULER_ENABLED = os.getenv("SCHEDULER_ENABLED", "false").strip().lower() == "true"
 SCHEDULER_INTERVAL_MINUTES = int(os.getenv("SCHEDULER_INTERVAL_MINUTES", "60"))
+LITERATURE_LLM_ENABLED = os.getenv("LITERATURE_LLM_ENABLED", "false").strip().lower() == "true"
+LITERATURE_LLM_ENDPOINT = os.getenv("LITERATURE_LLM_ENDPOINT", "").strip()
+LITERATURE_LLM_API_KEY = os.getenv("LITERATURE_LLM_API_KEY", "").strip()
+LITERATURE_LLM_MODEL = os.getenv("LITERATURE_LLM_MODEL", "gpt-4o-mini").strip()
 OBJECT_STORAGE_ENABLED = os.getenv("OBJECT_STORAGE_ENABLED", "false").strip().lower() == "true"
 OBJECT_STORAGE_PROVIDER = os.getenv("OBJECT_STORAGE_PROVIDER", "s3").strip().lower()
 OBJECT_STORAGE_ENDPOINT_URL = os.getenv("OBJECT_STORAGE_ENDPOINT_URL", "").strip()
@@ -77,6 +85,18 @@ DEFAULT_COUNTS = {
     "genes": 500,
     "materials": 500,
     "molecules": 500,
+    "proteins": 250,
+    "structures": 100,
+    "chembl": 250,
+    "aflow": 250,
+    "oqmd": 250,
+    "genbank": 500,
+    "alphafold": 250,
+    "boltz1": 250,
+    "zinc20": 500,
+    "nasa": 150,
+    "nist": 150,
+    "openfoam": 150,
     "soil": 200,
     "simulations": 150,
 }

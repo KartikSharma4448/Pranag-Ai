@@ -3,11 +3,13 @@ from __future__ import annotations
 
 import json
 import logging
+import subprocess
+import sys
 import threading
 import time
 from collections import defaultdict
 from pathlib import Path
-from typing import Callable
+from typing import Annotated, Callable
 
 import duckdb
 import pandas as pd
@@ -53,6 +55,7 @@ if not logger.handlers:
 
 AUTH_RUNTIME_ENABLED = API_AUTH_ENABLED and bool(API_ACCESS_KEY)
 AUTH_EXEMPT_PATHS = {"/health", "/docs", "/openapi.json", "/redoc", "/metrics"}
+_scheduler_process: subprocess.Popen[str] | None = None
 _rate_limit_lock = threading.Lock()
 _rate_limit_buckets: dict[str, list[float]] = defaultdict(list)
 _metrics_lock = threading.Lock()
@@ -70,6 +73,8 @@ _path_counters: dict[str, int] = defaultdict(int)
 def startup_checks() -> None:
     if API_AUTH_ENABLED and not API_ACCESS_KEY:
         logger.warning("API_AUTH_ENABLED=true but API_ACCESS_KEY is empty; auth is disabled at runtime.")
+    if SCHEDULER_ENABLED:
+        _ensure_scheduler_started()
 
 
 @app.middleware("http")
@@ -144,7 +149,10 @@ def ops_state() -> dict[str, object]:
     return state_store.summary()
 
 
-@app.get("/literature/status")
+@app.get(
+    "/literature/status",
+    responses={404: {"description": "No literature ingest summary found."}},
+)
 def literature_status() -> dict[str, object]:
     summary_path = Path(LITERATURE_SUMMARY_PATH)
     if not summary_path.exists():
@@ -155,7 +163,10 @@ def literature_status() -> dict[str, object]:
     return json.loads(summary_path.read_text(encoding="utf-8"))
 
 
-@app.get("/ingestion/status")
+@app.get(
+    "/ingestion/status",
+    responses={404: {"description": "No distributed ingestion summary found."}},
+)
 def ingestion_status() -> dict[str, object]:
     summary_path = Path(INGESTION_SUMMARY_PATH)
     if not summary_path.exists():
@@ -169,10 +180,13 @@ def ingestion_status() -> dict[str, object]:
     return payload
 
 
-@app.get("/entities/high-temperature")
+@app.get(
+    "/entities/high-temperature",
+    responses={503: {"description": "Universal index is not built yet."}},
+)
 def high_temperature_entities(
-    min_temperature: float = Query(default=45.0, ge=-273.15),
-    limit: int = Query(default=25, ge=1, le=250),
+    min_temperature: Annotated[float, Query(default=45.0, ge=-273.15)] = 45.0,
+    limit: Annotated[int, Query(default=25, ge=1, le=250)] = 25,
 ) -> dict[str, object]:
     parquet_path = Path(PARQUET_PATH)
     if not parquet_path.exists():
@@ -198,11 +212,14 @@ def high_temperature_entities(
     }
 
 
-@app.get("/context", response_model=ContextResponse)
+@app.get(
+    "/context",
+    responses={503: {"description": "Context dataset is missing."}, 500: {"description": "Context lookup failed."}},
+)
 def context_lookup(
-    lat: float = Query(..., ge=-90.0, le=90.0),
-    lon: float = Query(..., ge=-180.0, le=180.0),
-    mode: str = Query(default=LIVE_CONTEXT_MODE, pattern="^(local|auto|live)$"),
+    lat: Annotated[float, Query(ge=-90.0, le=90.0)],
+    lon: Annotated[float, Query(ge=-180.0, le=180.0)],
+    mode: Annotated[str, Query(default=LIVE_CONTEXT_MODE, pattern="^(local|auto|live)$")],
 ) -> ContextResponse:
     cache_key = make_cache_key({"lat": round(lat, 4), "lon": round(lon, 4), "mode": mode})
     cached = cache.get("context", cache_key)
@@ -222,11 +239,14 @@ def context_lookup(
     return ContextResponse.model_validate(payload)
 
 
-@app.get("/search", response_model=SearchResponse)
+@app.get(
+    "/search",
+    responses={503: {"description": "Universal index is not built yet."}, 500: {"description": "Semantic search failed."}},
+)
 def search(
-    q: str = Query(..., min_length=3, description="Scientific search prompt"),
-    top_k: int = Query(default=8, ge=1, le=25),
-    candidate_pool: int = Query(default=128, ge=8, le=512),
+    q: Annotated[str, Query(min_length=3, description="Scientific search prompt")],
+    top_k: Annotated[int, Query(default=8, ge=1, le=25)] = 8,
+    candidate_pool: Annotated[int, Query(default=128, ge=8, le=512)] = 128,
 ) -> SearchResponse:
     cache_key = make_cache_key({"q": q, "top_k": top_k, "candidate_pool": candidate_pool})
     cached = cache.get("search", cache_key)
@@ -259,14 +279,17 @@ def search(
     return SearchResponse.model_validate(payload)
 
 
-@app.get("/recommend", response_model=RecommendResponse)
+@app.get(
+    "/recommend",
+    responses={503: {"description": "Context or vector search is unavailable."}, 500: {"description": "Recommendation generation failed."}},
+)
 def recommend(
-    q: str = Query(..., min_length=3, description="Scientific design prompt"),
-    lat: float = Query(..., ge=-90.0, le=90.0),
-    lon: float = Query(..., ge=-180.0, le=180.0),
-    context_mode: str = Query(default=LIVE_CONTEXT_MODE, pattern="^(local|auto|live)$"),
-    top_k: int = Query(default=8, ge=1, le=25),
-    candidate_pool: int = Query(default=128, ge=8, le=512),
+    q: Annotated[str, Query(min_length=3, description="Scientific design prompt")],
+    lat: Annotated[float, Query(ge=-90.0, le=90.0)],
+    lon: Annotated[float, Query(ge=-180.0, le=180.0)],
+    context_mode: Annotated[str, Query(default=LIVE_CONTEXT_MODE, pattern="^(local|auto|live)$")],
+    top_k: Annotated[int, Query(default=8, ge=1, le=25)] = 8,
+    candidate_pool: Annotated[int, Query(default=128, ge=8, le=512)] = 128,
 ) -> RecommendResponse:
     cache_key = make_cache_key(
         {
@@ -357,3 +380,13 @@ def _log_request(
         logger.info(json.dumps(payload))
     else:
         logger.info("%s %s -> %s in %.2fms from %s", method, path, status_code, duration_ms, client_host)
+
+
+def _ensure_scheduler_started() -> None:
+    global _scheduler_process
+    if _scheduler_process is not None and _scheduler_process.poll() is None:
+        return
+
+    command = [sys.executable, "-m", "universal_index.scheduler"]
+    _scheduler_process = subprocess.Popen(command)
+    logger.info("Scheduler process started with pid %s", _scheduler_process.pid)

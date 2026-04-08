@@ -14,8 +14,17 @@ from universal_index.schema import normalize_frame
 
 NCBI_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 PUBCHEM_BASE_URL = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound"
+UNIPROT_BASE_URL = "https://rest.uniprot.org/uniprotkb/search"
+RCSB_ENTRY_IDS_URL = "https://data.rcsb.org/rest/v1/holdings/current/entry_ids"
+RCSB_ENTRY_URL = "https://data.rcsb.org/rest/v1/core/entry"
+CHEMBL_ACTIVITY_URL = "https://www.ebi.ac.uk/chembl/api/data/activity.json"
 REQUEST_TIMEOUT_SECONDS = 30
 USER_AGENT = "universal-index-day1/0.1"
+HOMO_SAPIENS = "Homo sapiens"
+ARABIDOPSIS_THALIANA = "Arabidopsis thaliana"
+ESCHERICHIA_COLI = "Escherichia coli"
+MUS_MUSCULUS = "Mus musculus"
+COMMON_ORGANISMS = [HOMO_SAPIENS, ARABIDOPSIS_THALIANA, ESCHERICHIA_COLI, MUS_MUSCULUS]
 
 
 def _chunked(values: Iterable[object], size: int) -> list[list[object]]:
@@ -80,35 +89,7 @@ def fetch_genes(sample_size: int, email: str, api_key: str | None = None) -> pd.
         result = payload.get("result", {})
         for uid in result.get("uids", []):
             document = result.get(str(uid), {})
-            organism = document.get("organism", {})
-            organism_name = None
-            if isinstance(organism, dict):
-                organism_name = organism.get("scientificname") or organism.get("commonname")
-            elif organism:
-                organism_name = str(organism)
-
-            description = _collapse_text(
-                [
-                    str(document.get("description") or ""),
-                    f"Organism: {organism_name}" if organism_name else "",
-                    str(document.get("summary") or ""),
-                ]
-            )
-
-            records.append(
-                {
-                    "entity_id": f"gene-{uid}",
-                    "entity_type": "gene",
-                    "name": document.get("name") or f"Gene {uid}",
-                    "description": description or "NCBI gene record",
-                    "temperature_max": None,
-                    "strength": None,
-                    "conductivity": None,
-                    "ph": None,
-                    "salinity": None,
-                    "source": "GenBank/NCBI Gene",
-                }
-            )
+            records.append(_gene_document_to_record(uid=uid, document=document))
 
         time.sleep(0.34)
 
@@ -124,13 +105,12 @@ def fetch_gene_fallback(sample_size: int, seed: int) -> pd.DataFrame:
         "signaling pathway component",
         "transcription linked protein coding gene",
     ]
-    organisms = ["Homo sapiens", "Arabidopsis thaliana", "Escherichia coli", "Mus musculus"]
     records: list[dict[str, object]] = []
     for index in range(sample_size):
         symbol = f"{randomizer.choice(prefixes)}{100 + index}"
         description = (
             f"Synthetic fallback gene record; {randomizer.choice(descriptions)}. "
-            f"Organism: {randomizer.choice(organisms)}."
+            f"Organism: {randomizer.choice(COMMON_ORGANISMS)}."
         )
         records.append(
             {
@@ -285,16 +265,7 @@ def fetch_pubchem_molecules(sample_size: int) -> pd.DataFrame:
 
     while len(records) < sample_size and cursor <= sample_size * 4:
         batch = list(range(cursor, cursor + step))
-        frame = _fetch_pubchem_batch(session, batch)
-        if frame is None:
-            for cid in batch:
-                single = _fetch_pubchem_batch(session, [cid])
-                if single is not None and not single.empty:
-                    records.extend(_pubchem_rows_to_records(single).to_dict(orient="records"))
-                if len(records) >= sample_size:
-                    break
-        else:
-            records.extend(_pubchem_rows_to_records(frame).to_dict(orient="records"))
+        records.extend(_collect_pubchem_records(session, batch, sample_size=sample_size, current_count=len(records)))
 
         cursor += step
         time.sleep(0.2)
@@ -385,6 +356,27 @@ def _pubchem_rows_to_records(frame: pd.DataFrame) -> pd.DataFrame:
     return normalize_frame(pd.DataFrame(records))
 
 
+def _collect_pubchem_records(
+    session: requests.Session,
+    batch: list[int],
+    sample_size: int,
+    current_count: int,
+) -> list[dict[str, object]]:
+    collected: list[dict[str, object]] = []
+    frame = _fetch_pubchem_batch(session, batch)
+    if frame is None:
+        for cid in batch:
+            if current_count + len(collected) >= sample_size:
+                break
+            single = _fetch_pubchem_batch(session, [cid])
+            if single is not None and not single.empty:
+                collected.extend(_pubchem_rows_to_records(single).to_dict(orient="records"))
+        return collected
+
+    collected.extend(_pubchem_rows_to_records(frame).to_dict(orient="records"))
+    return collected
+
+
 def generate_soil_records(sample_size: int, seed: int) -> pd.DataFrame:
     randomizer = random.Random(seed + 31)
     soil_types = ["Sandy loam", "Clay loam", "Silty clay", "Peaty soil", "Alluvial soil"]
@@ -455,3 +447,610 @@ def generate_simulation_records(sample_size: int, seed: int) -> pd.DataFrame:
             }
         )
     return normalize_frame(pd.DataFrame(records))
+
+
+def fetch_uniprot_proteins(sample_size: int, seed: int) -> pd.DataFrame:
+    session = _build_session()
+    params = {
+        "query": "reviewed:true AND organism_id:9606",
+        "format": "tsv",
+        "fields": "accession,id,gene_primary,protein_name,organism_name,cc_function,xref_pdb",
+        "size": sample_size,
+    }
+
+    try:
+        response = session.get(UNIPROT_BASE_URL, params=params, timeout=REQUEST_TIMEOUT_SECONDS)
+        response.raise_for_status()
+        frame = pd.read_csv(io.StringIO(response.text), sep="\t")
+        return _uniprot_rows_to_frame(frame, sample_size)
+    except Exception:
+        return fetch_uniprot_fallback(sample_size, seed=seed)
+
+
+def fetch_uniprot_fallback(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 59)
+    prefixes = ["CA", "HSP", "SOD", "KIN", "ATP", "POT", "ABC", "COL"]
+    functions = [
+        "stress response protein",
+        "membrane transporter",
+        "enzymatic regulator",
+        "signal transduction protein",
+    ]
+    organisms = [HOMO_SAPIENS, ARABIDOPSIS_THALIANA, "Bacillus subtilis", MUS_MUSCULUS]
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        gene = f"{randomizer.choice(prefixes)}{1000 + index}"
+        records.append(
+            {
+                "entity_id": f"uniprot-fallback-{index + 1:04d}",
+                "entity_type": "protein",
+                "name": gene,
+                "description": (
+                    f"Synthetic UniProt fallback record. Protein family: {randomizer.choice(functions)}. "
+                    f"Organism: {randomizer.choice(organisms)}."
+                ),
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "UniProt fallback",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def fetch_pdb_structures(sample_size: int, seed: int) -> pd.DataFrame:
+    session = _build_session()
+    try:
+        ids_response = session.get(RCSB_ENTRY_IDS_URL, timeout=REQUEST_TIMEOUT_SECONDS)
+        ids_response.raise_for_status()
+        entry_ids = _extract_entry_ids(ids_response.json())
+        if not entry_ids:
+            raise RuntimeError("RCSB did not return any PDB entry identifiers.")
+
+        randomizer = random.Random(seed + 71)
+        selected_ids = _sample_ids(entry_ids, sample_size=sample_size, randomizer=randomizer)
+        records: list[dict[str, object]] = []
+        for pdb_id in selected_ids:
+            entry_response = session.get(
+                f"{RCSB_ENTRY_URL}/{pdb_id}",
+                timeout=REQUEST_TIMEOUT_SECONDS,
+            )
+            entry_response.raise_for_status()
+            records.append(_rcsb_entry_to_record(pdb_id, entry_response.json()))
+
+        return normalize_frame(pd.DataFrame(records))
+    except Exception:
+        return fetch_pdb_fallback(sample_size, seed=seed)
+
+
+def fetch_pdb_fallback(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 73)
+    families = ["enzyme structure", "membrane protein", "metal-binding protein", "signal complex"]
+    organisms = [HOMO_SAPIENS, ESCHERICHIA_COLI, "Thermus thermophilus", ARABIDOPSIS_THALIANA]
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        pdb_id = f"{randomizer.choice(['1', '2', '3', '4', '5'])}{randomizer.choice('abcdefghijklmnopqrstuvwxyz')}{randomizer.choice('abcdefghijklmnopqrstuvwxyz')}{index % 10}"
+        records.append(
+            {
+                "entity_id": f"pdb-fallback-{index + 1:04d}",
+                "entity_type": "structure",
+                "name": pdb_id.upper(),
+                "description": (
+                    f"Synthetic PDB fallback record. Structure family: {randomizer.choice(families)}. "
+                    f"Organism: {randomizer.choice(organisms)}."
+                ),
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "RCSB PDB fallback",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def fetch_chembl_bioactivity(sample_size: int) -> pd.DataFrame:
+    session = _build_session()
+    params = {
+        "limit": sample_size,
+        "format": "json",
+    }
+
+    try:
+        response = session.get(CHEMBL_ACTIVITY_URL, params=params, timeout=REQUEST_TIMEOUT_SECONDS)
+        response.raise_for_status()
+        payload = response.json()
+        records = payload.get("activities", []) if isinstance(payload, dict) else []
+        frame = _chembl_activity_rows_to_frame(records)
+        if frame.empty:
+            raise RuntimeError("ChEMBL returned no activities.")
+        return normalize_frame(frame)
+    except Exception:
+        return fetch_chembl_fallback(sample_size)
+
+
+def fetch_chembl_fallback(sample_size: int) -> pd.DataFrame:
+    randomizer = random.Random(101)
+    compounds = ["CHEMBL25", "CHEMBL58", "CHEMBL120", "CHEMBL190", "CHEMBL233"]
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        chembl_id = randomizer.choice(compounds)
+        records.append(
+            {
+                "entity_id": f"chembl-fallback-{index + 1:04d}",
+                "entity_type": "molecule",
+                "name": chembl_id,
+                "description": (
+                    "Synthetic ChEMBL fallback record with bioactivity-linked chemistry. "
+                    "Standard relation: IC50 surrogate; target linkage retained for cross-domain retrieval."
+                ),
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "ChEMBL fallback",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def generate_aflow_materials(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 83)
+    formulas = ["Al2O3", "SiC", "TiN", "Fe3Al", "ZrO2", "HfO2", "BN", "MgAl2O4"]
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        formula = randomizer.choice(formulas)
+        records.append(
+            {
+                "entity_id": f"aflow-{index + 1:04d}",
+                "entity_type": "material",
+                "name": formula,
+                "description": (
+                    "AFLOW surrogate material record with crystal-structure and property metadata. "
+                    "Useful for conductivity, thermal stability, and band-gap screening."
+                ),
+                "temperature_max": round(randomizer.uniform(600, 2200), 2),
+                "strength": round(randomizer.uniform(180, 1200), 2),
+                "conductivity": round(randomizer.uniform(0.01, 120.0), 3),
+                "ph": None,
+                "salinity": None,
+                "source": "AFLOW surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def generate_oqmd_materials(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 89)
+    formulas = ["GaN", "ZnO", "SrTiO3", "BaTiO3", "SiC", "AlN", "TiO2", "SnO2"]
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        formula = randomizer.choice(formulas)
+        records.append(
+            {
+                "entity_id": f"oqmd-{index + 1:04d}",
+                "entity_type": "material",
+                "name": formula,
+                "description": (
+                    "OQMD surrogate material record with thermodynamic stability metadata. "
+                    "Useful for phase stability and band-gap retrieval.") ,
+                "temperature_max": round(randomizer.uniform(500, 1800), 2),
+                "strength": round(randomizer.uniform(100, 900), 2),
+                "conductivity": round(randomizer.uniform(0.01, 80.0), 3),
+                "ph": None,
+                "salinity": None,
+                "source": "OQMD surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def _uniprot_rows_to_frame(frame: pd.DataFrame, sample_size: int) -> pd.DataFrame:
+    records: list[dict[str, object]] = []
+    for row in frame.to_dict(orient="records")[:sample_size]:
+        records.append(_uniprot_row_to_record(row))
+    return normalize_frame(pd.DataFrame(records))
+
+
+def _uniprot_row_to_record(row: dict[str, object]) -> dict[str, object]:
+    accession = str(row.get("Entry") or row.get("accession") or "unknown")
+    protein_name = str(row.get("Protein names") or row.get("protein_name") or accession)
+    gene = str(row.get("Gene Names (primary)") or row.get("gene_primary") or "")
+    organism = str(row.get("Organism") or row.get("organism_name") or "")
+    function = str(row.get("Function [CC]") or row.get("cc_function") or "")
+    pdb_refs = str(row.get("Cross-reference (PDB)") or row.get("xref_pdb") or "")
+    description = _collapse_text(
+        [
+            f"Gene: {gene}." if gene else "",
+            f"Organism: {organism}." if organism else "",
+            f"Function: {function}." if function else "",
+            f"PDB refs: {pdb_refs}." if pdb_refs else "",
+        ]
+    )
+    return {
+        "entity_id": f"uniprot-{accession}",
+        "entity_type": "protein",
+        "name": protein_name,
+        "description": description or "UniProt protein record",
+        "temperature_max": None,
+        "strength": None,
+        "conductivity": None,
+        "ph": None,
+        "salinity": None,
+        "source": "UniProt",
+    }
+
+
+def _extract_entry_ids(payload: object) -> list[str]:
+    if isinstance(payload, dict):
+        for key in ["entry_ids", "ids", "result_set"]:
+            candidate = payload.get(key)
+            if isinstance(candidate, list):
+                return [str(item) for item in candidate if str(item).strip()]
+    if isinstance(payload, list):
+        return [str(item) for item in payload if str(item).strip()]
+    return []
+
+
+def _sample_ids(entry_ids: list[str], sample_size: int, randomizer: random.Random) -> list[str]:
+    if len(entry_ids) <= sample_size:
+        return entry_ids[:sample_size]
+    indices = sorted(randomizer.sample(range(len(entry_ids)), sample_size))
+    return [entry_ids[index] for index in indices]
+
+
+def _rcsb_entry_to_record(pdb_id: str, payload: dict[str, object]) -> dict[str, object]:
+    title = _rcsb_extract_text(payload, "struct", ["title", "pdbx_descriptor"])
+    method = _rcsb_extract_list_text(payload, "exptl", ["method"])
+    citation = _rcsb_extract_text(payload, "rcsb_primary_citation", ["title", "journal_abbrev"])
+
+    description = _collapse_text(
+        [
+            f"Title: {title}." if title else "",
+            f"Method: {method}." if method else "",
+            f"Citation: {citation}." if citation else "",
+        ]
+    )
+    return {
+        "entity_id": f"pdb-{pdb_id}",
+        "entity_type": "structure",
+        "name": pdb_id.upper(),
+        "description": description or "RCSB PDB structure record",
+        "temperature_max": None,
+        "strength": None,
+        "conductivity": None,
+        "ph": None,
+        "salinity": None,
+        "source": "RCSB PDB",
+    }
+
+
+def _rcsb_extract_text(payload: dict[str, object], key: str, candidate_keys: list[str]) -> str:
+    container = payload.get(key, {}) if isinstance(payload, dict) else {}
+    if not isinstance(container, dict):
+        return ""
+    for candidate_key in candidate_keys:
+        value = container.get(candidate_key)
+        if value not in (None, ""):
+            return str(value)
+    return ""
+
+
+def _rcsb_extract_list_text(payload: dict[str, object], key: str, candidate_keys: list[str]) -> str:
+    container = payload.get(key, []) if isinstance(payload, dict) else []
+    if not isinstance(container, list) or not container:
+        return ""
+    first = container[0]
+    if not isinstance(first, dict):
+        return ""
+    for candidate_key in candidate_keys:
+        value = first.get(candidate_key)
+        if value not in (None, ""):
+            return str(value)
+    return ""
+
+
+def _chembl_activity_rows_to_frame(rows: list[dict[str, object]]) -> pd.DataFrame:
+    records: list[dict[str, object]] = []
+    for row in rows:
+        molecule_id = str(row.get("molecule_chembl_id") or row.get("molregno") or "chembl-unknown")
+        target_id = str(row.get("target_chembl_id") or row.get("target_id") or "")
+        standard_type = str(row.get("standard_type") or "")
+        standard_value = _safe_float(row.get("standard_value"))
+        standard_units = str(row.get("standard_units") or "")
+        pchembl_value = _safe_float(row.get("pchembl_value"))
+        description = _collapse_text(
+            [
+                f"Target: {target_id}." if target_id else "",
+                f"Assay type: {standard_type}." if standard_type else "",
+                (
+                    f"Activity: {standard_value} {standard_units}."
+                    if standard_value is not None and standard_units
+                    else ""
+                ),
+                f"pChEMBL: {pchembl_value}." if pchembl_value is not None else "",
+            ]
+        )
+        records.append(
+            {
+                "entity_id": f"chembl-{molecule_id}",
+                "entity_type": "molecule",
+                "name": molecule_id,
+                "description": description or "ChEMBL bioactivity record",
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "ChEMBL",
+            }
+        )
+    return pd.DataFrame(records)
+
+
+def fetch_genbank_metadata(sample_size: int, email: str, api_key: str | None = None) -> pd.DataFrame:
+    session = _build_session()
+    ids = _fetch_nuccore_ids(session, sample_size=sample_size, email=email, api_key=api_key)
+    if not ids:
+        return fetch_genbank_fallback(sample_size)
+
+    records: list[dict[str, object]] = []
+    for chunk in _chunked(ids, 200):
+        payload = _get_json(
+            session,
+            f"{NCBI_BASE_URL}/esummary.fcgi",
+            {
+                "db": "nuccore",
+                "id": ",".join(str(item) for item in chunk),
+                "retmode": "json",
+                "email": email,
+                "api_key": api_key,
+            },
+        )
+        result = payload.get("result", {})
+        for uid in result.get("uids", []):
+            document = result.get(str(uid), {})
+            records.append(_genbank_document_to_record(uid=uid, document=document))
+
+        time.sleep(0.34)
+
+    return normalize_frame(pd.DataFrame(records[:sample_size]))
+
+
+def fetch_genbank_fallback(sample_size: int) -> pd.DataFrame:
+    randomizer = random.Random(137)
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        accession = f"GB{100000 + index}"
+        records.append(
+            {
+                "entity_id": f"genbank-fallback-{index + 1:04d}",
+                "entity_type": "gene",
+                "name": accession,
+                "description": (
+                    f"Synthetic GenBank metadata record for {accession}. "
+                    f"Organism: {randomizer.choice(COMMON_ORGANISMS)}. "
+                    "Metadata-only sequence and annotation placeholder."
+                ),
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "GenBank fallback",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def fetch_alphafold_structures(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 97)
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        accession = f"AF-{100000 + index}"
+        gene = f"AFGENE{index + 1:04d}"
+        records.append(
+            {
+                "entity_id": f"alphafold-{index + 1:04d}",
+                "entity_type": "structure",
+                "name": accession,
+                "description": (
+                    f"AlphaFold predicted protein structure metadata for {gene}. "
+                    f"Predicted confidence {round(randomizer.uniform(70, 98), 2)}. "
+                    "Store the structure ID, not the raw coordinate file."
+                ),
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "AlphaFold DB surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def fetch_boltz1_structures(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 101)
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        complex_id = f"BOLTZ1-{10000 + index}"
+        records.append(
+            {
+                "entity_id": f"boltz1-{index + 1:04d}",
+                "entity_type": "structure",
+                "name": complex_id,
+                "description": (
+                    "boltz1 predicted protein complex metadata surrogate. "
+                    f"Interface confidence {round(randomizer.uniform(0.55, 0.99), 2)}. "
+                    "Captured as structure metadata for downstream retrieval."
+                ),
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "boltz1 surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def fetch_zinc20_metadata(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 103)
+    scaffolds = ["C1=CC=CC=C1", "CCO", "CCN", "CC(=O)O", "CNC", "COC"]
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        smiles = randomizer.choice(scaffolds)
+        records.append(
+            {
+                "entity_id": f"zinc20-{index + 1:04d}",
+                "entity_type": "molecule",
+                "name": f"ZINC20-{100000 + index}",
+                "description": (
+                    f"ZINC20 purchasable compound metadata surrogate. SMILES: {smiles}. "
+                    "Availability and medicinal chemistry screening placeholder."
+                ),
+                "temperature_max": None,
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "ZINC20 surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def generate_nasa_material_records(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 107)
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        material = randomizer.choice(["Inconel 718", "Ti-6Al-4V", "SiC", "C/C composite", "Al2O3"])
+        records.append(
+            {
+                "entity_id": f"nasa-{index + 1:04d}",
+                "entity_type": "material",
+                "name": material,
+                "description": (
+                    "NASA extreme-condition material metadata surrogate with thermal, vacuum, and radiation resistance context. "
+                    "Useful for spacecraft and high-temperature screening."
+                ),
+                "temperature_max": round(randomizer.uniform(250, 2200), 2),
+                "strength": round(randomizer.uniform(100, 1600), 2),
+                "conductivity": round(randomizer.uniform(0.01, 150.0), 3),
+                "ph": None,
+                "salinity": None,
+                "source": "NASA materials surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def generate_nist_thermo_records(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 109)
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        formula = randomizer.choice(["H2O", "CO2", "NH3", "CH4", "SiO2", "Al2O3"])
+        records.append(
+            {
+                "entity_id": f"nist-{index + 1:04d}",
+                "entity_type": "simulation",
+                "name": formula,
+                "description": (
+                    "NIST Chemistry WebBook thermodynamic surrogate record with heats of formation, entropy, and heat capacity context. "
+                    "Useful for equilibrium, enthalpy, and materials process screening."
+                ),
+                "temperature_max": round(randomizer.uniform(80, 1800), 2),
+                "strength": None,
+                "conductivity": None,
+                "ph": None,
+                "salinity": None,
+                "source": "NIST WebBook surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def generate_openfoam_records(sample_size: int, seed: int) -> pd.DataFrame:
+    randomizer = random.Random(seed + 113)
+    cases = ["thermal shock", "boundary layer", "heat transfer", "turbulence", "external flow"]
+    records: list[dict[str, object]] = []
+    for index in range(sample_size):
+        case_name = randomizer.choice(cases)
+        records.append(
+            {
+                "entity_id": f"openfoam-{index + 1:04d}",
+                "entity_type": "simulation",
+                "name": f"OpenFOAM {case_name} {index + 1:04d}",
+                "description": (
+                    "OpenFOAM CFD template surrogate with standardized mesh, solver, and boundary-condition metadata. "
+                    "Useful for pre-run engineering setup retrieval."
+                ),
+                "temperature_max": round(randomizer.uniform(100, 1600), 2),
+                "strength": round(randomizer.uniform(50, 900), 2),
+                "conductivity": round(randomizer.uniform(0.05, 200.0), 3),
+                "ph": None,
+                "salinity": None,
+                "source": "OpenFOAM surrogate",
+            }
+        )
+    return normalize_frame(pd.DataFrame(records))
+
+
+def _fetch_nuccore_ids(
+    session: requests.Session,
+    sample_size: int,
+    email: str,
+    api_key: str | None,
+) -> list[str]:
+    payload = _get_json(
+        session,
+        f"{NCBI_BASE_URL}/esearch.fcgi",
+        {
+            "db": "nuccore",
+            "term": "txid9606[Organism:exp]",
+            "retmax": sample_size,
+            "retmode": "json",
+            "sort": "date",
+            "email": email,
+            "api_key": api_key,
+        },
+    )
+    result = payload.get("esearchresult", {})
+    return [str(item) for item in result.get("idlist", [])]
+
+
+def _genbank_document_to_record(uid: str, document: dict[str, object]) -> dict[str, object]:
+    accession = str(document.get("accessionversion") or document.get("accession") or uid)
+    organism = document.get("organism", {})
+    organism_name = None
+    if isinstance(organism, dict):
+        organism_name = organism.get("scientificname") or organism.get("commonname")
+    elif organism:
+        organism_name = str(organism)
+
+    description = _collapse_text(
+        [
+            str(document.get("title") or ""),
+            f"Organism: {organism_name}" if organism_name else "",
+            f"Length: {document.get('slen')} bp." if document.get("slen") else "",
+            f"Update: {document.get('updatedate')}." if document.get("updatedate") else "",
+        ]
+    )
+    return {
+        "entity_id": f"genbank-{accession}",
+        "entity_type": "gene",
+        "name": accession,
+        "description": description or "GenBank metadata record",
+        "temperature_max": None,
+        "strength": None,
+        "conductivity": None,
+        "ph": None,
+        "salinity": None,
+        "source": "GenBank",
+    }

@@ -19,6 +19,10 @@ from universal_index.config import (
     DUCKDB_PATH,
     EMBEDDING_MODEL_NAME,
     ENTREZ_EMAIL,
+    LITERATURE_LLM_API_KEY,
+    LITERATURE_LLM_ENABLED,
+    LITERATURE_LLM_ENDPOINT,
+    LITERATURE_LLM_MODEL,
     LITERATURE_ENTITY_PATH,
     LITERATURE_PAPERS_RAW_PATH,
     LITERATURE_SUMMARY_PATH,
@@ -32,6 +36,7 @@ from universal_index.schema import concat_frames, normalize_frame
 
 NCBI_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 ARXIV_API_URL = "https://export.arxiv.org/api/query"
+CROSSREF_WORKS_URL = "https://api.crossref.org/works"
 REQUEST_TIMEOUT_SECONDS = 30
 USER_AGENT = "universal-index-literature-agent/0.1"
 GENE_PATTERN = re.compile(r"\b[A-Z][A-Z0-9-]{2,11}\b")
@@ -238,6 +243,51 @@ def fetch_arxiv_papers(sample_size: int) -> pd.DataFrame:
     return pd.DataFrame(papers)
 
 
+def fetch_crossref_journal_papers(journal_title: str, sample_size: int) -> pd.DataFrame:
+    session = build_session()
+    response = session.get(
+        CROSSREF_WORKS_URL,
+        params={
+            "query.container-title": journal_title,
+            "rows": sample_size,
+            "select": "DOI,title,container-title,issued,URL,abstract",
+            "sort": "published",
+            "order": "desc",
+        },
+        timeout=REQUEST_TIMEOUT_SECONDS,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    items = payload.get("message", {}).get("items", []) if isinstance(payload, dict) else []
+
+    papers: list[dict[str, object]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        title = _first_text(item.get("title"))
+        doi = str(item.get("DOI") or "").strip()
+        if not title or not doi:
+            continue
+        year = _crossref_year(item.get("issued"))
+        abstract = _clean_abstract(item.get("abstract"))
+        papers.append(
+            {
+                "paper_id": f"crossref-{_slugify(doi)}",
+                "paper_source": journal_title,
+                "title": title,
+                "abstract": abstract,
+                "journal": journal_title,
+                "published": year,
+                "url": str(item.get("URL") or f"https://doi.org/{doi}"),
+            }
+        )
+
+    if not papers:
+        raise RuntimeError(f"Crossref did not return any papers for {journal_title}.")
+
+    return pd.DataFrame(papers)
+
+
 def generate_paper_fallback(source_name: str, sample_size: int) -> pd.DataFrame:
     records = [
         {
@@ -258,6 +308,37 @@ def generate_paper_fallback(source_name: str, sample_size: int) -> pd.DataFrame:
         for index in range(sample_size)
     ]
     return pd.DataFrame(records)
+
+
+def _first_text(value: object) -> str:
+    if isinstance(value, list) and value:
+        return str(value[0]).strip()
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def _crossref_year(value: object) -> str:
+    if not isinstance(value, dict):
+        return ""
+    date_parts = value.get("date-parts")
+    if isinstance(date_parts, list) and date_parts:
+        first = date_parts[0]
+        if isinstance(first, list) and first:
+            return str(first[0])
+    return ""
+
+
+def _clean_abstract(value: object) -> str:
+    if value is None:
+        return ""
+    text = str(value)
+    text = re.sub(r"<[^>]+>", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _slugify(value: str) -> str:
+    return re.sub(r"[^a-zA-Z0-9]+", "-", value.lower()).strip("-") or "paper"
 
 
 def select_relevant_papers(
@@ -299,7 +380,7 @@ def extract_entities_from_paper(paper: dict[str, object]) -> list[dict[str, obje
     abstract = str(paper.get("abstract") or "").strip()
     combined_text = " ".join(part for part in [title, abstract] if part).strip()
     combined_lower = combined_text.lower()
-    entities: list[dict[str, object]] = []
+    entities: list[dict[str, object]] = _llm_extract_entities(paper) or []
 
     paper_id = str(paper.get("paper_id") or "paper-unknown")
     source_name = str(paper.get("paper_source") or "Literature")
@@ -369,6 +450,125 @@ def extract_entities_from_paper(paper: dict[str, object]) -> list[dict[str, obje
         )
 
     return entities
+
+
+def _llm_extract_entities(paper: dict[str, object]) -> list[dict[str, object]] | None:
+    if not LITERATURE_LLM_ENABLED or not LITERATURE_LLM_ENDPOINT:
+        return None
+
+    title = str(paper.get("title") or "").strip()
+    abstract = str(paper.get("abstract") or "").strip()
+    payload = {
+        "model": LITERATURE_LLM_MODEL,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "Extract scientific entities as strict JSON only. "
+                    "Return an array of objects with keys: entity_type, name, description, temperature_max, strength, conductivity. "
+                    "Valid entity_type values: gene, material, molecule, simulation, protein, structure."
+                ),
+            },
+            {
+                "role": "user",
+                "content": f"Title: {title}\nAbstract: {abstract}",
+            },
+        ],
+        "temperature": 0,
+    }
+    headers = {"Content-Type": "application/json"}
+    if LITERATURE_LLM_API_KEY:
+        headers["Authorization"] = f"Bearer {LITERATURE_LLM_API_KEY}"
+
+    try:
+        response = requests.post(
+            LITERATURE_LLM_ENDPOINT,
+            headers=headers,
+            json=payload,
+            timeout=REQUEST_TIMEOUT_SECONDS,
+        )
+        response.raise_for_status()
+        result = response.json()
+    except Exception:
+        return None
+
+    parsed = _parse_llm_response(result)
+    if not parsed:
+        return None
+
+    paper_id = str(paper.get("paper_id") or "paper-unknown")
+    source_name = str(paper.get("paper_source") or "Literature")
+    extracted = [
+        _normalize_llm_entity(item, paper_id=paper_id, source_name=source_name, default_name=title)
+        for item in parsed
+    ]
+    return [item for item in extracted if item is not None] or None
+
+
+def _extract_llm_content(payload: object) -> str:
+    if not isinstance(payload, dict):
+        return ""
+    choices = payload.get("choices", [])
+    if isinstance(choices, list) and choices:
+        first = choices[0]
+        if isinstance(first, dict):
+            message = first.get("message", {})
+            if isinstance(message, dict):
+                content = message.get("content")
+                if content is not None:
+                    return str(content).strip()
+    return ""
+
+
+def _parse_llm_response(payload: object) -> list[dict[str, object]] | None:
+    content = _extract_llm_content(payload)
+    if not content:
+        return None
+    try:
+        parsed = json.loads(content)
+    except Exception:
+        return None
+    if not isinstance(parsed, list):
+        return None
+    return [item for item in parsed if isinstance(item, dict)]
+
+
+def _normalize_llm_entity(
+    item: dict[str, object],
+    paper_id: str,
+    source_name: str,
+    default_name: str,
+) -> dict[str, object] | None:
+    entity_type = str(item.get("entity_type") or "material").strip().lower()
+    if entity_type not in {"gene", "material", "molecule", "simulation", "protein", "structure"}:
+        entity_type = "material"
+
+    name = str(item.get("name") or default_name or "LLM entity").strip()
+    description = str(item.get("description") or "LLM extracted entity").strip()
+    if not name and not description:
+        return None
+
+    return {
+        "entity_id": f"{paper_id}-llm-{name.lower().replace(' ', '-')[:24] or 'entity'}",
+        "entity_type": entity_type,
+        "name": name,
+        "description": description,
+        "temperature_max": _safe_float(item.get("temperature_max")),
+        "strength": _safe_float(item.get("strength")),
+        "conductivity": _safe_float(item.get("conductivity")),
+        "ph": None,
+        "salinity": None,
+        "source": f"{source_name} LLM agent",
+    }
+
+
+def _safe_float(value: object) -> float | None:
+    try:
+        if value in (None, "", "NA", "null"):
+            return None
+        return float(value)
+    except (TypeError, ValueError):
+        return None
 
 
 def infer_primary_entity_type(text: str) -> str:

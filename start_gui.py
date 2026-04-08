@@ -30,6 +30,7 @@ class PranagGui(tk.Tk):
         tk.Button(button_frame, text="Run Tests", width=18, command=self.run_tests).grid(row=1, column=0, padx=5, pady=5)
         tk.Button(button_frame, text="Start API", width=18, command=self.start_api).grid(row=1, column=1, padx=5, pady=5)
         tk.Button(button_frame, text="Open Docs", width=18, command=self.open_docs).grid(row=1, column=2, padx=5, pady=5)
+        tk.Button(button_frame, text="Run Benchmark", width=18, command=self.run_benchmark).grid(row=2, column=0, padx=5, pady=5)
 
         self.append_log("GUI ready. Choose an action.\n")
 
@@ -74,6 +75,9 @@ class PranagGui(tk.Tk):
         ok = webbrowser.open("http://127.0.0.1:8000/docs")
         if not ok:
             messagebox.showinfo("Info", "Could not open browser automatically. Open http://127.0.0.1:8000/docs")
+
+    def run_benchmark(self) -> None:
+        self.run_cmd_async("Run benchmark", [self.python, "-m", "universal_index.benchmark"])
 
 
 def main() -> int:

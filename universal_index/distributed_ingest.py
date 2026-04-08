@@ -34,6 +34,7 @@ from universal_index.config import (
 from universal_index.literature_agent import (
     extract_entities_from_papers,
     fetch_arxiv_papers,
+    fetch_crossref_journal_papers,
     fetch_pubmed_papers,
     generate_paper_fallback,
     refresh_vector_assets,
@@ -41,11 +42,28 @@ from universal_index.literature_agent import (
 )
 from universal_index.schema import concat_frames, normalize_frame
 from universal_index.sources import (
+    fetch_alphafold_structures,
+    fetch_boltz1_structures,
+    fetch_chembl_bioactivity,
+    fetch_genbank_fallback,
+    fetch_genbank_metadata,
     fetch_gene_fallback,
     fetch_genes,
     fetch_materials,
+    fetch_nasa_material_records,
+    fetch_nist_thermo_records,
     fetch_pubchem_fallback,
     fetch_pubchem_molecules,
+    fetch_pdb_fallback,
+    fetch_pdb_structures,
+    fetch_zinc20_metadata,
+    fetch_uniprot_fallback,
+    fetch_uniprot_proteins,
+    generate_aflow_materials,
+    generate_nasa_material_records,
+    generate_nist_thermo_records,
+    generate_oqmd_materials,
+    generate_openfoam_records,
     generate_simulation_records,
     generate_soil_records,
 )
@@ -56,12 +74,26 @@ from universal_index.storage import build_object_storage_client
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run parallel ingestion and materialize lake partitions.")
     parser.add_argument("--genes", type=int, default=DEFAULT_COUNTS["genes"])
+    parser.add_argument("--genbank", type=int, default=DEFAULT_COUNTS["genbank"])
     parser.add_argument("--materials", type=int, default=DEFAULT_COUNTS["materials"])
     parser.add_argument("--molecules", type=int, default=DEFAULT_COUNTS["molecules"])
+    parser.add_argument("--proteins", type=int, default=DEFAULT_COUNTS["proteins"])
+    parser.add_argument("--structures", type=int, default=DEFAULT_COUNTS["structures"])
+    parser.add_argument("--chembl", type=int, default=DEFAULT_COUNTS["chembl"])
+    parser.add_argument("--aflow", type=int, default=DEFAULT_COUNTS["aflow"])
+    parser.add_argument("--oqmd", type=int, default=DEFAULT_COUNTS["oqmd"])
+    parser.add_argument("--alphafold", type=int, default=DEFAULT_COUNTS["alphafold"])
+    parser.add_argument("--boltz1", type=int, default=DEFAULT_COUNTS["boltz1"])
+    parser.add_argument("--zinc20", type=int, default=DEFAULT_COUNTS["zinc20"])
+    parser.add_argument("--nasa", type=int, default=DEFAULT_COUNTS["nasa"])
+    parser.add_argument("--nist", type=int, default=DEFAULT_COUNTS["nist"])
+    parser.add_argument("--openfoam", type=int, default=DEFAULT_COUNTS["openfoam"])
     parser.add_argument("--soil", type=int, default=DEFAULT_COUNTS["soil"])
     parser.add_argument("--simulations", type=int, default=DEFAULT_COUNTS["simulations"])
     parser.add_argument("--pubmed", type=int, default=4)
     parser.add_argument("--arxiv", type=int, default=4)
+    parser.add_argument("--nature", type=int, default=2)
+    parser.add_argument("--materials-today", type=int, default=2)
     parser.add_argument("--include-literature", action="store_true")
     parser.add_argument("--refresh-vectors", action="store_true")
     parser.add_argument("--max-workers", type=int, default=INGESTION_MAX_WORKERS)
@@ -85,8 +117,35 @@ def load_genes(args: argparse.Namespace) -> pd.DataFrame:
         return fetch_gene_fallback(args.genes, seed=args.seed)
 
 
+def load_genbank(args: argparse.Namespace) -> pd.DataFrame:
+    try:
+        return fetch_genbank_metadata(args.genbank, email=args.entrez_email, api_key=args.ncbi_api_key)
+    except Exception:
+        return fetch_genbank_fallback(args.genbank)
+
+
 def load_materials(args: argparse.Namespace) -> pd.DataFrame:
     return fetch_materials(args.materials, api_key=args.mp_api_key, seed=args.seed)
+
+
+def load_aflow_materials(args: argparse.Namespace) -> pd.DataFrame:
+    return generate_aflow_materials(args.aflow, seed=args.seed)
+
+
+def load_oqmd_materials(args: argparse.Namespace) -> pd.DataFrame:
+    return generate_oqmd_materials(args.oqmd, seed=args.seed)
+
+
+def load_nasa_materials(args: argparse.Namespace) -> pd.DataFrame:
+    return fetch_nasa_material_records(args.nasa, seed=args.seed)
+
+
+def load_aflow_materials(args: argparse.Namespace) -> pd.DataFrame:
+    return generate_aflow_materials(args.aflow, seed=args.seed)
+
+
+def load_oqmd_materials(args: argparse.Namespace) -> pd.DataFrame:
+    return generate_oqmd_materials(args.oqmd, seed=args.seed)
 
 
 def load_molecules(args: argparse.Namespace) -> pd.DataFrame:
@@ -96,8 +155,46 @@ def load_molecules(args: argparse.Namespace) -> pd.DataFrame:
         return fetch_pubchem_fallback(args.molecules, seed=args.seed)
 
 
+def load_zinc20(args: argparse.Namespace) -> pd.DataFrame:
+    return fetch_zinc20_metadata(args.zinc20, seed=args.seed)
+
+
 def load_soil(args: argparse.Namespace) -> pd.DataFrame:
     return generate_soil_records(args.soil, seed=args.seed)
+
+
+def load_nist(args: argparse.Namespace) -> pd.DataFrame:
+    return fetch_nist_thermo_records(args.nist, seed=args.seed)
+
+
+def load_openfoam(args: argparse.Namespace) -> pd.DataFrame:
+    return generate_openfoam_records(args.openfoam, seed=args.seed)
+
+
+def load_proteins(args: argparse.Namespace) -> pd.DataFrame:
+    try:
+        return fetch_uniprot_proteins(args.proteins, seed=args.seed)
+    except Exception:
+        return fetch_uniprot_fallback(args.proteins, seed=args.seed)
+
+
+def load_alphafold(args: argparse.Namespace) -> pd.DataFrame:
+    return fetch_alphafold_structures(args.alphafold, seed=args.seed)
+
+
+def load_boltz1(args: argparse.Namespace) -> pd.DataFrame:
+    return fetch_boltz1_structures(args.boltz1, seed=args.seed)
+
+
+def load_structures(args: argparse.Namespace) -> pd.DataFrame:
+    try:
+        return fetch_pdb_structures(args.structures, seed=args.seed)
+    except Exception:
+        return fetch_pdb_fallback(args.structures, seed=args.seed)
+
+
+def load_chembl(args: argparse.Namespace) -> pd.DataFrame:
+    return fetch_chembl_bioactivity(args.chembl)
 
 
 def load_simulations(args: argparse.Namespace) -> pd.DataFrame:
@@ -127,7 +224,19 @@ def load_literature(args: argparse.Namespace) -> tuple[pd.DataFrame, pd.DataFram
             ignore_index=True,
         )
 
-    papers = pd.concat([pubmed, arxiv], ignore_index=True)
+    try:
+        nature = fetch_crossref_journal_papers("Nature", args.nature)
+    except Exception:
+        nature = generate_paper_fallback("Nature", args.nature)
+    nature = select_relevant_papers(nature, args.nature)
+
+    try:
+        materials_today = fetch_crossref_journal_papers("Materials Today", args.materials_today)
+    except Exception:
+        materials_today = generate_paper_fallback("Materials Today", args.materials_today)
+    materials_today = select_relevant_papers(materials_today, args.materials_today)
+
+    papers = pd.concat([pubmed, arxiv, nature, materials_today], ignore_index=True)
     entities = extract_entities_from_papers(papers)
     return papers, entities
 
@@ -266,8 +375,20 @@ def main() -> None:
 
     jobs = {
         "genes": load_genes,
+        "genbank": load_genbank,
         "materials": load_materials,
+        "aflow_materials": load_aflow_materials,
+        "oqmd_materials": load_oqmd_materials,
+        "nasa_materials": load_nasa_materials,
         "molecules": load_molecules,
+        "zinc20": load_zinc20,
+        "proteins": load_proteins,
+        "alphafold": load_alphafold,
+        "boltz1": load_boltz1,
+        "structures": load_structures,
+        "chembl": load_chembl,
+        "nist": load_nist,
+        "openfoam": load_openfoam,
         "soil_samples": load_soil,
         "simulations": load_simulations,
     }

@@ -107,50 +107,89 @@ def _build_cross_domain_hint(row: pd.Series) -> str:
     name = _clean_text(row.get("name")).lower()
     combined = f"{name} {description}"
 
-    if entity_type == "gene":
-        hints = [
-            "Cross-domain hint: biological adaptation and repair signal relevant to bio-inspired materials and resilient system design.",
-            "Relevant concepts: stress response, cellular recovery, biomineralization, and healing analogies in engineering.",
-        ]
-        if any(keyword in combined for keyword in ["heat", "shock", "stress"]):
-            hints.append("Additional signal: heat tolerance and thermal adaptation cues.")
-        if any(keyword in combined for keyword in ["immune", "globulin", "repair", "kinase"]):
-            hints.append("Additional signal: recovery, defense, and repair pathways.")
-        return " ".join(hints)
+    builders = {
+        "gene": _gene_hint,
+        "material": _material_hint,
+        "molecule": _molecule_hint,
+        "protein": _protein_hint,
+        "structure": _structure_hint,
+        "soil": _soil_hint,
+        "simulation": _simulation_hint,
+    }
+    builder = builders.get(entity_type, _default_hint)
+    return builder(combined)
 
-    if entity_type == "material":
-        hints = [
-            "Cross-domain hint: advanced material candidate for self-healing composites, high-temperature service, thermal resistance, and structural resilience.",
-            "Relevant concepts: coatings, ceramics, alloys, conductivity screening, and heat-facing materials engineering.",
-        ]
-        if any(keyword in combined for keyword in ["o", "si", "al", "ti", "b", "c", "n"]):
-            hints.append("Additional signal: ceramic-like or semiconductor-like behavior for self-healing coatings and heat-facing systems.")
-        return " ".join(hints)
 
-    if entity_type == "molecule":
-        hints = [
-            "Cross-domain hint: molecular building block for polymer formulation, coatings, self-healing materials, and interface chemistry.",
-            "Relevant concepts: reactive chemistry, cross-linking, surface modification, and materials formulation.",
-        ]
-        if any(
-            keyword in combined
-            for keyword in ["amine", "hydroxy", "carbox", "epoxy", "oxide", "acetyl"]
-        ):
-            hints.append("Additional signal: functional groups compatible with network formation and self-healing polymer design.")
-        return " ".join(hints)
+def _gene_hint(combined: str) -> str:
+    hints = [
+        "Cross-domain hint: biological adaptation and repair signal relevant to bio-inspired materials and resilient system design.",
+        "Relevant concepts: stress response, cellular recovery, biomineralization, and healing analogies in engineering.",
+    ]
+    if any(keyword in combined for keyword in ["heat", "shock", "stress"]):
+        hints.append("Additional signal: heat tolerance and thermal adaptation cues.")
+    if any(keyword in combined for keyword in ["immune", "globulin", "repair", "kinase"]):
+        hints.append("Additional signal: recovery, defense, and repair pathways.")
+    return " ".join(hints)
 
-    if entity_type == "soil":
-        return (
-            "Cross-domain hint: environmental matrix connecting mineral behavior, salinity, pH, conductivity, and temperature exposure. "
-            "Relevant concepts: substrate stability, corrosion context, and deployment environment for high-temperature systems."
+
+def _material_hint(combined: str) -> str:
+    hints = [
+        "Cross-domain hint: advanced material candidate for self-healing composites, high-temperature service, thermal resistance, and structural resilience.",
+        "Relevant concepts: coatings, ceramics, alloys, conductivity screening, and heat-facing materials engineering.",
+    ]
+    if any(keyword in combined for keyword in ["o", "si", "al", "ti", "b", "c", "n"]):
+        hints.append(
+            "Additional signal: ceramic-like or semiconductor-like behavior for self-healing coatings and heat-facing systems."
         )
+    return " ".join(hints)
 
-    if entity_type == "simulation":
-        return (
-            "Cross-domain hint: physics and engineering surrogate for heat transfer, structural loading, thermal expansion, and materials screening. "
-            "Relevant concepts: CFD, FEA, vacuum exposure, radiation-facing systems, and pre-calculated performance envelopes."
+
+def _molecule_hint(combined: str) -> str:
+    hints = [
+        "Cross-domain hint: molecular building block for polymer formulation, coatings, self-healing materials, and interface chemistry.",
+        "Relevant concepts: reactive chemistry, cross-linking, surface modification, and materials formulation.",
+    ]
+    if any(keyword in combined for keyword in ["amine", "hydroxy", "carbox", "epoxy", "oxide", "acetyl"]):
+        hints.append(
+            "Additional signal: functional groups compatible with network formation and self-healing polymer design."
         )
+    return " ".join(hints)
 
+
+def _protein_hint(combined: str) -> str:
+    hints = [
+        "Cross-domain hint: protein function can inform enzymatic synthesis, biomineralization, catalysis, and bio-inspired materials design.",
+        "Relevant concepts: sequence function, binding partners, thermal adaptation, folding stability, and biological production pathways.",
+    ]
+    if any(keyword in combined for keyword in ["enzyme", "cataly", "bind", "repair", "heat", "stress"]):
+        hints.append(
+            "Additional signal: catalytic, binding, or stress-response behavior may transfer across biology and materials."
+        )
+    return " ".join(hints)
+
+
+def _structure_hint(_: str) -> str:
+    return (
+        "Cross-domain hint: protein or crystal structure can guide fold-aware design, structure-function matching, and materials lattice reasoning. "
+        "Relevant concepts: PDB identifiers, conformational stability, binding pockets, crystal symmetry, and structure-derived screening."
+    )
+
+
+def _soil_hint(_: str) -> str:
+    return (
+        "Cross-domain hint: environmental matrix connecting mineral behavior, salinity, pH, conductivity, and temperature exposure. "
+        "Relevant concepts: substrate stability, corrosion context, and deployment environment for high-temperature systems."
+    )
+
+
+def _simulation_hint(_: str) -> str:
+    return (
+        "Cross-domain hint: physics and engineering surrogate for heat transfer, structural loading, thermal expansion, and materials screening. "
+        "Relevant concepts: CFD, FEA, vacuum exposure, radiation-facing systems, and pre-calculated performance envelopes."
+    )
+
+
+def _default_hint(_: str) -> str:
     return "Cross-domain hint: searchable scientific entity for biology, chemistry, materials, and environment reasoning."
 
 
