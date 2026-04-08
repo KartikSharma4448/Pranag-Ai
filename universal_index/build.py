@@ -31,8 +31,6 @@ from universal_index.sources import (
     fetch_gene_fallback,
     fetch_genes,
     fetch_materials,
-    fetch_nasa_material_records,
-    fetch_nist_thermo_records,
     fetch_pubchem_fallback,
     fetch_pubchem_molecules,
     fetch_pdb_fallback,
@@ -105,7 +103,7 @@ def build_sources(args: argparse.Namespace) -> dict[str, pd.DataFrame]:
     materials = fetch_materials(args.materials, api_key=args.mp_api_key, seed=args.seed)
     aflow_materials = generate_aflow_materials(args.aflow, seed=args.seed)
     oqmd_materials = generate_oqmd_materials(args.oqmd, seed=args.seed)
-    nasa_materials = fetch_nasa_material_records(args.nasa, seed=args.seed)
+    nasa_materials = generate_nasa_material_records(args.nasa, seed=args.seed)
 
     try:
         molecules = fetch_pubchem_molecules(args.molecules)
@@ -132,7 +130,7 @@ def build_sources(args: argparse.Namespace) -> dict[str, pd.DataFrame]:
     except Exception:
         chembl = fetch_pubchem_fallback(args.chembl, seed=args.seed)
 
-    nist = fetch_nist_thermo_records(args.nist, seed=args.seed)
+    nist = generate_nist_thermo_records(args.nist, seed=args.seed)
     openfoam = generate_openfoam_records(args.openfoam, seed=args.seed)
 
     soil = generate_soil_records(args.soil, seed=args.seed)

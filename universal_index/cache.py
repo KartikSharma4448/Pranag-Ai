@@ -11,6 +11,7 @@ import duckdb
 
 from universal_index.config import (
     CACHE_BACKEND,
+    CACHE_KEY_VERSION,
     PROCESSED_DIR,
     REDIS_KEY_PREFIX,
     REDIS_URL,
@@ -24,7 +25,8 @@ except ImportError:  # pragma: no cover - optional dependency
 
 
 def make_cache_key(payload: dict[str, object]) -> str:
-    normalized = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+    versioned_payload = {"cache_key_version": CACHE_KEY_VERSION, **payload}
+    normalized = json.dumps(versioned_payload, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
 

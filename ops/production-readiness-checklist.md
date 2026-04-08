@@ -1,6 +1,6 @@
 # Production Readiness Checklist
 
-Updated: 2026-04-08
+Updated: 2026-04-08 (post vector dedup verification)
 
 ## Completed
 
@@ -41,12 +41,19 @@ Updated: 2026-04-08
 
 ## Evidence Required
 
-- [ ] `data/processed/benchmark_summary.json` captured from a real run
-- [ ] `data/processed/build_summary.json` updated after the latest ingestion pass
+- [x] `data/processed/benchmark_summary.json` captured from a real run
+- [x] `data/processed/build_summary.json` updated after the latest ingestion pass
 - [ ] `data/processed/distributed_ingestion_summary.json` updated after the latest scheduler or manual run
-- [ ] `data/processed/vector_index_summary.json` updated after vector rebuild
+- [x] `data/processed/vector_index_summary.json` updated after vector rebuild
 - [ ] `data/processed/paper_ingest_summary.json` updated after the latest literature ingest
 - [ ] Production owner sign-off recorded for each mandatory external provider
+
+## Latest Validation Snapshot
+
+- Build completed with `rows_total=4900` and wrote `data/processed/universal_index.parquet`
+- Vector index rebuild completed with `rows_indexed=4900`
+- Benchmark run completed with timings: search `5709.14 ms`, context `18.34 ms`, recommend `215.82 ms`
+- Unit tests passed: `8 passed` via `python -m unittest discover -s tests -q`
 
 ## Go-Live Gate
 

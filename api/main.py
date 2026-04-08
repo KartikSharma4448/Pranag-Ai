@@ -185,8 +185,8 @@ def ingestion_status() -> dict[str, object]:
     responses={503: {"description": "Universal index is not built yet."}},
 )
 def high_temperature_entities(
-    min_temperature: Annotated[float, Query(default=45.0, ge=-273.15)] = 45.0,
-    limit: Annotated[int, Query(default=25, ge=1, le=250)] = 25,
+    min_temperature: Annotated[float, Query(ge=-273.15)] = 45.0,
+    limit: Annotated[int, Query(ge=1, le=250)] = 25,
 ) -> dict[str, object]:
     parquet_path = Path(PARQUET_PATH)
     if not parquet_path.exists():
@@ -219,7 +219,7 @@ def high_temperature_entities(
 def context_lookup(
     lat: Annotated[float, Query(ge=-90.0, le=90.0)],
     lon: Annotated[float, Query(ge=-180.0, le=180.0)],
-    mode: Annotated[str, Query(default=LIVE_CONTEXT_MODE, pattern="^(local|auto|live)$")],
+    mode: Annotated[str, Query(pattern="^(local|auto|live)$")] = LIVE_CONTEXT_MODE,
 ) -> ContextResponse:
     cache_key = make_cache_key({"lat": round(lat, 4), "lon": round(lon, 4), "mode": mode})
     cached = cache.get("context", cache_key)
@@ -245,8 +245,8 @@ def context_lookup(
 )
 def search(
     q: Annotated[str, Query(min_length=3, description="Scientific search prompt")],
-    top_k: Annotated[int, Query(default=8, ge=1, le=25)] = 8,
-    candidate_pool: Annotated[int, Query(default=128, ge=8, le=512)] = 128,
+    top_k: Annotated[int, Query(ge=1, le=25)] = 8,
+    candidate_pool: Annotated[int, Query(ge=8, le=512)] = 128,
 ) -> SearchResponse:
     cache_key = make_cache_key({"q": q, "top_k": top_k, "candidate_pool": candidate_pool})
     cached = cache.get("search", cache_key)
@@ -287,9 +287,9 @@ def recommend(
     q: Annotated[str, Query(min_length=3, description="Scientific design prompt")],
     lat: Annotated[float, Query(ge=-90.0, le=90.0)],
     lon: Annotated[float, Query(ge=-180.0, le=180.0)],
-    context_mode: Annotated[str, Query(default=LIVE_CONTEXT_MODE, pattern="^(local|auto|live)$")],
-    top_k: Annotated[int, Query(default=8, ge=1, le=25)] = 8,
-    candidate_pool: Annotated[int, Query(default=128, ge=8, le=512)] = 128,
+    context_mode: Annotated[str, Query(pattern="^(local|auto|live)$")] = LIVE_CONTEXT_MODE,
+    top_k: Annotated[int, Query(ge=1, le=25)] = 8,
+    candidate_pool: Annotated[int, Query(ge=8, le=512)] = 128,
 ) -> RecommendResponse:
     cache_key = make_cache_key(
         {

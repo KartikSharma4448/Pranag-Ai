@@ -1,24 +1,38 @@
 {
-  "rows_total": 1850,
+  "rows_total": 4900,
   "rows_by_type": {
-    "gene": 500,
-    "material": 500,
-    "molecule": 500,
-    "soil": 200,
-    "simulation": 150
+    "molecule": 1250,
+    "material": 1150,
+    "gene": 1000,
+    "structure": 600,
+    "simulation": 450,
+    "protein": 250,
+    "soil": 200
   },
   "sources": [
+    "AFLOW surrogate",
+    "AlphaFold DB surrogate",
+    "ChEMBL",
     "FEA structural heat-load surrogate",
-    "GenBank/NCBI Gene",
+    "GenBank",
+    "GenBank fallback",
     "Materials Project fallback (no API key)",
     "NASA extreme materials panel",
+    "NASA materials surrogate",
+    "NIST WebBook surrogate",
     "NIST thermodynamic reference case",
+    "OQMD surrogate",
     "OpenFOAM CFD thermal shock case",
+    "OpenFOAM surrogate",
     "PubChem",
-    "Synthetic soil CSV"
+    "RCSB PDB",
+    "Synthetic soil CSV",
+    "UniProt",
+    "ZINC20 surrogate",
+    "boltz1 surrogate"
   ],
   "parquet_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\universal_index.parquet",
   "duckdb_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\universal_index.duckdb",
   "validation_csv_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\temperature_over_45.csv",
-  "validation_rows": 743
+  "validation_rows": 1693
 }

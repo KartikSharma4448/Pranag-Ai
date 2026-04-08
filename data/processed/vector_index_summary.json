@@ -1,9 +1,9 @@
 {
-  "rows_indexed": 1881,
+  "rows_indexed": 4900,
   "collection_name": "universal_index_day2",
-  "chroma_dir": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\chroma",
+  "chroma_dir": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\chroma",
   "model_name": "sentence-transformers/all-MiniLM-L6-v2",
-  "query": "latest literature derived high temperature self healing design",
+  "query": "self healing high temperature material",
   "result_entity_types": [
     "material",
     "molecule",
@@ -12,8 +12,9 @@
     "simulation",
     "material",
     "material",
+    "material",
     "material"
   ],
-  "vector_documents_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\vector_documents.parquet",
-  "query_results_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\semantic_query_results.json"
+  "vector_documents_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\vector_documents.parquet",
+  "query_results_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\semantic_query_results.json"
 }

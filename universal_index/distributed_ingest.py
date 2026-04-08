@@ -50,8 +50,6 @@ from universal_index.sources import (
     fetch_gene_fallback,
     fetch_genes,
     fetch_materials,
-    fetch_nasa_material_records,
-    fetch_nist_thermo_records,
     fetch_pubchem_fallback,
     fetch_pubchem_molecules,
     fetch_pdb_fallback,
@@ -137,7 +135,7 @@ def load_oqmd_materials(args: argparse.Namespace) -> pd.DataFrame:
 
 
 def load_nasa_materials(args: argparse.Namespace) -> pd.DataFrame:
-    return fetch_nasa_material_records(args.nasa, seed=args.seed)
+    return generate_nasa_material_records(args.nasa, seed=args.seed)
 
 
 def load_aflow_materials(args: argparse.Namespace) -> pd.DataFrame:
@@ -164,7 +162,7 @@ def load_soil(args: argparse.Namespace) -> pd.DataFrame:
 
 
 def load_nist(args: argparse.Namespace) -> pd.DataFrame:
-    return fetch_nist_thermo_records(args.nist, seed=args.seed)
+    return generate_nist_thermo_records(args.nist, seed=args.seed)
 
 
 def load_openfoam(args: argparse.Namespace) -> pd.DataFrame:

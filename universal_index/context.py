@@ -279,12 +279,16 @@ def _apply_copernicus_projection(
 ) -> dict[str, object]:
     if copernicus_climate is None:
         return merged
-    return merge_context_payload(
+    original_location_name = merged.get("location_name")
+    projected = merge_context_payload(
         local_context=merged,
         live_soil=None,
         live_climate=copernicus_climate,
         live_agriculture=None,
     )
+    if original_location_name:
+        projected["location_name"] = original_location_name
+    return projected
 
 
 def _apply_agriculture_proxy(merged: dict[str, object]) -> tuple[dict[str, object], dict[str, object] | None]:

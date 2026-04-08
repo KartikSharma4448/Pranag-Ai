@@ -1,0 +1,251 @@
+entity_id,entity_type,name,description,temperature_max,strength,conductivity,ph,salinity,source
+chembl-CHEMBL113081-31863,molecule,CHEMBL113081,Target: CHEMBL1806. Assay type: IC50. Activity: 100000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL324340-31864,molecule,CHEMBL324340,Target: CHEMBL3921. Assay type: IC50. Activity: 2500.0 nM. pChEMBL: 5.6.,,,,,,ChEMBL
+chembl-CHEMBL324340-31865,molecule,CHEMBL324340,Target: CHEMBL3879801. Assay type: IC50. Activity: 50000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL109600-31866,molecule,CHEMBL109600,Target: CHEMBL3921. Assay type: IC50. Activity: 9000.0 nM. pChEMBL: 5.05.,,,,,,ChEMBL
+chembl-CHEMBL109600-31867,molecule,CHEMBL109600,Target: CHEMBL3879801. Assay type: IC50.,,,,,,ChEMBL
+chembl-CHEMBL357278-31868,molecule,CHEMBL357278,Target: CHEMBL4632. Assay type: IC50. Activity: 4000.0 nM. pChEMBL: 5.4.,,,,,,ChEMBL
+chembl-CHEMBL357278-31869,molecule,CHEMBL357278,Target: CHEMBL612558. Assay type: % remaining. Activity: 25.0 %.,,,,,,ChEMBL
+chembl-CHEMBL357119-31870,molecule,CHEMBL357119,Target: CHEMBL4632. Assay type: IC50. Activity: 17000.0 nM. pChEMBL: 4.77.,,,,,,ChEMBL
+chembl-CHEMBL357119-31871,molecule,CHEMBL357119,Target: CHEMBL612558. Assay type: % remaining. Activity: 27.0 %.,,,,,,ChEMBL
+chembl-CHEMBL152968-31872,molecule,CHEMBL152968,Target: CHEMBL4632. Assay type: IC50. Activity: 180.0 nM. pChEMBL: 6.75.,,,,,,ChEMBL
+chembl-CHEMBL152968-31873,molecule,CHEMBL152968,Target: CHEMBL612558. Assay type: % remaining. Activity: 58.0 %.,,,,,,ChEMBL
+chembl-CHEMBL152968-31874,molecule,CHEMBL152968,Target: CHEMBL3356. Assay type: IC50. Activity: 6000.0 nM. pChEMBL: 5.22.,,,,,,ChEMBL
+chembl-CHEMBL152968-31875,molecule,CHEMBL152968,Target: CHEMBL340. Assay type: IC50. Activity: 37000.0 nM. pChEMBL: 4.43.,,,,,,ChEMBL
+chembl-CHEMBL152968-31876,molecule,CHEMBL152968,Target: CHEMBL3397. Assay type: IC50. Activity: 24000.0 nM. pChEMBL: 4.62.,,,,,,ChEMBL
+chembl-CHEMBL152968-31877,molecule,CHEMBL152968,Target: CHEMBL369. Assay type: Delta S-H. Activity: 3.0 ms.,,,,,,ChEMBL
+chembl-CHEMBL152968-31878,molecule,CHEMBL152968,Target: CHEMBL369. Assay type: Delta H-V. Activity: 0.0 ms.,,,,,,ChEMBL
+chembl-CHEMBL152968-31879,molecule,CHEMBL152968,Target: CHEMBL369. Assay type: Delta CPP. Activity: -4.3 mmHg.,,,,,,ChEMBL
+chembl-CHEMBL174698-31880,molecule,CHEMBL174698,Target: CHEMBL382. Assay type: EC50. Activity: 63.6 nM.,,,,,,ChEMBL
+chembl-CHEMBL174698-31881,molecule,CHEMBL174698,Target: CHEMBL382. Assay type: CC50. Activity: 1000000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL174698-31882,molecule,CHEMBL174698,Target: CHEMBL612545. Assay type: Selectivity index. Activity: 15723.0 uM.,,,,,,ChEMBL
+chembl-CHEMBL174698-31883,molecule,CHEMBL174698,Target: CHEMBL360. Assay type: Inhibition.,,,,,,ChEMBL
+chembl-CHEMBL174698-31884,molecule,CHEMBL174698,Target: CHEMBL612558. Assay type: T1/2. Activity: 0.3333 hr.,,,,,,ChEMBL
+chembl-CHEMBL416206-31885,molecule,CHEMBL416206,Target: CHEMBL612545. Assay type: Inhibition. Activity: 47.0 %.,,,,,,ChEMBL
+chembl-CHEMBL416206-31886,molecule,CHEMBL416206,Target: CHEMBL3879801. Assay type: MIC. Activity: 200000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL33450-31887,molecule,CHEMBL33450,Target: CHEMBL612545. Assay type: Inhibition. Activity: 38.0 %.,,,,,,ChEMBL
+chembl-CHEMBL33450-31888,molecule,CHEMBL33450,Target: CHEMBL3879801. Assay type: MIC. Activity: 200000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL268177-31889,molecule,CHEMBL268177,Target: CHEMBL261. Assay type: Ki. Activity: 6000.0 nM. pChEMBL: 5.22.,,,,,,ChEMBL
+chembl-CHEMBL268177-31890,molecule,CHEMBL268177,Target: CHEMBL205. Assay type: Ki. Activity: 70.0 nM. pChEMBL: 7.16.,,,,,,ChEMBL
+chembl-CHEMBL268177-31891,molecule,CHEMBL268177,Target: CHEMBL3594. Assay type: Ki. Activity: 285.0 nM. pChEMBL: 6.54.,,,,,,ChEMBL
+chembl-CHEMBL268177-31892,molecule,CHEMBL268177,Target: CHEMBL2186. Assay type: Ki. Activity: 50.0 nM. pChEMBL: 7.3.,,,,,,ChEMBL
+chembl-CHEMBL268439-31893,molecule,CHEMBL268439,Target: CHEMBL261. Assay type: Ki. Activity: 6.0 nM. pChEMBL: 8.22.,,,,,,ChEMBL
+chembl-CHEMBL268439-31894,molecule,CHEMBL268439,Target: CHEMBL205. Assay type: Ki. Activity: 2.0 nM. pChEMBL: 8.7.,,,,,,ChEMBL
+chembl-CHEMBL268439-31895,molecule,CHEMBL268439,Target: CHEMBL3594. Assay type: Ki. Activity: 38.0 nM. pChEMBL: 7.42.,,,,,,ChEMBL
+chembl-CHEMBL268439-31896,molecule,CHEMBL268439,Target: CHEMBL2186. Assay type: Ki. Activity: 2.0 nM. pChEMBL: 8.7.,,,,,,ChEMBL
+chembl-CHEMBL608018-31897,molecule,CHEMBL608018,Target: CHEMBL2304404. Assay type: Ki low. Activity: 913.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL608018-31898,molecule,CHEMBL608018,Target: CHEMBL2304404. Assay type: CPA. Activity: 89.0 %.,,,,,,ChEMBL
+chembl-CHEMBL609538-31899,molecule,CHEMBL609538,Target: CHEMBL2304404. Assay type: Ki high. Activity: 102.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL609538-31900,molecule,CHEMBL609538,Target: CHEMBL2304404. Assay type: Ki low. Activity: 614.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL609538-31901,molecule,CHEMBL609538,Target: CHEMBL2304404. Assay type: CPA. Activity: 89.0 %.,,,,,,ChEMBL
+chembl-CHEMBL295054-31902,molecule,CHEMBL295054,Target: CHEMBL364. Assay type: EC50. Activity: 13000.0 nM. pChEMBL: 4.89.,,,,,,ChEMBL
+chembl-CHEMBL295054-31903,molecule,CHEMBL295054,Target: CHEMBL614297. Assay type: EC10. Activity: 90.0 M.,,,,,,ChEMBL
+chembl-CHEMBL295054-31904,molecule,CHEMBL295054,Target: CHEMBL614297. Assay type: Selective toxicity.,,,,,,ChEMBL
+chembl-CHEMBL327375-31905,molecule,CHEMBL327375,Target: CHEMBL376. Assay type: Inhibitory response. Activity: 77.0 %.,,,,,,ChEMBL
+chembl-CHEMBL327375-31906,molecule,CHEMBL327375,Target: CHEMBL376. Assay type: Relative potency.,,,,,,ChEMBL
+chembl-CHEMBL327233-31907,molecule,CHEMBL327233,Target: CHEMBL376. Assay type: Inhibitory response. Activity: 94.0 %.,,,,,,ChEMBL
+chembl-CHEMBL327233-31908,molecule,CHEMBL327233,Target: CHEMBL376. Assay type: Relative potency.,,,,,,ChEMBL
+chembl-CHEMBL54530-31909,molecule,CHEMBL54530,Target: CHEMBL4320. Assay type: Ki. Activity: 19010.78 nM. pChEMBL: 4.72.,,,,,,ChEMBL
+chembl-CHEMBL54530-31910,molecule,CHEMBL54530,Target: CHEMBL4320. Assay type: Ki. Activity: 158124.8 nM.,,,,,,ChEMBL
+chembl-CHEMBL132530-31911,molecule,CHEMBL132530,Target: CHEMBL1978. Assay type: Inhibition. Activity: 50.1 %.,,,,,,ChEMBL
+chembl-CHEMBL132530-31912,molecule,CHEMBL132530,Target: CHEMBL1978. Assay type: Inhibition. Activity: 81.6 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31913,molecule,CHEMBL542969,Target: CHEMBL377. Assay type: T/C. Activity: 11.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31914,molecule,CHEMBL542969,Target: CHEMBL377. Assay type: Average lesion score.,,,,,,ChEMBL
+chembl-CHEMBL542969-31915,molecule,CHEMBL542969,Target: CHEMBL377. Assay type: Reduction. Activity: 94.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31916,molecule,CHEMBL542969,Target: CHEMBL377. Assay type: Average lesion score.,,,,,,ChEMBL
+chembl-CHEMBL542969-31917,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Average lesion score.,,,,,,ChEMBL
+chembl-CHEMBL542969-31918,molecule,CHEMBL542969,Target: CHEMBL377. Assay type: Average lesion score.,,,,,,ChEMBL
+chembl-CHEMBL542969-31919,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Average lesion score.,,,,,,ChEMBL
+chembl-CHEMBL542969-31920,molecule,CHEMBL542969,Target: CHEMBL377. Assay type: Reduction. Activity: 87.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31921,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Reduction. Activity: 80.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31922,molecule,CHEMBL542969,Target: CHEMBL377. Assay type: Reduction. Activity: 67.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31923,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Reduction. Activity: 67.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31924,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Reduction. Activity: 85.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31925,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Reduction. Activity: 78.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31926,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Reduction. Activity: 78.0 %.,,,,,,ChEMBL
+chembl-CHEMBL542969-31927,molecule,CHEMBL542969,Target: CHEMBL375. Assay type: Reduction. Activity: 70.0 %.,,,,,,ChEMBL
+chembl-CHEMBL302907-31928,molecule,CHEMBL302907,Target: CHEMBL369. Assay type: Kb. Activity: 27.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL302907-31929,molecule,CHEMBL302907,Target: CHEMBL376. Assay type: ED50. Activity: 0.075 umol.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL302907-31930,molecule,CHEMBL302907,Target: CHEMBL612545. Assay type: Ratio.,,,,,,ChEMBL
+chembl-CHEMBL302907-31931,molecule,CHEMBL302907,Target: CHEMBL2882. Assay type: Kd. Activity: 25.12 nM. pChEMBL: 7.6.,,,,,,ChEMBL
+chembl-CHEMBL302907-31932,molecule,CHEMBL302907,Target: CHEMBL3943. Assay type: Kd. Activity: 125892.54 nM.,,,,,,ChEMBL
+chembl-CHEMBL302907-31933,molecule,CHEMBL302907,Target: CHEMBL612545. Assay type: Kd. Activity: 398107.17 nM.,,,,,,ChEMBL
+chembl-CHEMBL302907-31934,molecule,CHEMBL302907,Target: CHEMBL2095166. Assay type: Kd. Activity: 50118.72 nM. pChEMBL: 4.3.,,,,,,ChEMBL
+chembl-CHEMBL424351-31935,molecule,CHEMBL424351,Target: CHEMBL376. Assay type: Saluretic potency. Activity: 0.2 u equiv.,,,,,,ChEMBL
+chembl-CHEMBL424351-31936,molecule,CHEMBL424351,Target: CHEMBL376. Assay type: Saluretic potency. Activity: 0.3 u equiv.,,,,,,ChEMBL
+chembl-CHEMBL424351-31937,molecule,CHEMBL424351,Target: CHEMBL373. Assay type: Saluretic potency. Activity: 100.0 u equiv min-1.,,,,,,ChEMBL
+chembl-CHEMBL157212-31938,molecule,CHEMBL157212,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL156939-31939,molecule,CHEMBL156939,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL154020-31940,molecule,CHEMBL154020,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL439640-31941,molecule,CHEMBL439640,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL151681-31942,molecule,CHEMBL151681,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL3350727-31943,molecule,CHEMBL3350727,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL155212-31944,molecule,CHEMBL155212,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL2370002-31945,molecule,CHEMBL2370002,Target: CHEMBL612545. Assay type: Log SP.,,,,,,ChEMBL
+chembl-CHEMBL429345-31946,molecule,CHEMBL429345,Target: CHEMBL357. Assay type: IC50. Activity: 0.009 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL429345-31947,molecule,CHEMBL429345,Target: CHEMBL357. Assay type: IC50. Activity: 0.2 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL429345-31948,molecule,CHEMBL429345,Target: CHEMBL613075. Assay type: IC50. Activity: 0.056 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL429345-31949,molecule,CHEMBL429345,Target: CHEMBL613075. Assay type: IC50. Activity: 0.064 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL415997-31950,molecule,CHEMBL415997,Target: CHEMBL369. Assay type: IC50. Activity: 2.9 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL415997-31951,molecule,CHEMBL415997,Target: CHEMBL376. Assay type: ED50. Activity: 8.8 mg.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL415997-31952,molecule,CHEMBL415997,Target: CHEMBL376. Assay type: ED50.,,,,,,ChEMBL
+chembl-CHEMBL435966-31953,molecule,CHEMBL435966,Target: CHEMBL612853. Assay type: Dose. Activity: 20.0 mg kg-1 day-1.,,,,,,ChEMBL
+chembl-CHEMBL435966-31954,molecule,CHEMBL435966,Target: CHEMBL612853. Assay type: Dose. Activity: 100.0 mg kg-1 day-1.,,,,,,ChEMBL
+chembl-CHEMBL13299-31955,molecule,CHEMBL13299,Target: CHEMBL369. Assay type: Kd. Activity: 7.943 nM. pChEMBL: 8.1.,,,,,,ChEMBL
+chembl-CHEMBL13299-31956,molecule,CHEMBL13299,Target: CHEMBL369. Assay type: Kd. Activity: 199.53 nM. pChEMBL: 6.7.,,,,,,ChEMBL
+chembl-CHEMBL13299-31957,molecule,CHEMBL13299,Target: CHEMBL369. Assay type: Selectivity.,,,,,,ChEMBL
+chembl-CHEMBL13299-31958,molecule,CHEMBL13299,Target: CHEMBL369. Assay type: Duration. Activity: 60.0 min.,,,,,,ChEMBL
+chembl-CHEMBL329101-31959,molecule,CHEMBL329101,Target: CHEMBL376. Assay type: Inhibitory response. Activity: 8.0 %.,,,,,,ChEMBL
+chembl-CHEMBL545251-31960,molecule,CHEMBL545251,Target: CHEMBL376. Assay type: Inhibitory response. Activity: 2.0 %.,,,,,,ChEMBL
+chembl-CHEMBL92060-31961,molecule,CHEMBL92060,Target: CHEMBL376. Assay type: Inhibitory response. Activity: 9.0 %.,,,,,,ChEMBL
+chembl-CHEMBL305153-31962,molecule,CHEMBL305153,Target: CHEMBL5471. Assay type: Kd. Activity: 37.15 nM. pChEMBL: 7.43.,,,,,,ChEMBL
+chembl-CHEMBL305153-31963,molecule,CHEMBL305153,Target: CHEMBL5414. Assay type: Kd. Activity: 16.98 nM. pChEMBL: 7.77.,,,,,,ChEMBL
+chembl-CHEMBL305153-31964,molecule,CHEMBL305153,Target: CHEMBL213. Assay type: IC50. Activity: 29.4 nM. pChEMBL: 7.53.,,,,,,ChEMBL
+chembl-CHEMBL305153-31965,molecule,CHEMBL305153,Target: CHEMBL3373. Assay type: IC50. Activity: 30.8 nM. pChEMBL: 7.51.,,,,,,ChEMBL
+chembl-CHEMBL305153-31966,molecule,CHEMBL305153,Target: CHEMBL5414. Assay type: Ratio.,,,,,,ChEMBL
+chembl-CHEMBL290578-31967,molecule,CHEMBL290578,Target: CHEMBL375. Assay type: Reduction. Activity: 100.0 %.,,,,,,ChEMBL
+chembl-CHEMBL290578-31968,molecule,CHEMBL290578,Target: CHEMBL375. Assay type: Reduction. Activity: 80.0 %.,,,,,,ChEMBL
+chembl-CHEMBL290578-31969,molecule,CHEMBL290578,Target: CHEMBL375. Assay type: Reduction. Activity: 20.0 %.,,,,,,ChEMBL
+chembl-CHEMBL290578-31970,molecule,CHEMBL290578,Target: CHEMBL375. Assay type: Reduction. Activity: 0.0 %.,,,,,,ChEMBL
+chembl-CHEMBL290578-31971,molecule,CHEMBL290578,Target: CHEMBL375. Assay type: Reduction. Activity: 0.0 %.,,,,,,ChEMBL
+chembl-CHEMBL1446-31972,molecule,CHEMBL1446,Target: CHEMBL352. Assay type: MIC. Activity: 7.8 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31973,molecule,CHEMBL1446,Target: CHEMBL356. Assay type: MIC. Activity: 15.6 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31974,molecule,CHEMBL1446,Target: CHEMBL362. Assay type: MIC. Activity: 250.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31975,molecule,CHEMBL1446,Target: CHEMBL347. Assay type: MIC. Activity: 125.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31976,molecule,CHEMBL1446,Target: CHEMBL354. Assay type: MIC. Activity: 3.9 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31977,molecule,CHEMBL1446,Target: CHEMBL350. Assay type: MIC. Activity: 1.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31978,molecule,CHEMBL1446,Target: CHEMBL612545. Assay type: MIC. Activity: 2.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31979,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 62.5 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31980,molecule,CHEMBL1446,Target: CHEMBL614450. Assay type: MIC. Activity: 15.6 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31981,molecule,CHEMBL1446,Target: CHEMBL614444. Assay type: MIC. Activity: 62.5 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31982,molecule,CHEMBL1446,Target: CHEMBL614593. Assay type: MIC. Activity: 7.8 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31983,molecule,CHEMBL1446,Target: CHEMBL614446. Assay type: MIC. Activity: 15.6 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31984,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 15.6 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31985,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 15.6 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31986,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 31.2 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31987,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 31.2 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31988,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 62.5 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31989,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 15.6 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL1446-31990,molecule,CHEMBL1446,Target: CHEMBL348. Assay type: MIC. Activity: 125.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL156707-31991,molecule,CHEMBL156707,Target: CHEMBL3444. Assay type: IC50. Activity: 1584.89 nM. pChEMBL: 5.8.,,,,,,ChEMBL
+chembl-CHEMBL156707-31992,molecule,CHEMBL156707,Target: CHEMBL4048. Assay type: pI50.,,,,,,ChEMBL
+chembl-CHEMBL156707-31993,molecule,CHEMBL156707,Target: CHEMBL3879801. Assay type: pI50.,,,,,,ChEMBL
+chembl-CHEMBL156707-31994,molecule,CHEMBL156707,Target: CHEMBL614641. Assay type: pI50.,,,,,,ChEMBL
+chembl-CHEMBL12902-31995,molecule,CHEMBL12902,Target: CHEMBL369. Assay type: Kd. Activity: 1000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL13228-31996,molecule,CHEMBL13228,Target: CHEMBL369. Assay type: Kd. Activity: 0.3981 nM. pChEMBL: 9.4.,,,,,,ChEMBL
+chembl-CHEMBL13228-31997,molecule,CHEMBL13228,Target: CHEMBL369. Assay type: Kd. Activity: 0.7943 nM. pChEMBL: 9.1.,,,,,,ChEMBL
+chembl-CHEMBL13228-31998,molecule,CHEMBL13228,Target: CHEMBL369. Assay type: Selectivity.,,,,,,ChEMBL
+chembl-CHEMBL13228-31999,molecule,CHEMBL13228,Target: CHEMBL369. Assay type: Duration. Activity: 60.0 min.,,,,,,ChEMBL
+chembl-CHEMBL267696-32000,molecule,CHEMBL267696,Target: CHEMBL372. Assay type: Growth of cells.,,,,,,ChEMBL
+chembl-CHEMBL267696-32001,molecule,CHEMBL267696,Target: CHEMBL3879801. Assay type: Growth of cells.,,,,,,ChEMBL
+chembl-CHEMBL175312-32002,molecule,CHEMBL175312,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175312-32003,molecule,CHEMBL175312,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175312-32004,molecule,CHEMBL175312,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175312-32005,molecule,CHEMBL175312,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175312-32006,molecule,CHEMBL175312,Target: CHEMBL612558. Assay type: Solubility. Activity: 248400.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL175312-32007,molecule,CHEMBL175312,Target: CHEMBL612558. Assay type: Solubility. Activity: 170000.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL175414-32008,molecule,CHEMBL175414,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175414-32009,molecule,CHEMBL175414,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175414-32010,molecule,CHEMBL175414,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175414-32011,molecule,CHEMBL175414,Target: CHEMBL612558. Assay type: Solubility ratio.,,,,,,ChEMBL
+chembl-CHEMBL175414-32012,molecule,CHEMBL175414,Target: CHEMBL612558. Assay type: Solubility. Activity: 238800.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL175414-32013,molecule,CHEMBL175414,Target: CHEMBL612558. Assay type: Solubility. Activity: 172900.0 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL307157-32014,molecule,CHEMBL307157,Target: CHEMBL1872. Assay type: MP. Activity: 45.0 %.,,,,,,ChEMBL
+chembl-CHEMBL307157-32015,molecule,CHEMBL307157,Target: CHEMBL1872. Assay type: MP. Activity: 0.0 %.,,,,,,ChEMBL
+chembl-CHEMBL307157-32016,molecule,CHEMBL307157,Target: CHEMBL1872. Assay type: DP. Activity: 0.0 %.,,,,,,ChEMBL
+chembl-CHEMBL307157-32017,molecule,CHEMBL307157,Target: CHEMBL1872. Assay type: TP. Activity: 76.0 %.,,,,,,ChEMBL
+chembl-CHEMBL307157-32018,molecule,CHEMBL307157,Target: CHEMBL1872. Assay type: Inhibition. Activity: 3.0 %.,,,,,,ChEMBL
+chembl-CHEMBL307157-32019,molecule,CHEMBL307157,Target: CHEMBL612545. Assay type: Inhibition. Activity: 14.0 %.,,,,,,ChEMBL
+chembl-CHEMBL307157-32020,molecule,CHEMBL307157,Target: CHEMBL374. Assay type: ED50. Activity: 6.0 ug ml-1.,,,,,,ChEMBL
+chembl-CHEMBL307157-32021,molecule,CHEMBL307157,Target: CHEMBL374. Assay type: ED50. Activity: 12.0 ug ml-1.,,,,,,ChEMBL
+chembl-CHEMBL279087-32022,molecule,CHEMBL279087,Target: CHEMBL1907607. Assay type: IC50. Activity: 120.0 nM. pChEMBL: 6.92.,,,,,,ChEMBL
+chembl-CHEMBL279969-32023,molecule,CHEMBL279969,Target: CHEMBL1907607. Assay type: IC50. Activity: 1850.0 nM. pChEMBL: 5.73.,,,,,,ChEMBL
+chembl-CHEMBL279969-32024,molecule,CHEMBL279969,Target: CHEMBL376. Assay type: MED. Activity: 50.0 mg kg-1.,,,,,,ChEMBL
+chembl-CHEMBL20214-32025,molecule,CHEMBL20214,Target: CHEMBL1907607. Assay type: IC50. Activity: 34.0 nM. pChEMBL: 7.47.,,,,,,ChEMBL
+chembl-CHEMBL20214-32026,molecule,CHEMBL20214,Target: CHEMBL376. Assay type: MED. Activity: 10.0 mg kg-1.,,,,,,ChEMBL
+chembl-CHEMBL277617-32027,molecule,CHEMBL277617,Target: CHEMBL1907607. Assay type: IC50. Activity: 107.0 nM. pChEMBL: 6.97.,,,,,,ChEMBL
+chembl-CHEMBL277617-32028,molecule,CHEMBL277617,Target: CHEMBL376. Assay type: MED. Activity: 2.0 mg kg-1.,,,,,,ChEMBL
+chembl-CHEMBL408689-32029,molecule,CHEMBL408689,Target: CHEMBL376. Assay type: Activity. Activity: 0.01 %.,,,,,,ChEMBL
+chembl-CHEMBL408689-32030,molecule,CHEMBL408689,Target: CHEMBL376. Assay type: Kd. Activity: 5011.87 nM. pChEMBL: 5.3.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32031,molecule,CHEMBL3350133,Target: CHEMBL2095156. Assay type: IC50. Activity: 22.0 nM. pChEMBL: 7.66.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32032,molecule,CHEMBL3350133,Target: CHEMBL612545. Assay type: Potency ratio.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32033,molecule,CHEMBL3350133,Target: CHEMBL612545. Assay type: Ratio.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32034,molecule,CHEMBL3350133,Target: CHEMBL4354. Assay type: Ki. Activity: 44.0 nM. pChEMBL: 7.36.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32035,molecule,CHEMBL3350133,Target: CHEMBL4354. Assay type: Relative affinity.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32036,molecule,CHEMBL3350133,Target: CHEMBL3952. Assay type: Ki. Activity: 590.0 nM. pChEMBL: 6.23.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32037,molecule,CHEMBL3350133,Target: CHEMBL3952. Assay type: Relative affinity.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32038,molecule,CHEMBL3350133,Target: CHEMBL236. Assay type: Ki. Activity: 110.0 nM. pChEMBL: 6.96.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32039,molecule,CHEMBL3350133,Target: CHEMBL236. Assay type: Relative affinity.,,,,,,ChEMBL
+chembl-CHEMBL3350133-32040,molecule,CHEMBL3350133,Target: CHEMBL2095181. Assay type: Selectivity ratio.,,,,,,ChEMBL
+chembl-CHEMBL428337-32041,molecule,CHEMBL428337,Target: CHEMBL354. Assay type: Inhibition. Activity: 0.0 %.,,,,,,ChEMBL
+chembl-CHEMBL428337-32042,molecule,CHEMBL428337,Target: CHEMBL354. Assay type: Inhibition. Activity: 21.0 %.,,,,,,ChEMBL
+chembl-CHEMBL428337-32043,molecule,CHEMBL428337,Target: CHEMBL354. Assay type: Inhibition. Activity: 50.0 %.,,,,,,ChEMBL
+chembl-CHEMBL428337-32044,molecule,CHEMBL428337,Target: CHEMBL612545. Assay type: Inhibition. Activity: 20.0 %.,,,,,,ChEMBL
+chembl-CHEMBL428337-32045,molecule,CHEMBL428337,Target: CHEMBL612545. Assay type: Inhibition. Activity: 50.0 %.,,,,,,ChEMBL
+chembl-CHEMBL65-32046,molecule,CHEMBL65,Target: CHEMBL386. Assay type: T/C. Activity: 164.0 %.,,,,,,ChEMBL
+chembl-CHEMBL65-32047,molecule,CHEMBL65,Target: CHEMBL386. Assay type: Active dose. Activity: 2.0 mg kg-1.,,,,,,ChEMBL
+chembl-CHEMBL65-32048,molecule,CHEMBL65,Target: CHEMBL386. Assay type: Toxic dose. Activity: 16.0 mg kg-1.,,,,,,ChEMBL
+chembl-CHEMBL15886-32049,molecule,CHEMBL15886,Target: CHEMBL3199. Assay type: IC50. Activity: 100000.0 nM. pChEMBL: 4.0.,,,,,,ChEMBL
+chembl-CHEMBL15886-32050,molecule,CHEMBL15886,Target: CHEMBL3199. Assay type: IC50. Activity: 170000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL15886-32051,molecule,CHEMBL15886,Target: CHEMBL376. Assay type: Rate constant.,,,,,,ChEMBL
+chembl-CHEMBL15886-32052,molecule,CHEMBL15886,Target: CHEMBL612545. Assay type: Ratio.,,,,,,ChEMBL
+chembl-CHEMBL63484-32053,molecule,CHEMBL63484,Target: CHEMBL2096984. Assay type: Ki. Activity: 1400000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL63484-32054,molecule,CHEMBL63484,Target: CHEMBL2096984. Assay type: k3. Activity: 11000.0 s-1.,,,,,,ChEMBL
+chembl-CHEMBL294543-32055,molecule,CHEMBL294543,Target: CHEMBL2096984. Assay type: Ki. Activity: 2410000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL294543-32056,molecule,CHEMBL294543,Target: CHEMBL2096984. Assay type: k3. Activity: 5000.0 s-1.,,,,,,ChEMBL
+chembl-CHEMBL66259-32057,molecule,CHEMBL66259,Target: CHEMBL2096984. Assay type: Activity.,,,,,,ChEMBL
+chembl-CHEMBL66259-32058,molecule,CHEMBL66259,Target: CHEMBL248. Assay type: Activity.,,,,,,ChEMBL
+chembl-CHEMBL1202755-32059,molecule,CHEMBL1202755,Target: CHEMBL369. Assay type: IC50. Activity: 8000.0 nM. pChEMBL: 5.1.,,,,,,ChEMBL
+chembl-CHEMBL1202755-32060,molecule,CHEMBL1202755,Target: CHEMBL1835. Assay type: IC50. Activity: 1000.0 nM. pChEMBL: 6.0.,,,,,,ChEMBL
+chembl-CHEMBL542565-32061,molecule,CHEMBL542565,Target: CHEMBL386. Assay type: IC50. Activity: 870.0 nM. pChEMBL: 6.06.,,,,,,ChEMBL
+chembl-CHEMBL542565-32062,molecule,CHEMBL542565,Target: CHEMBL389. Assay type: DOSE. Activity: 6.25 mg.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL542565-32063,molecule,CHEMBL542565,Target: CHEMBL389. Assay type: Activity.,,,,,,ChEMBL
+chembl-CHEMBL542565-32064,molecule,CHEMBL542565,Target: CHEMBL389. Assay type: T/C. Activity: 194.0 %.,,,,,,ChEMBL
+chembl-CHEMBL543512-32065,molecule,CHEMBL543512,Target: CHEMBL386. Assay type: IC50. Activity: 930.0 nM. pChEMBL: 6.03.,,,,,,ChEMBL
+chembl-CHEMBL543512-32066,molecule,CHEMBL543512,Target: CHEMBL389. Assay type: DOSE. Activity: 50.0 mg.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL543512-32067,molecule,CHEMBL543512,Target: CHEMBL389. Assay type: Activity.,,,,,,ChEMBL
+chembl-CHEMBL543512-32068,molecule,CHEMBL543512,Target: CHEMBL389. Assay type: T/C. Activity: 242.0 %.,,,,,,ChEMBL
+chembl-CHEMBL300432-32069,molecule,CHEMBL300432,Target: CHEMBL2882. Assay type: ED50. Activity: 1.3e-06 M.,,,,,,ChEMBL
+chembl-CHEMBL300432-32070,molecule,CHEMBL300432,Target: CHEMBL373. Assay type: ED50.,,,,,,ChEMBL
+chembl-CHEMBL286931-32071,molecule,CHEMBL286931,Target: CHEMBL366. Assay type: MIC. Activity: 3.1 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL286931-32072,molecule,CHEMBL286931,Target: CHEMBL363. Assay type: MIC. Activity: 12.5 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL286931-32073,molecule,CHEMBL286931,Target: CHEMBL346. Assay type: MIC. Activity: 0.4 ug.mL-1.,,,,,,ChEMBL
+chembl-CHEMBL297330-32074,molecule,CHEMBL297330,Target: CHEMBL3072. Assay type: RBA.,,,,,,ChEMBL
+chembl-CHEMBL297330-32075,molecule,CHEMBL297330,Target: CHEMBL3072. Assay type: Relative activity.,,,,,,ChEMBL
+chembl-CHEMBL757-32076,molecule,CHEMBL757,Target: CHEMBL3072. Assay type: RBA. Activity: 80.0 %.,,,,,,ChEMBL
+chembl-CHEMBL757-32077,molecule,CHEMBL757,Target: CHEMBL3072. Assay type: Relative activity.,,,,,,ChEMBL
+chembl-CHEMBL103-32078,molecule,CHEMBL103,Target: CHEMBL2596. Assay type: RBA. Activity: 100.0 %.,,,,,,ChEMBL
+chembl-CHEMBL103-32079,molecule,CHEMBL103,Target: CHEMBL2596. Assay type: Relative activity.,,,,,,ChEMBL
+chembl-CHEMBL558173-32080,molecule,CHEMBL558173,Target: CHEMBL375. Assay type: LD50. Activity: 1000.0 mg.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL558173-32081,molecule,CHEMBL558173,Target: CHEMBL376. Assay type: ED50. Activity: 25.0 mg.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL558173-32082,molecule,CHEMBL558173,Target: CHEMBL375. Assay type: ED50. Activity: 75.0 mg.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL23228-32083,molecule,CHEMBL23228,Target: CHEMBL339. Assay type: IC50. Activity: 19.0 nM. pChEMBL: 7.72.,,,,,,ChEMBL
+chembl-CHEMBL23228-32084,molecule,CHEMBL23228,Target: CHEMBL376. Assay type: ED50. Activity: 1.23 umol.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL23228-32085,molecule,CHEMBL23228,Target: CHEMBL376. Assay type: ED50. Activity: 0.95 umol.kg-1.,,,,,,ChEMBL
+chembl-CHEMBL76018-32086,molecule,CHEMBL76018,Target: CHEMBL375. Assay type: Inhibition. Activity: 1.0 %.,,,,,,ChEMBL
+chembl-CHEMBL76018-32087,molecule,CHEMBL76018,Target: CHEMBL376. Assay type: Inhibition. Activity: 1.0 %.,,,,,,ChEMBL
+chembl-CHEMBL21222-32088,molecule,CHEMBL21222,Target: CHEMBL1907607. Assay type: IC50. Activity: 10.0 nM. pChEMBL: 8.0.,,,,,,ChEMBL
+chembl-CHEMBL21222-32089,molecule,CHEMBL21222,Target: CHEMBL376. Assay type: MED. Activity: 5.0 mg kg-1.,,,,,,ChEMBL
+chembl-CHEMBL21087-32090,molecule,CHEMBL21087,Target: CHEMBL1907607. Assay type: IC50. Activity: 160.0 nM. pChEMBL: 6.8.,,,,,,ChEMBL
+chembl-CHEMBL53366-32091,molecule,CHEMBL53366,Target: CHEMBL5498. Assay type: Kb. Activity: 0.317 nM.,,,,,,ChEMBL
+chembl-CHEMBL53366-32092,molecule,CHEMBL53366,Target: CHEMBL211. Assay type: Kb. Activity: 4.13 nM.,,,,,,ChEMBL
+chembl-CHEMBL53366-32093,molecule,CHEMBL53366,Target: CHEMBL2095187. Assay type: Ratio.,,,,,,ChEMBL
+chembl-CHEMBL103906-32094,molecule,CHEMBL103906,Target: CHEMBL5498. Assay type: Kb. Activity: 2.52 nM.,,,,,,ChEMBL
+chembl-CHEMBL103906-32095,molecule,CHEMBL103906,Target: CHEMBL211. Assay type: Kb. Activity: 11.6 nM.,,,,,,ChEMBL
+chembl-CHEMBL103906-32096,molecule,CHEMBL103906,Target: CHEMBL2095187. Assay type: Ratio.,,,,,,ChEMBL
+chembl-CHEMBL296346-32097,molecule,CHEMBL296346,Target: CHEMBL247. Assay type: IC50. Activity: 10000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL296346-32098,molecule,CHEMBL296346,Target: CHEMBL612558. Assay type: IC50. Activity: 3800.0 nM. pChEMBL: 5.42.,,,,,,ChEMBL
+chembl-CHEMBL296346-32099,molecule,CHEMBL296346,Target: CHEMBL612558. Assay type: IC50. Activity: 1000.0 nM.,,,,,,ChEMBL
+chembl-CHEMBL296346-32100,molecule,CHEMBL296346,Target: CHEMBL612558. Assay type: IC50.,,,,,,ChEMBL
+chembl-CHEMBL296346-32101,molecule,CHEMBL296346,Target: CHEMBL612558. Assay type: IC50.,,,,,,ChEMBL
+chembl-CHEMBL129-32102,molecule,CHEMBL129,Target: CHEMBL612558. Assay type: IC50. Activity: 4.0 nM. pChEMBL: 8.4.,,,,,,ChEMBL
+chembl-CHEMBL129-32103,molecule,CHEMBL129,Target: CHEMBL612558. Assay type: IC50. Activity: 150.0 nM. pChEMBL: 6.82.,,,,,,ChEMBL
+chembl-CHEMBL129-32104,molecule,CHEMBL129,Target: CHEMBL612558. Assay type: IC50. Activity: 6.0 nM. pChEMBL: 8.22.,,,,,,ChEMBL
+chembl-CHEMBL129-32105,molecule,CHEMBL129,Target: CHEMBL612558. Assay type: IC50. Activity: 4.0 nM. pChEMBL: 8.4.,,,,,,ChEMBL
+chembl-CHEMBL129-32106,molecule,CHEMBL129,Target: CHEMBL247. Assay type: IC50.,,,,,,ChEMBL
+chembl-CHEMBL366700-32107,molecule,CHEMBL366700,Target: CHEMBL612558. Assay type: kHO. Activity: 76.8 M-1 s-1.,,,,,,ChEMBL
+chembl-CHEMBL172768-32108,molecule,CHEMBL172768,Target: CHEMBL612558. Assay type: kHO. Activity: 27.3 M-1 s-1.,,,,,,ChEMBL
+chembl-CHEMBL318711-32109,molecule,CHEMBL318711,Target: CHEMBL2094255. Assay type: Activity.,,,,,,ChEMBL
+chembl-CHEMBL97827-32110,molecule,CHEMBL97827,Target: CHEMBL2094255. Assay type: Activity.,,,,,,ChEMBL
+chembl-CHEMBL303519-32111,molecule,CHEMBL303519,Target: CHEMBL217. Assay type: IC50. Activity: 9800.0 nM. pChEMBL: 5.01.,,,,,,ChEMBL
+chembl-CHEMBL303519-32112,molecule,CHEMBL303519,Target: CHEMBL234. Assay type: IC50. Activity: 5600.0 nM. pChEMBL: 5.25.,,,,,,ChEMBL

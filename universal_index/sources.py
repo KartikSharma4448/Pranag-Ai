@@ -756,9 +756,10 @@ def _rcsb_extract_list_text(payload: dict[str, object], key: str, candidate_keys
 
 def _chembl_activity_rows_to_frame(rows: list[dict[str, object]]) -> pd.DataFrame:
     records: list[dict[str, object]] = []
-    for row in rows:
+    for index, row in enumerate(rows, start=1):
         molecule_id = str(row.get("molecule_chembl_id") or row.get("molregno") or "chembl-unknown")
         target_id = str(row.get("target_chembl_id") or row.get("target_id") or "")
+        activity_id = str(row.get("activity_id") or index)
         standard_type = str(row.get("standard_type") or "")
         standard_value = _safe_float(row.get("standard_value"))
         standard_units = str(row.get("standard_units") or "")
@@ -777,7 +778,7 @@ def _chembl_activity_rows_to_frame(rows: list[dict[str, object]]) -> pd.DataFram
         )
         records.append(
             {
-                "entity_id": f"chembl-{molecule_id}",
+                "entity_id": f"chembl-{molecule_id}-{activity_id}",
                 "entity_type": "molecule",
                 "name": molecule_id,
                 "description": description or "ChEMBL bioactivity record",
