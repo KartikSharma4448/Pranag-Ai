@@ -25,7 +25,7 @@
     "OpenFOAM CFD thermal shock case",
     "OpenFOAM surrogate",
     "PubChem",
-    "RCSB PDB",
+    "RCSB PDB fallback",
     "Synthetic soil CSV",
     "UniProt",
     "ZINC20 surrogate",

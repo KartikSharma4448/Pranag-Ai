@@ -35,6 +35,7 @@ from universal_index.config import (
     RATE_LIMIT_REQUESTS,
     RATE_LIMIT_WINDOW_SECONDS,
     RECOMMEND_CACHE_TTL_SECONDS,
+    SCHEDULER_ENABLED,
     SEARCH_CACHE_TTL_SECONDS,
 )
 from universal_index.context import lookup_context

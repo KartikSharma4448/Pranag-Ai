@@ -19,3 +19,10 @@ dist/
 .idea/
 *.log
 .env*
+
+# Private presentation drafts
+README_2.md
+README2.md
+CODEBASE_OVERVIEW.md
+LIVE_DEMO_SUMMARY.md
+PRESENTATION_GUIDE.md
