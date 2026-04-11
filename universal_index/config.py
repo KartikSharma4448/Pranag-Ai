@@ -66,6 +66,7 @@ RATE_LIMIT_WINDOW_SECONDS = int(os.getenv("RATE_LIMIT_WINDOW_SECONDS", "60"))
 JSON_LOGS = os.getenv("JSON_LOGS", "true").strip().lower() == "true"
 SCHEDULER_ENABLED = os.getenv("SCHEDULER_ENABLED", "false").strip().lower() == "true"
 SCHEDULER_INTERVAL_MINUTES = int(os.getenv("SCHEDULER_INTERVAL_MINUTES", "60"))
+SCHEDULER_FEEDS_INTERVAL_MINUTES = int(os.getenv("SCHEDULER_FEEDS_INTERVAL_MINUTES", "30"))
 LITERATURE_LLM_ENABLED = os.getenv("LITERATURE_LLM_ENABLED", "false").strip().lower() == "true"
 LITERATURE_LLM_ENDPOINT = os.getenv("LITERATURE_LLM_ENDPOINT", "").strip()
 LITERATURE_LLM_API_KEY = os.getenv("LITERATURE_LLM_API_KEY", "").strip()

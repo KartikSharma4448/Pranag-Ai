@@ -13,10 +13,11 @@ UNIVERSAL_COLUMNS = [
     "conductivity",
     "ph",
     "salinity",
+    "confidence",
     "source",
 ]
 
-NUMERIC_COLUMNS = ["temperature_max", "strength", "conductivity", "ph", "salinity"]
+NUMERIC_COLUMNS = ["temperature_max", "strength", "conductivity", "ph", "salinity", "confidence"]
 TEXT_COLUMNS = ["entity_id", "entity_type", "name", "description", "source"]
 
 

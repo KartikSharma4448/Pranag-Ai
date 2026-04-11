@@ -31,6 +31,7 @@ from universal_index.config import (
     RANDOM_SEED,
     VALIDATION_CSV_PATH,
 )
+from universal_index.feeds import fetch_all_feeds
 from universal_index.literature_agent import (
     extract_entities_from_papers,
     fetch_arxiv_papers,
@@ -93,6 +94,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--nature", type=int, default=2)
     parser.add_argument("--materials-today", type=int, default=2)
     parser.add_argument("--include-literature", action="store_true")
+    parser.add_argument("--include-feeds", action="store_true", help="Fetch papers from RSS feeds (arXiv, PubMed, Crossref)")
+    parser.add_argument("--load-feeds-only", action="store_true", help="Load only feeds without full ingestion")
     parser.add_argument("--refresh-vectors", action="store_true")
     parser.add_argument("--max-workers", type=int, default=INGESTION_MAX_WORKERS)
     parser.add_argument("--entrez-email", default=ENTREZ_EMAIL)
@@ -289,12 +292,16 @@ def write_combined_outputs(
     combined = concat_frames(list(sources.values()))
     combined.to_parquet(PARQUET_PATH, index=False)
 
+    rows_by_type = (
+        combined["entity_type"].fillna("unknown").astype(str).value_counts(dropna=False).to_dict()
+    )
+
     validation_results = run_duckdb_validation(PARQUET_PATH, DUCKDB_PATH)
     validation_results.to_csv(VALIDATION_CSV_PATH, index=False)
 
     build_summary = {
         "rows_total": int(len(combined)),
-        "rows_by_type": combined["entity_type"].value_counts(dropna=False).to_dict(),
+        "rows_by_type": rows_by_type,
         "sources": sorted(set(combined["source"].dropna().astype(str).tolist())),
         "parquet_path": str(PARQUET_PATH),
         "duckdb_path": str(DUCKDB_PATH),
@@ -333,7 +340,7 @@ def write_combined_outputs(
     summary = {
         "run_id": run_id,
         "rows_total": int(len(combined)),
-        "rows_by_type": combined["entity_type"].value_counts(dropna=False).to_dict(),
+        "rows_by_type": rows_by_type,
         "sources_ingested": {
             source_name: int(len(frame)) for source_name, frame in sources.items()
         },
@@ -348,9 +355,80 @@ def write_combined_outputs(
     return summary
 
 
+def load_feeds() -> pd.DataFrame:
+    """
+    Load papers from RSS feeds (arXiv, PubMed, Crossref).
+    
+    Returns:
+        DataFrame of feed papers
+    """
+    return fetch_all_feeds(include_arxiv=True, include_pubmed=True, include_crossref=True)
+
+
+def load_feeds_for_ingestion(_: argparse.Namespace) -> pd.DataFrame:
+    return load_feeds()
+
+
 def main() -> None:
     args = parse_args()
     ensure_directories()
+    
+    # Handle feeds-only mode
+    if args.load_feeds_only:
+        cache_backend = build_cache_backend()
+        storage_client = build_object_storage_client()
+        state_store = PipelineStateStore()
+        run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        
+        try:
+            state_store.start_run(
+                run_id,
+                metadata={
+                    "feeds_only": True,
+                    "object_storage_enabled": bool(storage_client is not None),
+                },
+            )
+            
+            publish_event(
+                cache_backend,
+                {"event": "feeds_load_started", "run_id": run_id},
+            )
+            
+            feed_df = load_feeds()
+            
+            # Save raw snapshot
+            RAW_FEEDS_PATH = RAW_DIR / "feed_papers.csv"
+            feed_df.to_csv(RAW_FEEDS_PATH, index=False)
+            
+            summary = {
+                "run_id": run_id,
+                "feed_papers_count": int(len(feed_df)),
+                "raw_path": str(RAW_FEEDS_PATH),
+            }
+            
+            state_store.finish_run(
+                run_id=run_id,
+                status="completed",
+                rows_total=len(feed_df),
+                rows_by_type={},
+            )
+            
+            publish_event(
+                cache_backend,
+                {"event": "feeds_load_completed", "run_id": run_id, "count": len(feed_df)},
+            )
+            
+            print(json.dumps(summary, indent=2))
+            return
+            
+        except Exception as error:
+            state_store.finish_run(run_id=run_id, status="failed", notes=str(error))
+            publish_event(
+                cache_backend,
+                {"event": "feeds_load_failed", "run_id": run_id, "error": str(error)},
+            )
+            raise
+    
     cache_backend = build_cache_backend()
     storage_client = build_object_storage_client()
     state_store = PipelineStateStore()
@@ -392,6 +470,8 @@ def main() -> None:
     }
     if args.include_literature:
         jobs["literature"] = load_literature
+    if args.include_feeds:
+        jobs["feed_papers"] = load_feeds_for_ingestion
 
     sources: dict[str, pd.DataFrame] = {}
     literature_papers: pd.DataFrame | None = None

@@ -39,6 +39,7 @@ from universal_index.config import (
     SEARCH_CACHE_TTL_SECONDS,
 )
 from universal_index.context import lookup_context
+from universal_index.language_support import normalize_to_english
 from universal_index.recommendation import (
     apply_context_filter,
     dataframe_to_records,
@@ -249,7 +250,15 @@ def search(
     top_k: Annotated[int, Query(ge=1, le=25)] = 8,
     candidate_pool: Annotated[int, Query(ge=8, le=512)] = 128,
 ) -> SearchResponse:
-    cache_key = make_cache_key({"q": q, "top_k": top_k, "candidate_pool": candidate_pool})
+    query_language, normalized_query = normalize_to_english(q)
+    cache_key = make_cache_key(
+        {
+            "q": normalized_query,
+            "query_language": query_language,
+            "top_k": top_k,
+            "candidate_pool": candidate_pool,
+        }
+    )
     cached = cache.get("search", cache_key)
     if cached is not None:
         cached["cache"] = {"hit": True, "cache_key": cache_key}
@@ -257,7 +266,7 @@ def search(
 
     try:
         results = semantic_search(
-            query_text=q,
+            query_text=normalized_query,
             top_k=top_k,
             candidate_pool=candidate_pool,
             model_name=EMBEDDING_MODEL_NAME,
@@ -272,6 +281,8 @@ def search(
 
     payload = {
         "query": q,
+        "query_language": query_language,
+        "normalized_query": normalized_query,
         "rows": len(results),
         "items": dataframe_to_records(results),
     }
@@ -292,9 +303,11 @@ def recommend(
     top_k: Annotated[int, Query(ge=1, le=25)] = 8,
     candidate_pool: Annotated[int, Query(ge=8, le=512)] = 128,
 ) -> RecommendResponse:
+    prompt_language, normalized_prompt = normalize_to_english(q)
     cache_key = make_cache_key(
         {
-            "q": q,
+            "q": normalized_prompt,
+            "prompt_language": prompt_language,
             "lat": round(lat, 4),
             "lon": round(lon, 4),
             "context_mode": context_mode,
@@ -309,7 +322,7 @@ def recommend(
 
     context_payload = context_lookup(lat=lat, lon=lon, mode=context_mode).model_dump()
     search_payload = search(
-        q=q,
+        q=normalized_prompt,
         top_k=max(top_k * 2, top_k),
         candidate_pool=candidate_pool,
     ).model_dump()
@@ -318,12 +331,14 @@ def recommend(
     recommendations = apply_context_filter(
         results=vector_results,
         context=context_payload,
-        prompt=q,
+        prompt=normalized_prompt,
         final_limit=top_k,
     )
 
     payload = {
         "prompt": q,
+        "prompt_language": prompt_language,
+        "normalized_prompt": normalized_prompt,
         "context": context_payload,
         "vector_hits": search_payload["items"],
         "recommended_combination": summarize_recommended_combination(recommendations),

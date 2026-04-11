@@ -1,28 +1,39 @@
 {
-  "run_id": "20260407T161557Z",
-  "rows_total": 1881,
+  "run_id": "20260411T175912Z",
+  "rows_total": 17,
   "rows_by_type": {
-    "material": 508,
-    "gene": 508,
-    "molecule": 507,
-    "soil": 200,
-    "simulation": 158
+    "material": 4,
+    "molecule": 3,
+    "structure": 3,
+    "simulation": 3,
+    "gene": 2,
+    "protein": 1,
+    "soil": 1
   },
   "sources_ingested": {
-    "materials": 500,
-    "soil_samples": 200,
-    "simulations": 150,
-    "literature_entities": 31,
-    "genes": 500,
-    "molecules": 500
+    "genes": 1,
+    "genbank": 1,
+    "materials": 1,
+    "aflow_materials": 1,
+    "oqmd_materials": 1,
+    "nasa_materials": 1,
+    "molecules": 1,
+    "zinc20": 1,
+    "proteins": 1,
+    "alphafold": 1,
+    "boltz1": 1,
+    "structures": 1,
+    "chembl": 1,
+    "nist": 1,
+    "openfoam": 1,
+    "soil_samples": 1,
+    "simulations": 1,
+    "feed_papers": 0
   },
-  "refresh_vectors": true,
-  "vector_summary": {
-    "rows_indexed": 1881,
-    "query_rows": 8
-  },
-  "lake_dir": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\lake",
-  "parquet_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\PranagAi Test\\Kartik-Work\\data\\processed\\universal_index.parquet",
+  "refresh_vectors": false,
+  "vector_summary": null,
+  "lake_dir": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\lake",
+  "parquet_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\universal_index.parquet",
   "object_storage_enabled": false,
   "object_storage_artifacts": []
 }

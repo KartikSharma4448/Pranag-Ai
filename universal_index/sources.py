@@ -123,6 +123,7 @@ def fetch_gene_fallback(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.60,
                 "source": "GenBank fallback",
             }
         )
@@ -214,6 +215,7 @@ def fetch_materials(sample_size: int, api_key: str | None, seed: int) -> pd.Data
                     "conductivity": None,
                     "ph": None,
                     "salinity": None,
+                    "confidence": 0.88,
                     "source": "Materials Project",
                 }
             )
@@ -251,6 +253,7 @@ def fetch_material_fallback(sample_size: int, seed: int, source_name: str) -> pd
                 "conductivity": conductivity,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.60,
                 "source": source_name,
             }
         )
@@ -298,6 +301,7 @@ def fetch_pubchem_fallback(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.60,
                 "source": "PubChem fallback",
             }
         )
@@ -350,6 +354,7 @@ def _pubchem_rows_to_records(frame: pd.DataFrame) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.88,
                 "source": "PubChem",
             }
         )
@@ -401,6 +406,7 @@ def generate_soil_records(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": conductivity,
                 "ph": ph,
                 "salinity": salinity,
+                "confidence": 0.55,
                 "source": "Synthetic soil CSV",
             }
         )
@@ -443,6 +449,7 @@ def generate_simulation_records(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": conductivity,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.55,
                 "source": source_family,
             }
         )
@@ -494,6 +501,7 @@ def fetch_uniprot_fallback(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.60,
                 "source": "UniProt fallback",
             }
         )
@@ -546,6 +554,7 @@ def fetch_pdb_fallback(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.60,
                 "source": "RCSB PDB fallback",
             }
         )
@@ -592,6 +601,7 @@ def fetch_chembl_fallback(sample_size: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.60,
                 "source": "ChEMBL fallback",
             }
         )
@@ -618,6 +628,7 @@ def generate_aflow_materials(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": round(randomizer.uniform(0.01, 120.0), 3),
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "AFLOW surrogate",
             }
         )
@@ -643,6 +654,7 @@ def generate_oqmd_materials(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": round(randomizer.uniform(0.01, 80.0), 3),
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "OQMD surrogate",
             }
         )
@@ -681,6 +693,7 @@ def _uniprot_row_to_record(row: dict[str, object]) -> dict[str, object]:
         "conductivity": None,
         "ph": None,
         "salinity": None,
+        "confidence": 0.88,
         "source": "UniProt",
     }
 
@@ -725,6 +738,7 @@ def _rcsb_entry_to_record(pdb_id: str, payload: dict[str, object]) -> dict[str, 
         "conductivity": None,
         "ph": None,
         "salinity": None,
+        "confidence": 0.88,
         "source": "RCSB PDB",
     }
 
@@ -787,6 +801,7 @@ def _chembl_activity_rows_to_frame(rows: list[dict[str, object]]) -> pd.DataFram
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.88,
                 "source": "ChEMBL",
             }
         )
@@ -869,6 +884,7 @@ def fetch_alphafold_structures(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "AlphaFold DB surrogate",
             }
         )
@@ -895,6 +911,7 @@ def fetch_boltz1_structures(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "boltz1 surrogate",
             }
         )
@@ -921,6 +938,7 @@ def fetch_zinc20_metadata(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "ZINC20 surrogate",
             }
         )
@@ -946,6 +964,7 @@ def generate_nasa_material_records(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": round(randomizer.uniform(0.01, 150.0), 3),
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "NASA materials surrogate",
             }
         )
@@ -971,6 +990,7 @@ def generate_nist_thermo_records(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": None,
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "NIST WebBook surrogate",
             }
         )
@@ -997,6 +1017,7 @@ def generate_openfoam_records(sample_size: int, seed: int) -> pd.DataFrame:
                 "conductivity": round(randomizer.uniform(0.05, 200.0), 3),
                 "ph": None,
                 "salinity": None,
+                "confidence": 0.75,
                 "source": "OpenFOAM surrogate",
             }
         )
@@ -1053,5 +1074,6 @@ def _genbank_document_to_record(uid: str, document: dict[str, object]) -> dict[s
         "conductivity": None,
         "ph": None,
         "salinity": None,
+        "confidence": 0.88,
         "source": "GenBank",
     }

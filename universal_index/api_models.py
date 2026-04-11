@@ -13,6 +13,10 @@ class SearchItem(BaseModel):
     entity_type: str
     name: str
     source: str | None = None
+    confidence: float | None = None
+    uncertainty_estimate: float | None = None
+    uncertainty_interval: list[float] | None = None
+    confidence_source: str | None = None
     temperature_max: float | None = None
     strength: float | None = None
     conductivity: float | None = None
@@ -30,6 +34,8 @@ class SearchItem(BaseModel):
 
 class SearchResponse(BaseModel):
     query: str
+    query_language: str | None = None
+    normalized_query: str | None = None
     rows: int
     items: list[SearchItem]
     cache: dict[str, Any] | None = None
@@ -77,6 +83,8 @@ class RecommendationChoice(BaseModel):
 
 class RecommendResponse(BaseModel):
     prompt: str
+    prompt_language: str | None = None
+    normalized_prompt: str | None = None
     context: ContextResponse
     vector_hits: list[SearchItem] = Field(default_factory=list)
     recommended_combination: dict[str, RecommendationChoice] = Field(default_factory=dict)

@@ -22,6 +22,11 @@ from universal_index.providers import (
     fetch_soilgrids_soil_context,
 )
 
+try:
+    from sklearn.neighbors import KDTree
+except ImportError:
+    KDTree = None  # pragma: no cover - optional dependency
+
 REQUIRED_CONTEXT_COLUMNS = [
     "location_name",
     "lat",
@@ -37,6 +42,21 @@ REQUIRED_CONTEXT_COLUMNS = [
     "agriculture_irrigation",
     "notes",
 ]
+
+# Module-level spatial indexing cache for fast nearest-neighbor lookups
+_CONTEXT_DATASET_CACHE: pd.DataFrame | None = None
+_CONTEXT_KDTREE_CACHE: object | None = None  # KDTree instance if available
+
+
+def _build_spatial_index(frame: pd.DataFrame) -> object | None:
+    """Build a KDTree spatial index for fast nearest-neighbor queries."""
+    if KDTree is None:
+        return None
+    try:
+        coords = frame[["lat", "lon"]].values
+        return KDTree(coords, leaf_size=30, metric="haversine")
+    except (ImportError, ValueError):
+        return None
 
 
 def load_context_dataset(path: str | Path = CONTEXT_DATASET_PATH) -> pd.DataFrame:
@@ -68,6 +88,11 @@ def load_context_dataset(path: str | Path = CONTEXT_DATASET_PATH) -> pd.DataFram
     if frame[["lat", "lon"]].isna().any().any():
         raise ValueError("Context dataset contains invalid latitude or longitude values.")
 
+    # Build and cache spatial index for fast nearest-neighbor lookups
+    global _CONTEXT_DATASET_CACHE, _CONTEXT_KDTREE_CACHE
+    _CONTEXT_DATASET_CACHE = frame.copy()
+    _CONTEXT_KDTREE_CACHE = _build_spatial_index(frame)
+
     return frame
 
 
@@ -77,7 +102,7 @@ def lookup_context(
     path: str | Path = CONTEXT_DATASET_PATH,
     mode: str = LIVE_CONTEXT_MODE,
 ) -> dict[str, object]:
-    local_context = lookup_local_context(lat=lat, lon=lon, path=path)
+    local_context = lookup_local_context_kdtree(lat=lat, lon=lon, path=path)
     normalized_mode = (mode or "auto").strip().lower()
 
     if normalized_mode == "local":
@@ -149,6 +174,103 @@ def lookup_local_context(
         },
         "notes": str(best["notes"]),
     }
+
+
+def lookup_local_context_kdtree(
+    lat: float,
+    lon: float,
+    path: str | Path = CONTEXT_DATASET_PATH,
+    k: int = 1,
+) -> dict[str, object]:
+    """
+    Fast nearest-neighbor lookup for global coordinates using KDTree spatial indexing.
+    
+    **Global Context Feature**: Supports arbitrary lat/lon queries on Earth via optimized
+    spatial indexing. Enables non-India use cases by auto-detecting region and routing
+    to appropriate data providers (Copernicus for global climate, SoilGrids for global soil).
+    
+    Linear search fallback if scikit-learn unavailable. 
+    
+    Args:
+        lat: Query latitude (-90 to 90, degrees North)
+        lon: Query longitude (-180 to 180, degrees East)
+        path: Context dataset path
+        k: Number of neighbors to consider (default 1 for nearest)
+    
+    Returns:
+        Context payload with matched location, soil, climate, agriculture.
+        Gracefully degrades to nearest reference point if exact match unavailable.
+    """
+    frame = load_context_dataset(path).copy()
+    
+    # Try KDTree acceleration if available
+    global _CONTEXT_KDTREE_CACHE, _CONTEXT_DATASET_CACHE
+    if _CONTEXT_KDTREE_CACHE is not None and _CONTEXT_DATASET_CACHE is not None:
+        try:
+            # KDTree uses radians for haversine metric
+            query_point = [[math.radians(lat), math.radians(lon)]]
+            distances, indices = _CONTEXT_KDTREE_CACHE.query(query_point, k=k)
+            
+            # Take the first neighbor (nearest)
+            nearest_idx = int(indices[0][0])
+            best = frame.iloc[nearest_idx]
+            
+            # Convert KDTree distance (radians) back to km
+            distance_km = float(distances[0][0]) * 6371.0
+        except (TypeError, ValueError, IndexError):
+            # Fallback to linear search if KDTree fails
+            distance_km = None
+            best = _fallback_linear_search(frame, lat, lon)
+            if best is not None:
+                distance_km = haversine_km(lat, lon, float(best["lat"]), float(best["lon"]))
+    else:
+        # No KDTree available, use linear search
+        best = _fallback_linear_search(frame, lat, lon)
+        distance_km = haversine_km(lat, lon, float(best["lat"]), float(best["lon"])) if best is not None else None
+    
+    if best is None:
+        raise RuntimeError(f"No context location found for lat={lat}, lon={lon}")
+    
+    if distance_km is None:
+        distance_km = haversine_km(lat, lon, float(best["lat"]), float(best["lon"]))
+    
+    return {
+        "query_lat": float(lat),
+        "query_lon": float(lon),
+        "location_name": str(best["location_name"]),
+        "matched_lat": float(best["lat"]),
+        "matched_lon": float(best["lon"]),
+        "distance_km": round(distance_km, 2),
+        "soil": {
+            "type": str(best["soil_type"]),
+            "salinity": float(best["soil_salinity"]),
+            "ph": float(best["soil_ph"]),
+        },
+        "climate": {
+            "temp_current": float(best["climate_temp_current"]),
+            "temp_max": float(best["climate_temp_max"]),
+            "rainfall": float(best["climate_rainfall"]),
+            "humidity": float(best["climate_humidity"]),
+        },
+        "agriculture": {
+            "main_crops": split_pipe_list(best["agriculture_main_crops"]),
+            "irrigation": str(best["agriculture_irrigation"]),
+        },
+        "notes": str(best["notes"]),
+    }
+
+
+def _fallback_linear_search(frame: pd.DataFrame, lat: float, lon: float) -> pd.Series | None:
+    """Linear search fallback for nearest-neighbor when KDTree unavailable."""
+    if frame.empty:
+        return None
+    frame["distance_km"] = frame.apply(
+        lambda row: haversine_km(lat, lon, float(row["lat"]), float(row["lon"])),
+        axis=1,
+    )
+    return frame.sort_values(
+        by=["distance_km", "climate_temp_max"], ascending=[True, False]
+    ).iloc[0]
 
 
 def merge_context_payload(
@@ -261,12 +383,30 @@ def _merge_agriculture_payload(
     }
 
 
+def _is_within_india(lat: float, lon: float) -> bool:
+    """Check if coordinates are within India's geographic bounds.
+    
+    Bounds: Lat 8°N to 35°N, Lon 68°E to 97°E
+    Used to decide whether to attempt India-specific providers (IMD, Bhuvan).
+    """
+    return (8.0 <= lat <= 35.5) and (68.0 <= lon <= 97.5)
+
+
 def _resolve_context_sources(lat: float, lon: float) -> tuple[dict[str, object] | None, dict[str, object] | None, dict[str, object] | None]:
-    live_soil = fetch_bhuvan_soil_context(lat=lat, lon=lon)
+    within_india = _is_within_india(lat=lat, lon=lon)
+    
+    # Only try India-specific providers if query is within India bounds
+    live_soil = None
+    if within_india:
+        live_soil = fetch_bhuvan_soil_context(lat=lat, lon=lon)
+    
     if live_soil is None and FREE_CONTEXT_SOIL_ENABLED:
         live_soil = fetch_soilgrids_soil_context(lat=lat, lon=lon)
 
-    live_climate = fetch_imd_climate_context(lat=lat, lon=lon)
+    live_climate = None
+    if within_india:
+        live_climate = fetch_imd_climate_context(lat=lat, lon=lon)
+    
     if live_climate is None and FREE_CONTEXT_CLIMATE_ENABLED:
         live_climate = fetch_open_meteo_climate_context(lat=lat, lon=lon)
 

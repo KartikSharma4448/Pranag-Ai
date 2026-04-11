@@ -22,6 +22,17 @@ from universal_index.config import (
     VECTOR_SUMMARY_PATH,
 )
 
+SOURCE_CONFIDENCE_PRIORS: dict[str, float] = {
+    "Materials Project": 0.92,
+    "PubChem": 0.9,
+    "GenBank": 0.9,
+    "RCSB PDB": 0.9,
+    "Crossref": 0.86,
+    "arXiv": 0.82,
+    "fallback": 0.68,
+    "surrogate": 0.64,
+}
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the Day 2 Chroma vector index.")
@@ -404,6 +415,11 @@ def query_collection(
         zip(metadatas, documents, distances), start=1
     ):
         metadata = metadata or {}
+        similarity = None if distance is None else 1 - float(distance)
+        source_name = str(metadata.get("source") or "")
+        confidence_source = _confidence_source_label(source_name)
+        confidence = _estimate_confidence(similarity=similarity, source_name=source_name)
+        uncertainty = round(1.0 - confidence, 4)
         rows.append(
             {
                 "rank": rank,
@@ -417,7 +433,11 @@ def query_collection(
                 "ph": metadata.get("ph"),
                 "salinity": metadata.get("salinity"),
                 "distance": distance,
-                "similarity_estimate": None if distance is None else 1 - float(distance),
+                "similarity_estimate": similarity,
+                "confidence": confidence,
+                "uncertainty_estimate": uncertainty,
+                "uncertainty_interval": _build_uncertainty_interval(similarity, uncertainty),
+                "confidence_source": confidence_source,
                 "semantic_text": document,
                 "query_variant": query_text,
                 "retrieval_route": retrieval_route,
@@ -502,6 +522,40 @@ def select_cross_domain_results(
     final_frame = pd.DataFrame(selected_rows).reset_index(drop=True)
     final_frame.insert(0, "final_rank", range(1, len(final_frame) + 1))
     return final_frame
+
+
+def _confidence_source_label(source_name: str) -> str:
+    lowered = source_name.lower()
+    if "fallback" in lowered:
+        return "fallback"
+    if "surrogate" in lowered:
+        return "surrogate"
+    return "official_or_public"
+
+
+def _estimate_confidence(similarity: float | None, source_name: str) -> float:
+    if similarity is None:
+        similarity = 0.0
+    prior = 0.72
+    for key, value in SOURCE_CONFIDENCE_PRIORS.items():
+        if key.lower() in source_name.lower():
+            prior = value
+            break
+
+    similarity_component = max(0.0, min(float(similarity), 1.0))
+    score = (0.55 * similarity_component) + (0.45 * prior)
+    return round(max(0.05, min(score, 0.99)), 4)
+
+
+def _build_uncertainty_interval(
+    similarity: float | None,
+    uncertainty: float,
+) -> list[float] | None:
+    if similarity is None:
+        return None
+    lower = max(0.0, similarity - uncertainty)
+    upper = min(1.0, similarity + uncertainty)
+    return [round(lower, 4), round(upper, 4)]
 
 
 def write_outputs(

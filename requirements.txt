@@ -6,6 +6,7 @@ fastapi
 uvicorn
 chromadb
 sentence-transformers
+scikit-learn
 mp-api
 biopython
 requests

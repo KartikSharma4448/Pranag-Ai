@@ -1,25 +1,25 @@
 {
-  "timestamp": 1775666064.686906,
+  "timestamp": 1775929600.778514,
   "backend": {
     "backend": "duckdb",
     "db_path": "C:\\Users\\karti\\OneDrive\\Documents\\GitHub\\Pranag-Ai\\data\\processed\\surrogate_cache.duckdb",
-    "rows_total": 18,
-    "rows_active": 9
+    "rows_total": 40,
+    "rows_active": 4
   },
   "results": [
     {
       "name": "search",
-      "duration_ms": 5709.14,
-      "rows": 8
+      "duration_ms": 15.12,
+      "rows": 0
     },
     {
       "name": "context",
-      "duration_ms": 18.34,
+      "duration_ms": 11.51,
       "rows": null
     },
     {
       "name": "recommend",
-      "duration_ms": 215.82,
+      "duration_ms": 11.69,
       "rows": null
     }
   ]

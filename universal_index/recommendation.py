@@ -24,7 +24,10 @@ def apply_context_filter(
     context_reasons: list[str] = []
 
     for row in working.to_dict(orient="records"):
-        score = float(row.get("similarity_estimate") or 0.0)
+        similarity = float(row.get("similarity_estimate") or 0.0)
+        confidence = float(row.get("confidence") or 0.75)  # Default to moderate if missing
+        # Weight similarity by confidence: high-confidence sources amplify score, low-confidence dampen it
+        score = similarity * confidence
         reasons: list[str] = []
         score, reasons = _score_context_match(row, site, prompt_lower, score, reasons)
 
@@ -287,6 +290,8 @@ def label_context_fit(score: float) -> str:
 
 def summarize_recommended_combination(frame: pd.DataFrame) -> dict[str, dict[str, object]]:
     summary: dict[str, dict[str, object]] = {}
+    if frame.empty or "entity_type" not in frame.columns:
+        return summary
     for entity_type in ["material", "molecule", "protein", "gene", "structure", "soil", "simulation"]:
         matches = frame[frame["entity_type"] == entity_type]
         if matches.empty:

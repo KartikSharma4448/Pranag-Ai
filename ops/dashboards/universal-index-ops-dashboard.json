@@ -1,0 +1,49 @@
+{
+  "title": "Universal Index Ops Baseline",
+  "description": "Reference dashboard schema for API, cache, ingestion, and literature monitoring.",
+  "panels": [
+    {
+      "name": "API Throughput and Errors",
+      "source": "/metrics",
+      "fields": ["requests_total", "errors_total", "rate_limited_total", "auth_rejected_total"]
+    },
+    {
+      "name": "API Latency Percentiles",
+      "source": "data/processed/latency_proof_summary.json",
+      "fields": ["search.p95_ms", "context.p95_ms", "recommend.p95_ms"]
+    },
+    {
+      "name": "Ingestion Freshness",
+      "source": "data/processed/distributed_ingestion_summary.json",
+      "fields": ["run_id", "rows_total", "sources_ingested"]
+    },
+    {
+      "name": "Cache Hit Rate",
+      "source": "data/processed/cache_hit_rate_summary.json",
+      "fields": ["hit_rate_percent", "by_operation"]
+    },
+    {
+      "name": "Paper Miner Health",
+      "source": "data/processed/paper_ingest_summary.json",
+      "fields": ["papers_selected", "entities_extracted"]
+    }
+  ],
+  "alerts": [
+    {
+      "name": "High API Error Rate",
+      "condition": "errors_total growth > 2% of requests_total growth in 5m"
+    },
+    {
+      "name": "High API P95",
+      "condition": "search/recommend p95_ms > 1500 OR context p95_ms > 200 for 10m"
+    },
+    {
+      "name": "Ingestion Stalled",
+      "condition": "no new run_id for > 2 scheduler intervals"
+    },
+    {
+      "name": "Cache Regression",
+      "condition": "hit_rate_percent < 40 for stable query mix"
+    }
+  ]
+}
