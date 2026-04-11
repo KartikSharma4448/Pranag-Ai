@@ -38,3 +38,8 @@ README2.md
 CODEBASE_OVERVIEW.md
 LIVE_DEMO_SUMMARY.md
 PRESENTATION_GUIDE.md
+
+# Private meeting scripts and notes
+ops/team1-lead-control-tower.md
+ops/*meeting*.md
+ops/*standup*.md
