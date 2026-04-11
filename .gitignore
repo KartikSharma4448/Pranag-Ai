@@ -13,6 +13,18 @@ build/
 dist/
 *.spec
 
+# Runtime data artifacts (generated per ingestion run)
+data/lake/**/run_id=*/
+data/lake/source=feed_papers/
+data/processed/chroma/
+data/processed/*.duckdb
+data/processed/*.parquet
+data/processed/feed_state.json
+data/processed/cache_hit_rate_summary.json
+data/processed/latency_proof_summary.json
+data/processed/monitoring_snapshot.json
+data/raw/feed_papers.csv
+
 # Local config and editor files
 .DS_Store
 .vscode/

@@ -285,8 +285,16 @@ The repo includes practical operational documentation and scripts:
 - ops/storage-decision.md
 - ops/backup-policy.md
 - ops/production-readiness-checklist.md
+- ops/remaining-gap-backlog.md
+- ops/team1-lead-control-tower.md
 - scripts/backup_local.ps1
 - scripts/restore_local.ps1
+
+## Git Hygiene
+
+- Runtime-generated lake partitions and processed database artifacts are intentionally ignored via .gitignore.
+- Commit source code, docs, and stable configuration files; avoid committing per-run local outputs.
+- If you need run evidence for reviews, attach generated JSON summaries from data/processed in release notes instead of committing all transient artifacts.
 
 ---
 
